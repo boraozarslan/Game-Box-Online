@@ -38,6 +38,7 @@ namespace Game
 		void UpdateBackGround();
 
 		PlayerEntity* m_player;
+        std::vector<PlayerEntity*> m_enemies;
 		GameEngine::Entity* m_backGround;
 
 		std::vector<GameEngine::Entity*> m_obstacles;

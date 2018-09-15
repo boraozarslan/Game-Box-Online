@@ -6,18 +6,22 @@
 #include "GameEngine/EntitySystem/Components/CollidablePhysicsComponent.hpp"
 #include "GameEngine/EntitySystem/Components/ParticleEmitterComponent.hpp"
 #include "GameEngine/EntitySystem/Components/SoundComponent.hpp"
+#include "GameEngine/EntitySystem/Components/DumbAIComponent.hpp"
 #include "GameEngine/Util/AnimationManager.hpp"
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity(): health(100.f)
+PlayerEntity::PlayerEntity(bool isEnemy): health(100.f)
 {
-	//Movement
-	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
+    if (!isEnemy) {
+        //Movement
+        m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
+    } else {
+        AddComponent<GameEngine::DumbAIComponent>();
+    }
 
 	//Render 
 	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
-    m_playerMovementComponent = static_cast<Game::PlayerMovementComponent*>(AddComponent<Game::PlayerMovementComponent>());
     AddComponent<GameEngine::CollidablePhysicsComponent>();
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	m_renderComponent->SetZLevel(2);
@@ -25,6 +29,7 @@ PlayerEntity::PlayerEntity(): health(100.f)
 	//Animation
 	m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
 		
+    
 	//Collisions
 	AddComponent<GameEngine::CollidablePhysicsComponent>();
 	

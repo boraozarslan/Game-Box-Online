@@ -47,6 +47,7 @@
 		B5BADDFC214D89D600DA8DD6 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF6214D89D600DA8DD6 /* tileset.png */; };
 		B5BADDFD214D89D600DA8DD6 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF7214D89D600DA8DD6 /* player.png */; };
 		B5BADDFE214D89D600DA8DD6 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF8214D89D600DA8DD6 /* bg.png */; };
+		B5BADE01214D9CFB00DA8DD6 /* DumbAIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5BADDFF214D9CFB00DA8DD6 /* DumbAIComponent.cpp */; };
 		E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A3214CB7CE0085DF57 /* Menu.cpp */; };
 		E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */; };
 		E1B787AF214D06880085DF57 /* ProjectileEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */; };
@@ -130,6 +131,8 @@
 		B5BADDF6214D89D600DA8DD6 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
 		B5BADDF7214D89D600DA8DD6 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		B5BADDF8214D89D600DA8DD6 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		B5BADDFF214D9CFB00DA8DD6 /* DumbAIComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DumbAIComponent.cpp; sourceTree = "<group>"; };
+		B5BADE00214D9CFB00DA8DD6 /* DumbAIComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DumbAIComponent.hpp; sourceTree = "<group>"; };
 		E1B787A3214CB7CE0085DF57 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		E1B787A4214CB7CE0085DF57 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 		E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
@@ -268,6 +271,8 @@
 				2B2AE611214C93D600AF4A0D /* SpriteRenderComponent.hpp */,
 				2B2AE61A214CD31D00AF4A0D /* NetworkedComponent.cpp */,
 				2B2AE61B214CD31D00AF4A0D /* NetworkedComponent.hpp */,
+				B5BADDFF214D9CFB00DA8DD6 /* DumbAIComponent.cpp */,
+				B5BADE00214D9CFB00DA8DD6 /* DumbAIComponent.hpp */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				2B2AE61C214CD31D00AF4A0D /* NetworkedComponent.cpp in Sources */,
 				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,
 				2B2AE609214C93A700AF4A0D /* ParticleComponent.cpp in Sources */,
+				B5BADE01214D9CFB00DA8DD6 /* DumbAIComponent.cpp in Sources */,
 				2B7C858D214D142800DF0C0D /* Camera.cpp in Sources */,
 				2B2AE5E1214C918A00AF4A0D /* PlayerMovementComponent.cpp in Sources */,
 				2B2AE5F6214C92A900AF4A0D /* TextureManager.cpp in Sources */,
