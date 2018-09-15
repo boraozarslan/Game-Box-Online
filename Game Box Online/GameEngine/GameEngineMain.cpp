@@ -8,6 +8,8 @@
 #include "Util/TextureManager.hpp"
 #include "Util/AnimationManager.hpp"
 #include "Util/CameraManager.hpp"
+#include "SplashScreen.hpp"
+#include "Menu.hpp"
 
 using namespace GameEngine;
 
@@ -42,6 +44,7 @@ GameEngineMain::~GameEngineMain()
 
 void GameEngineMain::OnInitialised()
 {
+    ShowSplashScreen();
 	//Engine is initialised, this spot should be used for game object and clocks initialisation
 	m_gameBoard = new Game::GameBoard();
 	sm_deltaTimeClock.restart();
@@ -51,6 +54,11 @@ void GameEngineMain::OnInitialised()
 
 void GameEngineMain::CreateAndSetUpWindow()
 {
+    auto fsmodes = sf::VideoMode::getFullscreenModes();
+    WINDOW_WIDTH = fsmodes.back().width;
+    WINDOW_HEIGHT = fsmodes.back().height;
+    //1920 x 1080
+    
 	m_renderWindow = new sf::RenderWindow(sf::VideoMode((unsigned int)WINDOW_WIDTH, (unsigned int)WINDOW_HEIGHT), "Hack The North");
 	m_renderTarget = m_renderWindow;
 }
@@ -85,7 +93,9 @@ void GameEngineMain::RemoveEntity(Entity* entity)
 
 
 void GameEngineMain::Update()
-{		
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+
 	//First update will happen after init for the time being (we will add loading later)
 	if (!m_windowInitialised)
 	{
@@ -214,5 +224,27 @@ void GameEngineMain::RenderEntities()
 	{
 		m_renderWindow->display();
 	}	
+}
+
+
+void GameEngineMain::ShowSplashScreen()
+{
+    SplashScreen splashScreen{m_renderTarget, m_renderWindow};
+    splashScreen.WaitForKeystroke();
+    ShowMenu();
+}
+
+void GameEngineMain::ShowMenu()
+{
+    Menu menu{m_renderTarget, m_renderWindow};
+    menu.ShowMenu();
+    StartGame();
+}
+
+void GameEngineMain::StartGame()
+{
+    m_gameBoard = new Game::GameBoard();
+    sm_deltaTimeClock.restart();
+    sm_gameClock.restart();
 }
 

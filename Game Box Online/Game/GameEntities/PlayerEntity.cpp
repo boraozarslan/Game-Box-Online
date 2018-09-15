@@ -10,13 +10,15 @@
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity()
+PlayerEntity::PlayerEntity(): health(100.f)
 {
 	//Movement
 	m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
 
 	//Render 
-	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());	
+	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
+    m_playerMovementComponent = static_cast<Game::PlayerMovementComponent*>(AddComponent<Game::PlayerMovementComponent>());
+    AddComponent<GameEngine::CollidablePhysicsComponent>();
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	m_renderComponent->SetZLevel(2);
 
@@ -40,6 +42,9 @@ PlayerEntity::PlayerEntity()
 
 	//Camera control
 	AddComponent<PlayerCameraComponent>();
+    
+    AddComponent<Game::ProjectileEmitterComponent>();
+
 }
 
  

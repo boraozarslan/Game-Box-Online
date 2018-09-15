@@ -4,7 +4,7 @@
 
 int main()
 {
-    std::cout << "[INFO] Resources folder: " << resourcePath() << '/n';
+    std::cout << "[INFO] Resources folder: " << resourcePath() << '\n';
     GameEngine::GameEngineMain* mainEngine = GameEngine::GameEngineMain::GetInstance();
     while (mainEngine->GetRenderWindow()->isOpen())
     {

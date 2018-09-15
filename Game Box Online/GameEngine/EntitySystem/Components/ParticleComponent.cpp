@@ -25,7 +25,7 @@ void ParticleComponent::OnAddToWorld()
 
 void ParticleComponent::OnRemoveFromWorld()
 {
-	Component::OnAddToWorld();
+	Component::OnRemoveFromWorld();
 }
 
 

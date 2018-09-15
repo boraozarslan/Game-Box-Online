@@ -37,7 +37,11 @@ namespace GameEngine
 		GameEngineMain();
 
 		void CreateAndSetUpWindow();
-		
+
+        void ShowSplashScreen();
+        void ShowMenu();
+        void StartGame();
+        
 		void AddPendingEntities();
 		void RemovePendingEntities();
 		void UpdateWindowEvents();
