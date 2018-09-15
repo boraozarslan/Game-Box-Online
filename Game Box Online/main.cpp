@@ -14,6 +14,41 @@
 // function `resourcePath()` from ResourcePath.hpp
 //
 
+#include "GameEngine/GameEngineMain.hpp"
+#include "GameEngine/GameEngineMain.hpp"
+#include "./ResourcePath.hpp"
+
+// To know which directory we're in
+#include <unistd.h>
+#include <iostream>
+
+int main(int argc, char **argv)
+{
+  std::cout << "Hmm: " << argv[0] << '\n';
+  char currDir[256];
+  getcwd(currDir, 256);
+  std::cout << "Working in: "<< currDir << '\n';
+  std::cout << "Resource Path: " << resourcePath() << '\n';
+  
+  if(chdir("./Game\ Box\ Online") != 0)
+    std::cout << "Change dir failed\n";
+  
+  getcwd(currDir, 256);
+  std::cout << "Working in: "<< currDir << '\n';
+  
+  
+  GameEngine::GameEngineMain* mainEngine = GameEngine::GameEngineMain::GetInstance();
+  while (mainEngine->GetRenderWindow()->isOpen())
+  {
+    mainEngine->Update();
+  }
+  
+  delete mainEngine;
+  return 0;
+}
+
+
+/*
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
@@ -89,3 +124,5 @@ int main(int, char const**)
 
     return EXIT_SUCCESS;
 }
+*/
+
