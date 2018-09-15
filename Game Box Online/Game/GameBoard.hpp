@@ -25,6 +25,8 @@ namespace Game
     
     bool IsGameOver() const { return m_isGameOver; }
     
+    PlayerEntity* GetPlayer() const { return m_player; }
+    
   protected:
     //Placeholder temp - should go to helpers or smth.
     float RandomFloatRange(float a, float b)
