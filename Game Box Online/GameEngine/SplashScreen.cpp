@@ -44,7 +44,7 @@ void SplashScreen::WaitForKeystroke()
           break;
     
        // Clear the whole window before rendering a new frame
-       m_window->clear();
+        m_window->clear(sf::Color(255, 255, 255, 255));
     
        // Draw some graphical entities
         m_window->draw(*screen);

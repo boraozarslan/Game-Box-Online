@@ -15,8 +15,7 @@
 //
 
 #include "GameEngine/GameEngineMain.hpp"
-#include "GameEngine/GameEngineMain.hpp"
-#include "./ResourcePath.hpp"
+#include "ResourcePath.hpp"
 
 // To know which directory we're in
 #include <unistd.h>

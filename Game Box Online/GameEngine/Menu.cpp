@@ -8,33 +8,57 @@
 
 #include "Menu.hpp"
 #include "../ResourcePath.hpp"
+#include <string>
+#include <iostream>
 using namespace GameEngine;
 
 sf::RectangleShape* screen;
 sf::RectangleShape* rectangle;
 sf::RectangleShape* play;
+sf::Text* playText;
+sf::Font* font;
+
+
 
 Menu::Menu(sf::RenderTarget* target, sf::RenderWindow* window) :
 m_target(target), m_window(window)
 {
+    font = new sf::Font();
     std::string filePath = resourcePath();
+    filePath.append("sansation.ttf");
+    if (!font->loadFromFile(filePath))
+    {
+        std::cout << "Can't find the font file" << std::endl;
+    }
+
+    filePath = resourcePath();
     filePath.append("SplashScreen.png");
     texture = new sf::Texture();
     texture->loadFromFile(filePath);
     screen = new sf::RectangleShape(sf::Vector2f(GameEngineMain::WINDOW_WIDTH, GameEngineMain::WINDOW_HEIGHT));
+    
     screen->setTexture(texture);
     rectangle = new sf::RectangleShape(sf::Vector2f(120, 50));
     play = new sf::RectangleShape(sf::Vector2f(120, 50));
     rectangle->setPosition(100.f, 400.f);
     play->setPosition(300.f, 400.f);
-    //Setup clickable regions
+    play->setFillColor(sf::Color::Blue);
+
+    playText = new sf::Text;
+    playText->setFont(*font);
+    playText->setStyle(sf::Text::Bold);
+    playText->setString( "Play Game" );
+    playText->setCharacterSize(20);
+    playText->setFillColor(sf::Color::White);
+    playText->setPosition(310.f, 410.f);
+   /* //Setup clickable regions
     //Play menu item coordinates
     MenuItem playButton;
     playButton.rect.top= 145;
     playButton.rect.width = 100;
     playButton.rect.left = 0;
     playButton.rect.height = 50;
-    playButton.action = Play;
+    playButton.action = Play; */
     
     
     
@@ -69,6 +93,7 @@ void Menu::ShowMenu()
         m_window->draw(*screen);
         m_window->draw(*rectangle);
         m_window->draw(*play);
+        m_window->draw(*playText);
         
         
         // End the current frame and display its contents on screen
@@ -78,5 +103,7 @@ void Menu::ShowMenu()
     delete screen;
     delete rectangle;
     delete play;
+    delete playText;
     delete texture;
+    delete font;
 }
