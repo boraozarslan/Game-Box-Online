@@ -103,7 +103,7 @@ void Menu::ShowMenu()
             if (boundingBox.contains(Mouse))
             {
                 // collision!
-                std::cout << "COLLISION!" << std::endl;
+                //std::cout << "COLLISION!" << std::endl;
                 
                 if(event.type == sf::Event::MouseButtonPressed)
                 {

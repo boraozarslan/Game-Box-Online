@@ -23,6 +23,7 @@ CollidablePhysicsComponent::~CollidablePhysicsComponent()
 void CollidablePhysicsComponent::OnAddToWorld()
 {
 	Component::OnAddToWorld();
+    CollisionManager::GetInstance()->RegisterCollidable(this);
 
     if (m_useDefaultBox)
         SetupDefaultBoundingBox();
@@ -32,6 +33,7 @@ void CollidablePhysicsComponent::OnAddToWorld()
 void CollidablePhysicsComponent::OnRemoveFromWorld()
 {
 	Component::OnRemoveFromWorld();
+    CollisionManager::GetInstance()->UnRegisterCollidable(this);
 }
 
 
@@ -48,9 +50,12 @@ void CollidablePhysicsComponent::Update()
 		AABBRect intersection;
 		AABBRect myBox = GetWorldAABB();
 		AABBRect colideBox = colComponent->GetWorldAABB();
-        Game::ProjectileEntity* projectile = static_cast<Game::ProjectileEntity*>(colComponent->GetEntity());
+        
+        GameEngine::Entity* entity = colComponent->GetEntity();
+        
+        Game::ProjectileEntity* projectile = dynamic_cast<Game::ProjectileEntity*>(entity);
 
-        if (projectile->GetSource() != GetEntity() && myBox.intersects(colideBox, intersection))
+        if (projectile && projectile->GetSource() != GetEntity() && myBox.intersects(colideBox, intersection))
 		{
             handleDamage(projectile);
 		}
