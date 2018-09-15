@@ -103,7 +103,7 @@ SoundManager::SoundId SoundManager::CreateNewSoundResource(std::string const& fi
 		return SoundManager::INVALID_SOUND_ID;
 	}
 
-  assert(sm_soundResources[resourceId].m_soundBuffer != nullptr);
+  //assert(sm_soundResources[resourceId].m_soundBuffer != nullptr);
   
 	return resourceId;
 }
