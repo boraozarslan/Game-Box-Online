@@ -87,8 +87,9 @@ void Menu::ShowMenu()
     bool done = false;
     while (m_window->isOpen())
     {
-        // get the bounding box of the entity
-        sf::FloatRect boundingBox = play->getGlobalBounds();        
+        // get the bounding box of the entities
+        sf::FloatRect boundingBox = play->getGlobalBounds();
+        sf::FloatRect boundingBoxExit = exitgame->getGlobalBounds();
         // Event processing
         sf::Event event;
         while (m_window->pollEvent(event))

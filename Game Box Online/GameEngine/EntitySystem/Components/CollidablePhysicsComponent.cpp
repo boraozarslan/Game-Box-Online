@@ -4,6 +4,7 @@
 #include "../../EntitySystem/Entity.hpp"
 
 #include <vector>
+#include <iostream>
 
 using namespace GameEngine;
 
@@ -22,6 +23,9 @@ CollidablePhysicsComponent::~CollidablePhysicsComponent()
 void CollidablePhysicsComponent::OnAddToWorld()
 {
 	Component::OnAddToWorld();
+
+    if (m_useDefaultBox)
+        SetupDefaultBoundingBox();
 }
 
 
@@ -33,8 +37,7 @@ void CollidablePhysicsComponent::OnRemoveFromWorld()
 
 void CollidablePhysicsComponent::Update()
 {
-	//For the time being just a simple intersection check that moves the entity out of all potential intersect boxes
-	std::vector<CollidableComponent*>& collidables = CollisionManager::GetInstance()->GetCollidables();
+    std::vector<CollidableComponent*>& collidables = CollisionManager::GetInstance()->GetCollidables();
 
 	for (int a = 0; a < collidables.size(); ++a)
 	{
@@ -45,25 +48,25 @@ void CollidablePhysicsComponent::Update()
 		AABBRect intersection;
 		AABBRect myBox = GetWorldAABB();
 		AABBRect colideBox = colComponent->GetWorldAABB();
-		if (myBox.intersects(colideBox, intersection))
-		{
-			sf::Vector2f pos = GetEntity()->GetPos();
-			if (intersection.width < intersection.height)
-			{
-				if (myBox.left < colideBox.left)
-					pos.x -= intersection.width;
-				else
-					pos.x += intersection.width;
-			}
-			else
-			{
-				if (myBox.top < colideBox.top)
-					pos.y -= intersection.height;
-				else
-					pos.y += intersection.height;
-			}
+        Game::ProjectileEntity* projectile = static_cast<Game::ProjectileEntity*>(colComponent->GetEntity());
 
-			GetEntity()->SetPos(pos);
+        if (projectile->GetSource() != GetEntity() && myBox.intersects(colideBox, intersection))
+		{
+            handleDamage(projectile);
 		}
 	}
+}
+
+void CollidablePhysicsComponent::handleDamage(Game::ProjectileEntity* projectile) {
+    bool wasKilled = static_cast<Game::PlayerEntity*>(GetEntity())->TakeDamage(projectile->GetDamage());
+    Game::PlayerEntity* projectileSrc = projectile->GetSource();
+
+    auto currentEngine = GameEngine::GameEngineMain::GetInstance();
+    currentEngine->RemoveEntity(projectile);
+
+    if (wasKilled) {
+        currentEngine->RemoveEntity(GetEntity());
+        projectileSrc->IncreaseScore(1);
+        //std::cout << projectileSrc->GetScore() << std::endl << std::flush;
+    }
 }
