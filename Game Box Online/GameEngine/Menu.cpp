@@ -12,12 +12,14 @@
 #include <iostream>
 using namespace GameEngine;
 
-sf::RectangleShape* screen;
-sf::RectangleShape* exitgame;
-sf::RectangleShape* play;
-sf::Text* playText;
-sf::Text* exitText;
-sf::Font* font;
+sf::RectangleShape* screen = nullptr;
+sf::RectangleShape* exitgame = nullptr;
+sf::RectangleShape* play = nullptr;
+sf::Text* playText = nullptr;
+sf::Text* exitText = nullptr;
+sf::Font* font = nullptr;
+
+
 
 Menu::Menu(sf::RenderTarget* target, sf::RenderWindow* window) :
 m_target(target), m_window(window)
@@ -29,6 +31,7 @@ m_target(target), m_window(window)
     {
         std::cout << "Can't find the font file" << std::endl;
     }
+    
 
     filePath = resourcePath();
     filePath.append("SplashScreen.png");
@@ -63,6 +66,9 @@ m_target(target), m_window(window)
     exitText->setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
     exitText->setFillColor(sf::Color::White);
     exitText->setPosition((GameEngineMain::WINDOW_WIDTH)*.60,(GameEngineMain::WINDOW_HEIGHT)*.7);
+    
+    
+    //sf::Vector2f pos(play->getPosition());
     
     /* //Setup clickable regions
     //Play menu item coordinates
