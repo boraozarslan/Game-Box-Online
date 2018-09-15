@@ -17,16 +17,12 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 
 	//Render 
 	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
-    AddComponent<GameEngine::CollidablePhysicsComponent>();
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	m_renderComponent->SetZLevel(2);
 
 	//Animation
 	m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
     
-	//Collisions
-	AddComponent<GameEngine::CollidablePhysicsComponent>();
-	
     if (!isEnemy) {
         //Movement
         m_playerMovementComponent = static_cast<PlayerMovementComponent*>(AddComponent<PlayerMovementComponent>());
