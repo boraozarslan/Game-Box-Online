@@ -9,12 +9,6 @@
 #include "SplashScreen.hpp"
 #include "Menu.hpp"
 
-// Open SplashScreen
-// Wait for a  keystroke
-// Move on to menu
-// Wait for game start
-// Show the game
-
 using namespace GameEngine;
 
 float GameEngineMain::WINDOW_HEIGHT = 500;
@@ -44,19 +38,16 @@ GameEngineMain::~GameEngineMain()
 void GameEngineMain::OnInitialised()
 {
     ShowSplashScreen();
-    
-    
-    /*
-  m_gameBoard = new Game::GameBoard();
-  sm_deltaTimeClock.restart();
-  sm_gameClock.restart();
-     */
 }
 
 
 void GameEngineMain::CreateAndSetUpWindow()
 {
-  m_renderWindow = new sf::RenderWindow(sf::VideoMode((unsigned int)WINDOW_WIDTH, (unsigned int)WINDOW_HEIGHT), "Hack The North");
+    auto fsmodes = sf::VideoMode::getFullscreenModes();
+    WINDOW_WIDTH = fsmodes.back().width;
+    WINDOW_HEIGHT = fsmodes.back().height;
+    //1920 x 1080
+    m_renderWindow = new sf::RenderWindow(fsmodes.back(), "Hack The North");
   m_renderTarget = m_renderWindow;
 }
 
