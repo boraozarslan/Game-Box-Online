@@ -9,6 +9,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <list>
 #include "GameEngineMain.hpp"
 
 namespace GameEngine {
@@ -16,6 +17,14 @@ namespace GameEngine {
     {
     public:
         Menu(sf::RenderTarget* target, sf::RenderWindow* window);
+        enum MenuResult { Nothing, Exit, Play };
+        struct MenuItem
+            {
+            public:
+                sf::Rect<int> rect;
+                MenuResult action;
+            };
+        MenuResult Show(sf::RenderWindow& window);
         
         void ShowMenu();
     private:
@@ -23,6 +32,9 @@ namespace GameEngine {
         sf::RenderWindow* m_window;
         sf::RectangleShape* screen;
         sf::Texture* texture;
+        MenuResult GetMenuResponse(sf::RenderWindow& window);
+        MenuResult HandleClick(int x, int y);
+        std::list<MenuItem> _menuItems;
     };
 }
 

@@ -11,6 +11,8 @@
 using namespace GameEngine;
 
 sf::RectangleShape* screen;
+sf::RectangleShape* rectangle;
+sf::RectangleShape* play;
 
 Menu::Menu(sf::RenderTarget* target, sf::RenderWindow* window) :
 m_target(target), m_window(window)
@@ -21,6 +23,22 @@ m_target(target), m_window(window)
     texture->loadFromFile(filePath);
     screen = new sf::RectangleShape(sf::Vector2f(GameEngineMain::WINDOW_WIDTH, GameEngineMain::WINDOW_HEIGHT));
     screen->setTexture(texture);
+    rectangle = new sf::RectangleShape(sf::Vector2f(120, 50));
+    play = new sf::RectangleShape(sf::Vector2f(120, 50));
+    rectangle->setPosition(100.f, 400.f);
+    play->setPosition(300.f, 400.f);
+    //Setup clickable regions
+    //Play menu item coordinates
+    MenuItem playButton;
+    playButton.rect.top= 145;
+    playButton.rect.width = 100;
+    playButton.rect.left = 0;
+    playButton.rect.height = 50;
+    playButton.action = Play;
+    
+    
+    
+    
 }
 
 void Menu::ShowMenu()
@@ -49,11 +67,16 @@ void Menu::ShowMenu()
         
         // Draw some graphical entities
         m_window->draw(*screen);
+        m_window->draw(*rectangle);
+        m_window->draw(*play);
+        
         
         // End the current frame and display its contents on screen
         m_window->display();
     }
     
     delete screen;
+    delete rectangle;
+    delete play;
     delete texture;
 }
