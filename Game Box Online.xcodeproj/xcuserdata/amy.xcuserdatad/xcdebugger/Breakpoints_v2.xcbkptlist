@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Game Box Online/GameEngine/Util/SoundManager.cpp"
+            timestampString = "558735510.54843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "SoundManager::~SoundManager()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameEngine::SoundManager::~SoundManager()"
+                  moduleName = "Game Box Online"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/Util/SoundManager.cpp"
+                  timestampString = "558730465.994778"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GameEngine::SoundManager::~SoundManager()"
+                  moduleName = "Game Box Online"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/Util/SoundManager.cpp"
+                  timestampString = "558730465.997333"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

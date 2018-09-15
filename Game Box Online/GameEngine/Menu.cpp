@@ -87,17 +87,28 @@ void Menu::ShowMenu()
     bool done = false;
     while (m_window->isOpen())
     {
+        // get the bounding box of the entity
+        sf::FloatRect boundingBox = play->getGlobalBounds();        
         // Event processing
         sf::Event event;
         while (m_window->pollEvent(event))
         {
             // Request for closing the window
             if (event.type == sf::Event::Closed)
-                m_window->close();
-            if(event.type == sf::Event::MouseButtonPressed)
             {
-                done = true;
-                break;
+                m_window->close();
+            }
+            sf::Vector2f Mouse = m_window->mapPixelToCoords(sf::Mouse::getPosition(*m_window));
+            if (boundingBox.contains(Mouse))
+            {
+                // collision!
+                std::cout << "COLLISION!" << std::endl;
+                
+                if(event.type == sf::Event::MouseButtonPressed)
+                {
+                    done = true;
+                    break;
+                }
             }
         }
         if(done)
