@@ -1,3 +1,4 @@
+
 #include "Entity.hpp"
 
 using namespace GameEngine;
@@ -5,10 +6,9 @@ using namespace GameEngine;
 Entity::Entity()
 : m_pos(0.f, 0.f)
 , m_size(0.f, 0.f)
-, m_direction(DEFAULT_DIRECTION)
+, m_direction(1.f, 0.f)
 , m_rotation(0.f)
 {
-  
 }
 
 Entity::~Entity()

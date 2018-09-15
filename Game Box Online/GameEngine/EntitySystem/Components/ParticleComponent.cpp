@@ -5,38 +5,38 @@
 using namespace GameEngine;
 
 ParticleComponent::ParticleComponent()
-: m_lifeTimer(2.f)
+	: m_lifeTimer(2.f)
 {
-  
+
 }
 
 
 ParticleComponent::~ParticleComponent()
 {
-  
+
 }
 
 
 void ParticleComponent::OnAddToWorld()
 {
-  Component::OnAddToWorld();
+	Component::OnAddToWorld();
 }
 
 
 void ParticleComponent::OnRemoveFromWorld()
 {
-  Component::OnAddToWorld();
+	Component::OnRemoveFromWorld();
 }
 
 
 void ParticleComponent::Update()
 {
-  float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
-  
-  m_lifeTimer -= dt;
-  
-  if (m_lifeTimer <= 0.f)
-  {
-    GameEngine::GameEngineMain::GetInstance()->RemoveEntity(GetEntity());
-  }
+	float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
+
+	m_lifeTimer -= dt;
+
+	if (m_lifeTimer <= 0.f)
+	{
+		GameEngine::GameEngineMain::GetInstance()->RemoveEntity(GetEntity());
+	}
 }

@@ -51,10 +51,13 @@
 		2B7C858D214D142800DF0C0D /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C858B214D142800DF0C0D /* Camera.cpp */; };
 		E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A3214CB7CE0085DF57 /* Menu.cpp */; };
 		E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */; };
+<<<<<<< HEAD
+=======
 		E1B787AA214CD0270085DF57 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787A9214CD0270085DF57 /* SplashScreen.png */; };
 		E1B787AF214D06880085DF57 /* ProjectileEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */; };
 		E1B787B0214D06880085DF57 /* ProjectileMovementComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */; };
 		E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */; };
+>>>>>>> origin/master
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +147,8 @@
 		E1B787A4214CB7CE0085DF57 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 		E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
 		E1B787A7214CCCB70085DF57 /* SplashScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplashScreen.hpp; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
 		E1B787A9214CD0270085DF57 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEmitterComponent.cpp; sourceTree = "<group>"; };
 		E1B787AC214D06870085DF57 /* ProjectileEmitterComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEmitterComponent.hpp; sourceTree = "<group>"; };
@@ -151,6 +156,7 @@
 		E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileMovementComponent.cpp; sourceTree = "<group>"; };
 		E1B787B1214D069B0085DF57 /* ProjectileEntity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEntity.hpp; sourceTree = "<group>"; };
 		E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEntity.cpp; sourceTree = "<group>"; };
+>>>>>>> origin/master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,7 @@
 		2B2AE5DE214C916200AF4A0D /* GameComponents */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				B524F423214D08EC006F4A2E /* PlayerCameraComponent.cpp */,
 				B524F424214D08EC006F4A2E /* PlayerCameraComponent.hpp */,
 				B524F41E214D05EF006F4A2E /* PlayerSoundComponent.cpp */,
@@ -199,10 +206,12 @@
 				2B7C8585214D069100DF0C0D /* ProjectileEmitterComponent.hpp */,
 				2B7C8582214D069000DF0C0D /* ProjectileMovementComponent.cpp */,
 				2B7C8583214D069100DF0C0D /* ProjectileMovementComponent.hpp */,
+=======
 				E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */,
 				E1B787AC214D06870085DF57 /* ProjectileEmitterComponent.hpp */,
 				E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */,
 				E1B787AD214D06870085DF57 /* ProjectileMovementComponent.hpp */,
+>>>>>>> origin/master
 				2B2AE5DF214C918A00AF4A0D /* PlayerMovementComponent.cpp */,
 				2B2AE5E0214C918A00AF4A0D /* PlayerMovementComponent.hpp */,
 			);
