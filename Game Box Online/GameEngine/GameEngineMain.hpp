@@ -30,20 +30,24 @@ namespace GameEngine
     
     void OnInitialised();
     bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
+      
+      static float WINDOW_HEIGHT;
+      static float WINDOW_WIDTH;
     
   private:
     GameEngineMain();
     
     void CreateAndSetUpWindow();
+      
+    void ShowSplashScreen();
+    void ShowMenu();
+    void StartGame();
     
     void AddPendingEntities();
     void RemovePendingEntities();
     void UpdateWindowEvents();
     void UpdateEntities();
     void RenderEntities();
-    
-    static float WINDOW_HEIGHT;
-    static float WINDOW_WIDTH;
     
     static GameEngineMain* sm_instance;
     static sf::Clock     sm_deltaTimeClock;
