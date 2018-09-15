@@ -111,16 +111,11 @@ void Menu::ShowMenu()
         m_window->display();
     }
   
-    delete playText;
-    delete screen;
-    delete play;
-<<<<<<< HEAD
-    delete exitgame;
+    delete font;
     delete playText;
     delete exitText;
-    delete texture;
-=======
->>>>>>> 09c5af88f5bc54908974927b7beb0039129d57bd
-    delete font;
+    delete screen;
+    delete play;
+    delete exitgame;
     delete texture;
 }

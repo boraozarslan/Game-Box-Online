@@ -29,9 +29,6 @@ int main(int argc, char **argv)
   std::cout << "Working in: "<< currDir << '\n';
   std::cout << "Resource Path: " << resourcePath() << '\n';
   
-  if(chdir("./Game\ Box\ Online") != 0)
-    std::cout << "Change dir failed\n";
-  
   getcwd(currDir, 256);
   std::cout << "Working in: "<< currDir << '\n';
   
