@@ -8,6 +8,7 @@
 #include "Util/AnimationManager.hpp"
 #include "SplashScreen.hpp"
 #include "Menu.hpp"
+#include "Camera.hpp"
 
 using namespace GameEngine;
 
@@ -32,6 +33,7 @@ GameEngineMain::GameEngineMain()
 GameEngineMain::~GameEngineMain()
 {
   delete m_renderTarget;
+  delete m_camera;
 }
 
 
@@ -93,6 +95,7 @@ void GameEngineMain::Update()
     m_gameBoard->Update();
   
   UpdateEntities();
+  m_camera->Update();
   RenderEntities();
   
   AddPendingEntities();
@@ -213,6 +216,7 @@ void GameEngineMain::ShowMenu()
 void GameEngineMain::StartGame()
 {
     m_gameBoard = new Game::GameBoard();
+    m_camera = new Camera(m_gameBoard->GetPlayer(), m_renderWindow);
     sm_deltaTimeClock.restart();
     sm_gameClock.restart();
 }

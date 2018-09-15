@@ -5,6 +5,7 @@
 
 #include "EntitySystem/Entity.hpp"
 #include "EntitySystem/Components/RenderComponent.hpp"
+#include "Camera.hpp"
 
 // TODO(BORA): How was this working without this include
 #include "../Game/GameBoard.hpp"
@@ -61,6 +62,7 @@ namespace GameEngine
     sf::RenderWindow*   m_renderWindow; //In future they will be different
     
     Game::GameBoard*    m_gameBoard; //TODO - better spot for this?
+    Camera* m_camera;
     
     bool m_windowInitialised;
   };
