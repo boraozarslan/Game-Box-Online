@@ -45,10 +45,6 @@ GameEngineMain::~GameEngineMain()
 void GameEngineMain::OnInitialised()
 {
     ShowSplashScreen();
-	//Engine is initialised, this spot should be used for game object and clocks initialisation
-	m_gameBoard = new Game::GameBoard();
-	sm_deltaTimeClock.restart();
-	sm_gameClock.restart();
 }
 
 
@@ -243,8 +239,9 @@ void GameEngineMain::ShowMenu()
 
 void GameEngineMain::StartGame()
 {
-    m_gameBoard = new Game::GameBoard();
-    sm_deltaTimeClock.restart();
-    sm_gameClock.restart();
+  //Engine is initialised, this spot should be used for game object and clocks initialisation
+  m_gameBoard = new Game::GameBoard();
+  sm_deltaTimeClock.restart();
+  sm_gameClock.restart();
 }
 

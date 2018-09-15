@@ -99,11 +99,11 @@ void Menu::ShowMenu()
         // End the current frame and display its contents on screen
         m_window->display();
     }
-    
+  
+    delete playText;
+    delete font;
     delete screen;
     delete rectangle;
     delete play;
-    delete playText;
     delete texture;
-    delete font;
 }

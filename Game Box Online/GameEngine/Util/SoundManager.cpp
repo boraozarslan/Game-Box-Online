@@ -103,6 +103,8 @@ SoundManager::SoundId SoundManager::CreateNewSoundResource(std::string const& fi
 		return SoundManager::INVALID_SOUND_ID;
 	}
 
+  assert(sm_soundResources[resourceId].m_soundBuffer != nullptr);
+  
 	return resourceId;
 }
 
@@ -152,7 +154,7 @@ void SoundManager::PlaySoundWithSoundInstance(SoundManager::SoundId const resour
 
 bool SoundManager::IsValidSoundId(SoundManager::SoundId const soundId) const
 {
-	return soundId >= 0 && soundId < sm_soundResources.size() && soundId != SoundManager::INVALID_SOUND_ID;
+	return soundId < sm_soundResources.size() && soundId != SoundManager::INVALID_SOUND_ID;
 }
 
 

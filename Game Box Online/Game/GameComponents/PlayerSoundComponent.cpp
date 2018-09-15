@@ -14,7 +14,6 @@ PlayerSoundComponent::PlayerSoundComponent()
 
 PlayerSoundComponent::~PlayerSoundComponent()
 {
-
 }
 
 void PlayerSoundComponent::OnAddToWorld()
