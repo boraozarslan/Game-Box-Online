@@ -17,10 +17,15 @@ namespace Game
     virtual void OnAddToWorld() override;
     virtual void OnRemoveFromWorld() override;
     
+    bool TakeDamage(float damage);
+    void IncreaseScore(int score);
+    int GetScore();
   protected:
     GameEngine::SpriteRenderComponent* m_renderComponent;
     PlayerMovementComponent*   m_playerMovementComponent;
     GameEngine::AnimationComponent* m_animComponent;
-    float health;
+    float m_health;
+    bool m_isEnemy;
+    int m_score;
   };
 }

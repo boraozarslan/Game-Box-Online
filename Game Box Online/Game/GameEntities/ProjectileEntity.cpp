@@ -1,14 +1,14 @@
 #include "ProjectileEntity.hpp"
 
-#include "../../GameEngine/EntitySystem/Components/CollidablePhysicsComponent.hpp"
+#include "../../GameEngine/EntitySystem/Components/CollidableComponent.hpp"
 #include "../GameComponents/ProjectileEmitterComponent.hpp"
 
 using namespace Game;
 
-ProjectileEntity::ProjectileEntity(): damage(10.f)
+ProjectileEntity::ProjectileEntity(): m_damage(10.f), m_source(nullptr)
 {
     m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
-    AddComponent<GameEngine::CollidablePhysicsComponent>();
+    AddComponent<GameEngine::CollidableComponent>();
     m_renderComponent->SetTexture(GameEngine::eTexture::Player);
     m_renderComponent->SetZLevel(2);
     m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
@@ -35,4 +35,16 @@ void ProjectileEntity::OnAddToWorld()
 void ProjectileEntity::OnRemoveFromWorld()
 {
     GameEngine::Entity::OnRemoveFromWorld();
+}
+
+float ProjectileEntity::GetDamage() {
+    return m_damage;
+}
+
+void ProjectileEntity::SetSource(PlayerEntity* source) {
+    m_source = source;
+}
+
+Game::PlayerEntity* ProjectileEntity::GetSource() {
+    return m_source;
 }

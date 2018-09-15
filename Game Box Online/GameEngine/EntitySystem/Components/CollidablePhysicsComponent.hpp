@@ -1,5 +1,7 @@
 #pragma once
 #include "./CollidableComponent.hpp"
+#include "../../../Game/GameEntities/ProjectileEntity.hpp"
+#include "../../../Game/GameEntities/PlayerEntity.hpp"
 
 namespace GameEngine
 {
@@ -14,6 +16,9 @@ namespace GameEngine
 		virtual void OnRemoveFromWorld() override;
 
 		virtual void Update() override;
+
+    private:
+        void handleDamage(Game::ProjectileEntity* projectile);
 	};
 }
 

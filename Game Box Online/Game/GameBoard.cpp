@@ -30,7 +30,7 @@ GameBoard::GameBoard()
         enemy->SetPos(sf::Vector2f(i * 60.f, 530.f));
         enemy->SetSize(sf::Vector2f(50.f, 50.f));
     }
-    
+
 	CreateBackGround();
 	//Debug
 	for (int a = 0; a < 3; ++a)
