@@ -1,7 +1,6 @@
 #include "PlayerEntity.hpp"
 
 #include "../../GameEngine/EntitySystem/Components/CollidablePhysicsComponent.hpp"
-#include "../../GameEngine/EntitySystem/Components/ParticleEmitterComponent.hpp"
 
 using namespace Game;
 
@@ -13,7 +12,7 @@ PlayerEntity::PlayerEntity()
   m_renderComponent->SetTexture(GameEngine::eTexture::Player);
   m_renderComponent->SetZLevel(2);
   m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
-  AddComponent<GameEngine::ParticleEmitterComponent>();
+  AddComponent<Game::ProjectileEmitterComponent>();
 }
 
 

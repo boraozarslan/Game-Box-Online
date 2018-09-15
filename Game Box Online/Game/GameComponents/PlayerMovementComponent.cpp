@@ -39,7 +39,7 @@ void PlayerMovementComponent::Update()
   }
   
   float dt = GameEngine::GameEngineMain::GetTimeDelta();
-  static float playerVel = 150.f; //Pixels/s
+  static float playerVel = 50.f; //Pixels/s
   sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
   bool wantsToFly = false;
   
@@ -85,7 +85,6 @@ void PlayerMovementComponent::Update()
       m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
     }
   }
-  
   
   static float rotationVel = 50.f; //Deg/s
   static float maxRotation = 20.f; //Deg

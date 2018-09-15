@@ -3,6 +3,7 @@
 #include "../../GameEngine/EntitySystem/Components/AnimationComponent.hpp"
 #include "../../GameEngine/EntitySystem/Components/SpriteRenderComponent.hpp"
 #include "../GameComponents/PlayerMovementComponent.hpp"
+#include "ProjectileEmitterComponent.hpp"
 
 namespace Game
 {
