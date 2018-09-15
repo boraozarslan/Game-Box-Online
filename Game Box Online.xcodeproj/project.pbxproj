@@ -36,6 +36,8 @@
 		2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC60214C8CF800CFF6A2 /* sansation.ttf */; };
 		2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC62214C8CF800CFF6A2 /* icon.png */; };
 		E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A3214CB7CE0085DF57 /* Menu.cpp */; };
+		E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */; };
+		E1B787AA214CD0270085DF57 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787A9214CD0270085DF57 /* SplashScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,9 @@
 		2B33FC62214C8CF800CFF6A2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E1B787A3214CB7CE0085DF57 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		E1B787A4214CB7CE0085DF57 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
+		E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
+		E1B787A7214CCCB70085DF57 /* SplashScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplashScreen.hpp; sourceTree = "<group>"; };
+		E1B787A9214CD0270085DF57 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,7 @@
 		2B2AE5CC214C90C000AF4A0D /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E1B787A9214CD0270085DF57 /* SplashScreen.png */,
 				2B2AE5CF214C90CE00AF4A0D /* bg.png */,
 				2B2AE5CD214C90CE00AF4A0D /* Flappy.png */,
 				2B2AE5CE214C90CE00AF4A0D /* particles.png */,
@@ -154,6 +160,8 @@
 				2B2AE5EA214C921900AF4A0D /* GameEngineMain.hpp */,
 				E1B787A3214CB7CE0085DF57 /* Menu.cpp */,
 				E1B787A4214CB7CE0085DF57 /* Menu.hpp */,
+				E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */,
+				E1B787A7214CCCB70085DF57 /* SplashScreen.hpp */,
 			);
 			path = GameEngine;
 			sourceTree = "<group>";
@@ -313,6 +321,7 @@
 			files = (
 				2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */,
 				2B2AE5D3214C90CE00AF4A0D /* particles.png in Resources */,
+				E1B787AA214CD0270085DF57 /* SplashScreen.png in Resources */,
 				2B2AE5D5214C90CE00AF4A0D /* player.png in Resources */,
 				2B2AE5D6214C90CE00AF4A0D /* tileset.png in Resources */,
 				2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */,
@@ -359,6 +368,7 @@
 				2B2AE5E7214C91AA00AF4A0D /* PlayerEntity.cpp in Sources */,
 				2B2AE5DA214C90FD00AF4A0D /* GameBoard.cpp in Sources */,
 				2B2AE5EB214C921900AF4A0D /* GameEngineMain.cpp in Sources */,
+				E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */,
 				2B2AE5E4214C919F00AF4A0D /* ObstacleEntity.cpp in Sources */,
 				E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */,
 				2B2AE60F214C93C800AF4A0D /* RenderComponent.cpp in Sources */,

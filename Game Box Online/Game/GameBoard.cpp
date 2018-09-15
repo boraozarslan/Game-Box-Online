@@ -12,6 +12,13 @@ GameBoard::GameBoard()
 : m_lastObstacleSpawnTimer(0.f)
 , m_isGameOver(false)
 {
+    
+   /* GameEngine::Entity* ent = new GameEngine::Entity();
+    ent->SetPos(sf::Vector2f (50.f, 50.f));
+    ent->SetPos(sf::Vector2f (32.f, 32.f));
+    ent->AddComponent<GameEngine::RenderComponent>();
+    
+    GameEngine::GameEngineMain::GetInstance()->AddEntity(ent); */
   m_player = new PlayerEntity();
   
   GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);

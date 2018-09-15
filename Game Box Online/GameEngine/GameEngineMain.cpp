@@ -6,6 +6,14 @@
 #include <SFML/Graphics.hpp>
 #include "Util/TextureManager.hpp"
 #include "Util/AnimationManager.hpp"
+#include "SplashScreen.hpp"
+#include "Menu.hpp"
+
+// Open SplashScreen
+// Wait for a  keystroke
+// Move on to menu
+// Wait for game start
+// Show the game
 
 using namespace GameEngine;
 
@@ -35,9 +43,14 @@ GameEngineMain::~GameEngineMain()
 
 void GameEngineMain::OnInitialised()
 {
+    ShowSplashScreen();
+    
+    
+    /*
   m_gameBoard = new Game::GameBoard();
   sm_deltaTimeClock.restart();
   sm_gameClock.restart();
+     */
 }
 
 
@@ -192,3 +205,23 @@ void GameEngineMain::RenderEntities()
   }
 }
 
+void GameEngineMain::ShowSplashScreen()
+{
+    SplashScreen splashScreen{m_renderTarget, m_renderWindow};
+    splashScreen.WaitForKeystroke();
+    ShowMenu();
+}
+
+void GameEngineMain::ShowMenu()
+{
+    Menu menu{m_renderTarget, m_renderWindow};
+    menu.ShowMenu();
+    StartGame();
+}
+
+void GameEngineMain::StartGame()
+{
+    m_gameBoard = new Game::GameBoard();
+    sm_deltaTimeClock.restart();
+    sm_gameClock.restart();
+}

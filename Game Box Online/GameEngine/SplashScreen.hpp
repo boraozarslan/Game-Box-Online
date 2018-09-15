@@ -1,8 +1,8 @@
 //
-//  Menu.hpp
+//  SplashScreen.hpp
 //  Game Box Online
 //
-//  Created by Amy on 2018-09-14.
+//  Created by Amy on 2018-09-15.
 //  Copyright © 2018 Gamebox. All rights reserved.
 //
 
@@ -11,13 +11,14 @@
 #include <stdio.h>
 #include "GameEngineMain.hpp"
 
-namespace GameEngine {
-    class Menu
+namespace GameEngine
+{
+    class SplashScreen
     {
     public:
-        Menu(sf::RenderTarget* target, sf::RenderWindow* window);
+        SplashScreen(sf::RenderTarget* target, sf::RenderWindow* window);
         
-        void ShowMenu();
+        void WaitForKeystroke();
     private:
         sf::RenderTarget* m_target;
         sf::RenderWindow* m_window;
@@ -25,4 +26,3 @@ namespace GameEngine {
         sf::Texture* texture;
     };
 }
-
