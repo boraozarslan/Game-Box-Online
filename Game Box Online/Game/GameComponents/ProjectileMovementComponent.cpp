@@ -7,7 +7,7 @@
 
 using namespace Game;
 
-ProjectileMovementComponent::ProjectileMovementComponent(): current_vector(0.f, 0.f)
+ProjectileMovementComponent::ProjectileMovementComponent(): current_vector(0.f, 0.f), duration_remaining(0.3f)
 {
 
 }
@@ -26,9 +26,11 @@ void ProjectileMovementComponent::Update()
 {
     Component::Update();
 
-    if (GameEngine::GameEngineMain::GetInstance()->IsGameOver())
-    {
-        return;
+    float dt = GameEngine::GameEngineMain::GetTimeDelta();
+    duration_remaining -= dt;
+
+    if (duration_remaining <= 0.f) {
+        GameEngine::GameEngineMain::GetInstance()->RemoveEntity(GetEntity());
     }
 
     GetEntity()->SetPos(GetEntity()->GetPos() + current_vector);
