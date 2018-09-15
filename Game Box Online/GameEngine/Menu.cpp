@@ -63,24 +63,10 @@ m_target(target), m_window(window)
     exitText->setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
     exitText->setFillColor(sf::Color::White);
     exitText->setPosition((GameEngineMain::WINDOW_WIDTH)*.60,(GameEngineMain::WINDOW_HEIGHT)*.7);
-    
-    
-    //sf::Vector2f pos(play->getPosition());
-    
-    /* //Setup clickable regions
-    //Play menu item coordinates
-    MenuItem playButton;
-    playButton.rect.top= 145;
-    playButton.rect.width = 100;
-    playButton.rect.left = 0;
-    playButton.rect.height = 50;
-    playButton.action = Play; */
-    
 }
 
 void Menu::ShowMenu()
 {
-    
     bool done = false;
     while (m_window->isOpen())
     {

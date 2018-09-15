@@ -20,6 +20,9 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
     AddComponent<GameEngine::CollidablePhysicsComponent>();
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	m_renderComponent->SetZLevel(2);
+    
+    if(!isEnemy)
+        AddComponent<Game::PlayerCameraComponent>();
 
 	//Animation
 	m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
@@ -50,9 +53,6 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 	soundComponent->SetNumSimultaneousSounds(2); // Hard coded 5 simultaneous sounds for the player
 												 
 	AddComponent<PlayerSoundComponent>();
-
-	//Camera control
-	AddComponent<PlayerCameraComponent>();
 }
 
  
