@@ -19,7 +19,6 @@ sf::Text* playText;
 sf::Text* exitText;
 sf::Font* font;
 
-
 Menu::Menu(sf::RenderTarget* target, sf::RenderWindow* window) :
 m_target(target), m_window(window)
 {
@@ -73,13 +72,12 @@ m_target(target), m_window(window)
     playButton.rect.left = 0;
     playButton.rect.height = 50;
     playButton.action = Play; */
-
-    
     
 }
 
 void Menu::ShowMenu()
 {
+    
     bool done = false;
     while (m_window->isOpen())
     {
@@ -90,7 +88,7 @@ void Menu::ShowMenu()
             // Request for closing the window
             if (event.type == sf::Event::Closed)
                 m_window->close();
-            if(event.type == sf::Event::KeyPressed)
+            if(event.type == sf::Event::MouseButtonPressed)
             {
                 done = true;
                 break;
