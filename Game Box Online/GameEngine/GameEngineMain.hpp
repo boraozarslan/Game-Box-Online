@@ -31,8 +31,8 @@ namespace GameEngine
     void OnInitialised();
     bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
       
-      static float WINDOW_HEIGHT;
-      static float WINDOW_WIDTH;
+    static float WINDOW_HEIGHT;
+    static float WINDOW_WIDTH;
     
   private:
     GameEngineMain();
