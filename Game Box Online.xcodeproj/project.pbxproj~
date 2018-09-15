@@ -32,6 +32,10 @@
 		2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */; };
 		2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC60214C8CF800CFF6A2 /* sansation.ttf */; };
 		2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC62214C8CF800CFF6A2 /* icon.png */; };
+		2B7B8B37214D5F030087FCD6 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B7B8B36214D5F030087FCD6 /* SplashScreen.png */; };
+		2B7C8586214D069100DF0C0D /* ProjectileMovementComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C8582214D069000DF0C0D /* ProjectileMovementComponent.cpp */; };
+		2B7C8587214D069100DF0C0D /* ProjectileEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C8584214D069100DF0C0D /* ProjectileEmitterComponent.cpp */; };
+		2B7C858A214D069900DF0C0D /* ProjectileEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C8588214D069900DF0C0D /* ProjectileEntity.cpp */; };
 		B524F419214D03A2006F4A2E /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F411214D03A1006F4A2E /* SoundManager.cpp */; };
 		B524F41A214D03A2006F4A2E /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F413214D03A2006F4A2E /* CameraManager.cpp */; };
 		B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F41E214D05EF006F4A2E /* PlayerSoundComponent.cpp */; };
@@ -44,9 +48,7 @@
 		B524F433214D0B42006F4A2E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B524F42B214D0B42006F4A2E /* bg.png */; };
 		B524F434214D0B42006F4A2E /* thunder.wav in Resources */ = {isa = PBXBuildFile; fileRef = B524F42D214D0B42006F4A2E /* thunder.wav */; };
 		B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = B524F42E214D0B42006F4A2E /* glassBreak.wav */; };
-		2B7C8586214D069100DF0C0D /* ProjectileMovementComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C8582214D069000DF0C0D /* ProjectileMovementComponent.cpp */; };
-		2B7C8587214D069100DF0C0D /* ProjectileEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C8584214D069100DF0C0D /* ProjectileEmitterComponent.cpp */; };
-		2B7C858A214D069900DF0C0D /* ProjectileEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C8588214D069900DF0C0D /* ProjectileEntity.cpp */; };
+		2B7C858D214D142800DF0C0D /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C858B214D142800DF0C0D /* Camera.cpp */; };
 		E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A3214CB7CE0085DF57 /* Menu.cpp */; };
 		E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */; };
 /* End PBXBuildFile section */
@@ -101,7 +103,16 @@
 		2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		2B33FC60214C8CF800CFF6A2 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		2B33FC62214C8CF800CFF6A2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-<<<<<<< HEAD
+		2B7B8B36214D5F030087FCD6 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SplashScreen.png; path = img/SplashScreen.png; sourceTree = "<group>"; };
+		2B7C8582214D069000DF0C0D /* ProjectileMovementComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileMovementComponent.cpp; sourceTree = "<group>"; };
+		2B7C8583214D069100DF0C0D /* ProjectileMovementComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileMovementComponent.hpp; sourceTree = "<group>"; };
+		2B7C8584214D069100DF0C0D /* ProjectileEmitterComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEmitterComponent.cpp; sourceTree = "<group>"; };
+		2B7C8585214D069100DF0C0D /* ProjectileEmitterComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEmitterComponent.hpp; sourceTree = "<group>"; };
+		2B7C8588214D069900DF0C0D /* ProjectileEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEntity.cpp; sourceTree = "<group>"; };
+		2B7C8589214D069900DF0C0D /* ProjectileEntity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEntity.hpp; sourceTree = "<group>"; };
+		2B7C858B214D142800DF0C0D /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		2B7C858C214D142800DF0C0D /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		2BA3C2EE214D056200D9441F /* Defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defs.h; sourceTree = "<group>"; };
 		B524F40E214D03A1006F4A2E /* CameraManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraManager.hpp; sourceTree = "<group>"; };
 		B524F40F214D03A1006F4A2E /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
 		B524F411214D03A1006F4A2E /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
@@ -125,13 +136,6 @@
 		B524F439214D0B62006F4A2E /* particles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = particles.png; path = "Game Box Online/img/particles.png"; sourceTree = SOURCE_ROOT; };
 		B524F43A214D0B62006F4A2E /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		B524F43B214D0B62006F4A2E /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = "Game Box Online/img/player.png"; sourceTree = SOURCE_ROOT; };
-		2B7C8582214D069000DF0C0D /* ProjectileMovementComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileMovementComponent.cpp; sourceTree = "<group>"; };
-		2B7C8583214D069100DF0C0D /* ProjectileMovementComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileMovementComponent.hpp; sourceTree = "<group>"; };
-		2B7C8584214D069100DF0C0D /* ProjectileEmitterComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEmitterComponent.cpp; sourceTree = "<group>"; };
-		2B7C8585214D069100DF0C0D /* ProjectileEmitterComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEmitterComponent.hpp; sourceTree = "<group>"; };
-		2B7C8588214D069900DF0C0D /* ProjectileEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEntity.cpp; sourceTree = "<group>"; };
-		2B7C8589214D069900DF0C0D /* ProjectileEntity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEntity.hpp; sourceTree = "<group>"; };
-		2BA3C2EE214D056200D9441F /* Defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defs.h; sourceTree = "<group>"; };
 		E1B787A3214CB7CE0085DF57 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		E1B787A4214CB7CE0085DF57 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 		E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */,
 				E1B787A7214CCCB70085DF57 /* SplashScreen.hpp */,
 				2BA3C2EE214D056200D9441F /* Defs.h */,
+				2B7C858B214D142800DF0C0D /* Camera.cpp */,
+				2B7C858C214D142800DF0C0D /* Camera.hpp */,
 			);
 			path = GameEngine;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 		2B33FC5B214C8CF800CFF6A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B7B8B36214D5F030087FCD6 /* SplashScreen.png */,
 				2B33FC5C214C8CF800CFF6A2 /* cute_image.jpg */,
 				2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */,
 				2B33FC60214C8CF800CFF6A2 /* sansation.ttf */,
@@ -418,6 +425,7 @@
 				2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */,
 				B524F431214D0B42006F4A2E /* tileset.png in Resources */,
 				2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */,
+				2B7B8B37214D5F030087FCD6 /* SplashScreen.png in Resources */,
 				2B33FC5D214C8CF800CFF6A2 /* cute_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,13 +476,13 @@
 				E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */,
 				2B2AE60F214C93C800AF4A0D /* RenderComponent.cpp in Sources */,
 				B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */,
-				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,
-				2B2AE609214C93A700AF4A0D /* ParticleComponent.cpp in Sources */,
 				2B2AE5E1214C918A00AF4A0D /* PlayerMovementComponent.cpp in Sources */,
 				B524F41A214D03A2006F4A2E /* CameraManager.cpp in Sources */,
 				2B2AE61C214CD31D00AF4A0D /* NetworkedComponent.cpp in Sources */,
 				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,
 				2B2AE609214C93A700AF4A0D /* ParticleComponent.cpp in Sources */,
+				2B7C858D214D142800DF0C0D /* Camera.cpp in Sources */,
+				2B2AE5E1214C918A00AF4A0D /* PlayerMovementComponent.cpp in Sources */,
 				2B7C8587214D069100DF0C0D /* ProjectileEmitterComponent.cpp in Sources */,
 				2B2AE5F6214C92A900AF4A0D /* TextureManager.cpp in Sources */,
 				2B7C8586214D069100DF0C0D /* ProjectileMovementComponent.cpp in Sources */,
@@ -499,10 +507,12 @@
 					/usr/local/include/,
 					"$(inherited)",
 				);
+				INFOPLIST_PREPROCESS = YES;
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib/,
 					"$(inherited)",
 				);
+				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -525,6 +535,7 @@
 				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
 				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
 				SUPPORTED_PLATFORMS = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Debug;
 		};
@@ -543,10 +554,12 @@
 					/usr/local/include/,
 					"$(inherited)",
 				);
+				INFOPLIST_PREPROCESS = YES;
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib/,
 					"$(inherited)",
 				);
+				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -569,42 +582,37 @@
 				SFML_SYSTEM = "$(SFML_LINK_PREFIX) sfml-system$(SFML_LINK_SUFFIX)";
 				SFML_WINDOW = "$(SFML_LINK_PREFIX) sfml-window$(SFML_LINK_SUFFIX)";
 				SUPPORTED_PLATFORMS = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Release;
 		};
 		2B33FC67214C8CF800CFF6A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include/,
-					"$(inherited)",
-					"$(SRCROOT)/**",
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = "Game Box Online/Game Box Online-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				USER_HEADER_SEARCH_PATHS = "./**";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Debug;
 		};
 		2B33FC68214C8CF800CFF6A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_STYLE = Automatic;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include/,
-					"$(inherited)",
-					"$(SRCROOT)/**",
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = "Game Box Online/Game Box Online-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				USER_HEADER_SEARCH_PATHS = "./**";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Release;
 		};

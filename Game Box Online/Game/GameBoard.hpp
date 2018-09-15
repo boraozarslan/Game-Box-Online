@@ -23,7 +23,9 @@ namespace Game
 		void SpawnNewRandomTiledObstacles();
 		void SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& size);
 
-		bool IsGameOver() const { return m_isGameOver; }		
+		bool IsGameOver() const { return m_isGameOver; }
+        
+        PlayerEntity* GetPlayer() const { return m_player; }
 
 	protected:
 		//Placeholder temp - should go to helpers or smth.

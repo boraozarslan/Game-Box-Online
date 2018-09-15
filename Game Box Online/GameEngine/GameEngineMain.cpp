@@ -10,6 +10,7 @@
 #include "Util/CameraManager.hpp"
 #include "SplashScreen.hpp"
 #include "Menu.hpp"
+#include "Camera.hpp"
 
 using namespace GameEngine;
 
@@ -38,7 +39,8 @@ GameEngineMain::GameEngineMain()
 
 GameEngineMain::~GameEngineMain()
 {
-	delete m_renderTarget;
+      delete m_renderTarget;
+      delete m_camera;
 }
 
 
@@ -90,29 +92,29 @@ void GameEngineMain::RemoveEntity(Entity* entity)
 
 void GameEngineMain::Update()
 {
-    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+  std::this_thread::sleep_for(std::chrono::milliseconds(20));
+  //First update will happen after init for the time being (we will add loading later)
+  if (!m_windowInitialised)
+  {
+    m_windowInitialised = true;
+    OnInitialised();
+  }
+  
+  RemovePendingEntities();
+  
+  UpdateWindowEvents();
+  if (m_gameBoard)
+    m_gameBoard->Update();
+  
+  UpdateEntities();
+  m_camera->Update();
+  RenderEntities();
+  
+  AddPendingEntities();
+  
+  m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
 
-	//First update will happen after init for the time being (we will add loading later)
-	if (!m_windowInitialised)
-	{
-		m_windowInitialised = true;
-		OnInitialised();
-	}
-	
-	RemovePendingEntities();
-	
-	UpdateWindowEvents();
-	if (m_gameBoard)
-		m_gameBoard->Update();
-
-	UpdateEntities();
-	RenderEntities();
-
-	AddPendingEntities();
-	
-	//We pool last delta and will pass it as GetTimeDelta - from game perspective it's more important that DT stays the same the whole frame, rather than be updated halfway through the frame
-	m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
-	sm_deltaTimeClock.restart();
+  sm_deltaTimeClock.restart();
 }
 
 
@@ -239,9 +241,9 @@ void GameEngineMain::ShowMenu()
 
 void GameEngineMain::StartGame()
 {
-  //Engine is initialised, this spot should be used for game object and clocks initialisation
-  m_gameBoard = new Game::GameBoard();
-  sm_deltaTimeClock.restart();
-  sm_gameClock.restart();
+    m_gameBoard = new Game::GameBoard();
+    m_camera = new Camera(m_gameBoard->GetPlayer(), m_renderWindow);
+    sm_deltaTimeClock.restart();
+    sm_gameClock.restart();
 }
 
