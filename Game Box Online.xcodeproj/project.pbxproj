@@ -35,6 +35,7 @@
 		2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */; };
 		2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC60214C8CF800CFF6A2 /* sansation.ttf */; };
 		2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC62214C8CF800CFF6A2 /* icon.png */; };
+		E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A3214CB7CE0085DF57 /* Menu.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		2B33FC60214C8CF800CFF6A2 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		2B33FC62214C8CF800CFF6A2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		E1B787A3214CB7CE0085DF57 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
+		E1B787A4214CB7CE0085DF57 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				2B2AE5EC214C925100AF4A0D /* Util */,
 				2B2AE5E9214C921900AF4A0D /* GameEngineMain.cpp */,
 				2B2AE5EA214C921900AF4A0D /* GameEngineMain.hpp */,
+				E1B787A3214CB7CE0085DF57 /* Menu.cpp */,
+				E1B787A4214CB7CE0085DF57 /* Menu.hpp */,
 			);
 			path = GameEngine;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				2B2AE5DA214C90FD00AF4A0D /* GameBoard.cpp in Sources */,
 				2B2AE5EB214C921900AF4A0D /* GameEngineMain.cpp in Sources */,
 				2B2AE5E4214C919F00AF4A0D /* ObstacleEntity.cpp in Sources */,
+				E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */,
 				2B2AE60F214C93C800AF4A0D /* RenderComponent.cpp in Sources */,
 				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,
 				2B2AE609214C93A700AF4A0D /* ParticleComponent.cpp in Sources */,
