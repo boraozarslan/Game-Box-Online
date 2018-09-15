@@ -21,6 +21,7 @@ namespace Game
 
     protected:
         sf::Vector2f current_vector;
+        float duration_remaining;
     };
 }
 
