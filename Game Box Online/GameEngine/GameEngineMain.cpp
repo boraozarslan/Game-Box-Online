@@ -6,6 +6,8 @@
 #include <SFML/Graphics.hpp>
 #include "Util/TextureManager.hpp"
 #include "Util/AnimationManager.hpp"
+#include "SplashScreen.hpp"
+#include "Menu.hpp"
 
 using namespace GameEngine;
 
@@ -35,15 +37,17 @@ GameEngineMain::~GameEngineMain()
 
 void GameEngineMain::OnInitialised()
 {
-  m_gameBoard = new Game::GameBoard();
-  sm_deltaTimeClock.restart();
-  sm_gameClock.restart();
+    ShowSplashScreen();
 }
 
 
 void GameEngineMain::CreateAndSetUpWindow()
 {
-  m_renderWindow = new sf::RenderWindow(sf::VideoMode((unsigned int)WINDOW_WIDTH, (unsigned int)WINDOW_HEIGHT), "Hack The North");
+    auto fsmodes = sf::VideoMode::getFullscreenModes();
+    WINDOW_WIDTH = fsmodes.back().width;
+    WINDOW_HEIGHT = fsmodes.back().height;
+    //1920 x 1080
+    m_renderWindow = new sf::RenderWindow(fsmodes.back(), "Hack The North");
   m_renderTarget = m_renderWindow;
 }
 
@@ -192,3 +196,23 @@ void GameEngineMain::RenderEntities()
   }
 }
 
+void GameEngineMain::ShowSplashScreen()
+{
+    SplashScreen splashScreen{m_renderTarget, m_renderWindow};
+    splashScreen.WaitForKeystroke();
+    ShowMenu();
+}
+
+void GameEngineMain::ShowMenu()
+{
+    Menu menu{m_renderTarget, m_renderWindow};
+    menu.ShowMenu();
+    StartGame();
+}
+
+void GameEngineMain::StartGame()
+{
+    m_gameBoard = new Game::GameBoard();
+    sm_deltaTimeClock.restart();
+    sm_gameClock.restart();
+}
