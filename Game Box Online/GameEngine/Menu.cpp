@@ -19,8 +19,6 @@ sf::Text* playText = nullptr;
 sf::Text* exitText = nullptr;
 sf::Font* font = nullptr;
 
-
-
 Menu::Menu(sf::RenderTarget* target, sf::RenderWindow* window) :
 m_target(target), m_window(window)
 {
@@ -31,7 +29,6 @@ m_target(target), m_window(window)
     {
         std::cout << "Can't find the font file" << std::endl;
     }
-    
 
     filePath = resourcePath();
     filePath.append("SplashScreen.png");
@@ -90,20 +87,31 @@ void Menu::ShowMenu()
         // get the bounding box of the entities
         sf::FloatRect boundingBox = play->getGlobalBounds();
         sf::FloatRect boundingBoxExit = exitgame->getGlobalBounds();
+        
         // Event processing
         sf::Event event;
         while (m_window->pollEvent(event))
         {
+            sf::Vector2f Mouse = m_window->mapPixelToCoords(sf::Mouse::getPosition(*m_window));
+            if (boundingBoxExit.contains(Mouse))
+            {
+                // collision!
+                if(event.type == sf::Event::MouseButtonPressed)
+                {
+                    exit(0);
+                }
+            }
             // Request for closing the window
             if (event.type == sf::Event::Closed)
             {
+                
                 m_window->close();
             }
-            sf::Vector2f Mouse = m_window->mapPixelToCoords(sf::Mouse::getPosition(*m_window));
+            
             if (boundingBox.contains(Mouse))
             {
                 // collision!
-                std::cout << "COLLISION!" << std::endl;
+                //std::cout << "COLLISION!" << std::endl;
                 
                 if(event.type == sf::Event::MouseButtonPressed)
                 {
