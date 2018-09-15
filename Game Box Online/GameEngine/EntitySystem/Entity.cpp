@@ -53,8 +53,3 @@ void Entity::Update()
     component->Update();
   }
 }
-
-
-
-
-
