@@ -36,7 +36,9 @@ GameBoard::~GameBoard()
 void GameBoard::Update()
 {
   float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
-  if (!m_isGameOver)
+
+  // Disabling this if
+  if (!m_isGameOver && false)
   {
     m_lastObstacleSpawnTimer -= dt;
     if (m_lastObstacleSpawnTimer <= 0.f)
@@ -53,7 +55,7 @@ void GameBoard::Update()
 
 void GameBoard::UpdateObstacles(float dt)
 {
-  static float obstacleSpeed = 100.f;
+  static float obstacleSpeed = 0.f;
   
   for (std::vector<GameEngine::Entity*>::iterator it = m_obstacles.begin(); it != m_obstacles.end(); ++it)
   {

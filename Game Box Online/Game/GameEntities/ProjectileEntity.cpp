@@ -5,7 +5,7 @@
 
 using namespace Game;
 
-ProjectileEntity::ProjectileEntity()
+ProjectileEntity::ProjectileEntity(): damage(10.f)
 {
     m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
     AddComponent<GameEngine::CollidablePhysicsComponent>();

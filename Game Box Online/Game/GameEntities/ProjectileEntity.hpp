@@ -20,5 +20,6 @@ namespace Game
         GameEngine::SpriteRenderComponent* m_renderComponent;
         ProjectileMovementComponent*   m_projectileMovementComponent;
         GameEngine::AnimationComponent* m_animComponent;
+        float damage;
     };
 }
