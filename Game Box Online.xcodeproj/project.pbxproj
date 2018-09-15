@@ -40,6 +40,9 @@
 		E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A3214CB7CE0085DF57 /* Menu.cpp */; };
 		E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */; };
 		E1B787AA214CD0270085DF57 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787A9214CD0270085DF57 /* SplashScreen.png */; };
+		E1B787AF214D06880085DF57 /* ProjectileEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */; };
+		E1B787B0214D06880085DF57 /* ProjectileMovementComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */; };
+		E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +105,12 @@
 		E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
 		E1B787A7214CCCB70085DF57 /* SplashScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplashScreen.hpp; sourceTree = "<group>"; };
 		E1B787A9214CD0270085DF57 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
+		E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEmitterComponent.cpp; sourceTree = "<group>"; };
+		E1B787AC214D06870085DF57 /* ProjectileEmitterComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEmitterComponent.hpp; sourceTree = "<group>"; };
+		E1B787AD214D06870085DF57 /* ProjectileMovementComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileMovementComponent.hpp; sourceTree = "<group>"; };
+		E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileMovementComponent.cpp; sourceTree = "<group>"; };
+		E1B787B1214D069B0085DF57 /* ProjectileEntity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEntity.hpp; sourceTree = "<group>"; };
+		E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEntity.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +151,8 @@
 		2B2AE5DC214C912100AF4A0D /* GameEntities */ = {
 			isa = PBXGroup;
 			children = (
+				E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */,
+				E1B787B1214D069B0085DF57 /* ProjectileEntity.hpp */,
 				2B2AE5E2214C919F00AF4A0D /* ObstacleEntity.cpp */,
 				2B2AE5E3214C919F00AF4A0D /* ObstacleEntity.hpp */,
 				2B2AE5E5214C91AA00AF4A0D /* PlayerEntity.cpp */,
@@ -153,6 +164,10 @@
 		2B2AE5DE214C916200AF4A0D /* GameComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */,
+				E1B787AC214D06870085DF57 /* ProjectileEmitterComponent.hpp */,
+				E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */,
+				E1B787AD214D06870085DF57 /* ProjectileMovementComponent.hpp */,
 				2B2AE5DF214C918A00AF4A0D /* PlayerMovementComponent.cpp */,
 				2B2AE5E0214C918A00AF4A0D /* PlayerMovementComponent.hpp */,
 			);
@@ -382,6 +397,7 @@
 				2B2AE5F0214C929100AF4A0D /* AnimationManager.cpp in Sources */,
 				2B2AE5FD214C930F00AF4A0D /* Component.cpp in Sources */,
 				2B2AE5F3214C929E00AF4A0D /* CollisionManager.cpp in Sources */,
+				E1B787AF214D06880085DF57 /* ProjectileEmitterComponent.cpp in Sources */,
 				2B33FC5A214C8CF800CFF6A2 /* main.cpp in Sources */,
 				2B2AE600214C932700AF4A0D /* AnimationComponent.cpp in Sources */,
 				2B2AE5FA214C930400AF4A0D /* Entity.cpp in Sources */,
@@ -391,9 +407,11 @@
 				2B2AE5DA214C90FD00AF4A0D /* GameBoard.cpp in Sources */,
 				2B2AE619214CD14B00AF4A0D /* NetworkManager.cpp in Sources */,
 				2B2AE5EB214C921900AF4A0D /* GameEngineMain.cpp in Sources */,
+				E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */,
 				E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */,
 				2B2AE5E4214C919F00AF4A0D /* ObstacleEntity.cpp in Sources */,
 				E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */,
+				E1B787B0214D06880085DF57 /* ProjectileMovementComponent.cpp in Sources */,
 				2B2AE60F214C93C800AF4A0D /* RenderComponent.cpp in Sources */,
 				2B2AE61C214CD31D00AF4A0D /* NetworkedComponent.cpp in Sources */,
 				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,

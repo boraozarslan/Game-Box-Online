@@ -13,11 +13,11 @@
 using namespace GameEngine;
 
 sf::RectangleShape* screen;
-sf::RectangleShape* rectangle;
+sf::RectangleShape* exitgame;
 sf::RectangleShape* play;
 sf::Text* playText;
+sf::Text* exitText;
 sf::Font* font;
-
 
 
 Menu::Menu(sf::RenderTarget* target, sf::RenderWindow* window) :
@@ -37,21 +37,35 @@ m_target(target), m_window(window)
     texture->loadFromFile(filePath);
     screen = new sf::RectangleShape(sf::Vector2f(GameEngineMain::WINDOW_WIDTH, GameEngineMain::WINDOW_HEIGHT));
     
+    const int buttonWidth = (GameEngineMain::WINDOW_WIDTH) / 8;
+    const int buttonHeight = (GameEngineMain::WINDOW_WIDTH) / 20;
+    
     screen->setTexture(texture);
-    rectangle = new sf::RectangleShape(sf::Vector2f(120, 50));
-    play = new sf::RectangleShape(sf::Vector2f(120, 50));
-    rectangle->setPosition(100.f, 400.f);
-    play->setPosition(300.f, 400.f);
+    
+    play = new sf::RectangleShape(sf::Vector2f(buttonWidth, buttonHeight));
+    
+    play->setPosition((GameEngineMain::WINDOW_WIDTH)*.30, (GameEngineMain::WINDOW_HEIGHT)*.7);
     play->setFillColor(sf::Color::Blue);
-
     playText = new sf::Text;
     playText->setFont(*font);
     playText->setStyle(sf::Text::Bold);
     playText->setString( "Play Game" );
-    playText->setCharacterSize(20);
+    playText->setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
     playText->setFillColor(sf::Color::White);
-    playText->setPosition(310.f, 410.f);
-   /* //Setup clickable regions
+    playText->setPosition((GameEngineMain::WINDOW_WIDTH)*.30, (GameEngineMain::WINDOW_HEIGHT)*.7);
+    
+    exitgame = new sf::RectangleShape(sf::Vector2f(buttonWidth, buttonHeight));
+    exitgame->setPosition((GameEngineMain::WINDOW_WIDTH)*.60,(GameEngineMain::WINDOW_HEIGHT)*.7);
+    exitgame->setFillColor(sf::Color::Blue);
+    exitText = new sf::Text;
+    exitText->setFont(*font);
+    exitText->setStyle(sf::Text::Bold);
+    exitText->setString( "Exit" );
+    exitText->setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
+    exitText->setFillColor(sf::Color::White);
+    exitText->setPosition((GameEngineMain::WINDOW_WIDTH)*.60,(GameEngineMain::WINDOW_HEIGHT)*.7);
+    
+    /* //Setup clickable regions
     //Play menu item coordinates
     MenuItem playButton;
     playButton.rect.top= 145;
@@ -59,8 +73,7 @@ m_target(target), m_window(window)
     playButton.rect.left = 0;
     playButton.rect.height = 50;
     playButton.action = Play; */
-    
-    
+
     
     
 }
@@ -91,19 +104,20 @@ void Menu::ShowMenu()
         
         // Draw some graphical entities
         m_window->draw(*screen);
-        m_window->draw(*rectangle);
         m_window->draw(*play);
         m_window->draw(*playText);
-        
+        m_window->draw(*exitgame);
+        m_window->draw(*exitText);
         
         // End the current frame and display its contents on screen
         m_window->display();
     }
     
     delete screen;
-    delete rectangle;
     delete play;
+    delete exitgame;
     delete playText;
+    delete exitText;
     delete texture;
     delete font;
 }
