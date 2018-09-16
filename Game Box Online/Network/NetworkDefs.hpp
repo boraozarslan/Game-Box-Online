@@ -16,7 +16,7 @@ const unsigned short UDP_PORT = 25930;
 const unsigned short MAX_PLAYERS = 16;
 
 const unsigned short POS_MSG = 0;
-const unsigned short MSG2 = 1;
+const unsigned short PLAYER_JOIN_MSG = 1;
 
 class NetworkMessage
 {

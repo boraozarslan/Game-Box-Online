@@ -30,8 +30,7 @@ namespace GameEngine {
     private:
         sf::RenderTarget* m_target;
         sf::RenderWindow* m_window;
-        sf::RectangleShape* screen;
-        sf::Texture* texture;
+      
         MenuResult GetMenuResponse(sf::RenderWindow& window);
         MenuResult HandleClick(int x, int y);
         std::list<MenuItem> _menuItems;
