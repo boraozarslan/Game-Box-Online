@@ -4,6 +4,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <string>
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include "Util/TextureManager.hpp"
@@ -312,6 +313,17 @@ void GameEngineMain::RenderEntities()
         m_renderWindow->draw(hpBox);
         m_renderWindow->draw(text);
     }
+
+    sf::Text score;
+    Game::PlayerEntity* playerEntity = GetGameBoard()->GetPlayer();
+    score.setFont(font);
+    score.setStyle(sf::Text::Bold);
+    score.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/30);
+    score.setFillColor(sf::Color::Black);
+    score.setString("Score: " + std::to_string(playerEntity->GetScore()));
+    score.setPosition(playerEntity->GetPos().x + 450.f, playerEntity->GetPos().y + 400.f);
+
+    m_renderWindow->draw(score);
 
 	if (m_renderWindow && m_renderWindow->isOpen())
 	{
