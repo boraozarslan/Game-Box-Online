@@ -67,6 +67,8 @@
 		2BB6D812214E447000B6A267 /* NetworkedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2AE61A214CD31D00AF4A0D /* NetworkedComponent.cpp */; };
 		2BB6D813214E447000B6A267 /* DumbAIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5BADDFF214D9CFB00DA8DD6 /* DumbAIComponent.cpp */; };
 		2BB6D814214E44AE00B6A267 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B33FC56214C8CF800CFF6A2 /* ResourcePath.mm */; };
+		2BB6D815214E4C4F00B6A267 /* NetworkDefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5696926214E45890084AC21 /* NetworkDefs.cpp */; };
+		2BB6D816214E4C7800B6A267 /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */; };
 		B524F419214D03A2006F4A2E /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F411214D03A1006F4A2E /* SoundManager.cpp */; };
 		B524F41A214D03A2006F4A2E /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F413214D03A2006F4A2E /* CameraManager.cpp */; };
 		B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F41E214D05EF006F4A2E /* PlayerSoundComponent.cpp */; };
@@ -615,6 +617,7 @@
 				2BB6D7F9214E435B00B6A267 /* GameEngineMain.cpp in Sources */,
 				2BB6D7FC214E435B00B6A267 /* HealthStatusComponent.cpp in Sources */,
 				2BB6D7F1214E435B00B6A267 /* Entity.cpp in Sources */,
+				2BB6D815214E4C4F00B6A267 /* NetworkDefs.cpp in Sources */,
 				2BB6D7FB214E435B00B6A267 /* SplashScreen.cpp in Sources */,
 				2BB6D80F214E447000B6A267 /* ParticleEmitterComponent.cpp in Sources */,
 				2BB6D809214E447000B6A267 /* DumbProjectileComponent.cpp in Sources */,
@@ -625,6 +628,7 @@
 				2BB6D80B214E447000B6A267 /* SoundComponent.cpp in Sources */,
 				2BB6D801214E435B00B6A267 /* PlayerMovementComponent.cpp in Sources */,
 				2BB6D7F3214E435B00B6A267 /* CameraManager.cpp in Sources */,
+				2BB6D816214E4C7800B6A267 /* GameOverScreen.cpp in Sources */,
 				2BB6D80C214E447000B6A267 /* CollidableComponent.cpp in Sources */,
 				2BB6D812214E447000B6A267 /* NetworkedComponent.cpp in Sources */,
 				2BB6D814214E44AE00B6A267 /* ResourcePath.mm in Sources */,
