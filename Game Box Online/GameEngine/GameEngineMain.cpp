@@ -13,6 +13,7 @@
 #include "Menu.hpp"
 #include "HealthStatusComponent.hpp"
 #include "ResourcePath.hpp"
+#include "NetworkManager.hpp"
 
 using namespace GameEngine;
 

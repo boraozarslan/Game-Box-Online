@@ -7,8 +7,8 @@
 //
 
 #include "NetworkManager.hpp"
-#include "../EntitySystem/Components/NetworkedComponent.hpp"
 #include "GameEngineMain.hpp"
+#include "NetworkDefs.hpp"
 
 #include <assert.h>
 #include <iostream>
@@ -48,15 +48,6 @@ NetworkManager::NetworkManager(bool host)
 NetworkManager::~NetworkManager()
 {
   delete m_listener;
-}
-
-void NetworkManager::RegisterNetworked(NetworkedComponent* networked)
-{
-
-}
-
-void NetworkManager::UnRegisterNetworked(NetworkedComponent* networked)
-{
 }
 
 

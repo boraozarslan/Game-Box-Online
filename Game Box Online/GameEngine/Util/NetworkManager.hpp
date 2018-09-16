@@ -10,12 +10,9 @@
 
 #include <vector>
 #include <SFML/Network.hpp>
-#include "NetworkDefs.hpp"
 
 namespace GameEngine
-{
-  class NetworkedComponent;
-  
+{ 
   class NetworkManager
   {
   public:
@@ -23,8 +20,6 @@ namespace GameEngine
     
     static NetworkManager* GetInstance(bool host = false) { if (!sm_instance) sm_instance = new NetworkManager(host); return sm_instance; }
     
-    void RegisterNetworked(NetworkedComponent* networked);
-    void UnRegisterNetworked(NetworkedComponent* networked);
     void PreUpdate();
     void PostUpdate();
     
@@ -32,7 +27,7 @@ namespace GameEngine
     NetworkManager(bool host);
     static NetworkManager* sm_instance;
     
-    sf::TcpSocket tcpConnections[MAX_PLAYERS];
+    sf::TcpSocket tcpConnections[16];
     sf::TcpListener* m_listener;
     bool m_host;
   };
