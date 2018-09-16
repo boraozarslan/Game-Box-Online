@@ -15,13 +15,12 @@ GameBoard::GameBoard()
 	, m_backGround(nullptr)
 {
 	m_player = new PlayerEntity(false);
-
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 	m_player->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, SCREEN_DIMENSION / 2));
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
     // Initialize enemies (TODO: replace this with networks code)
-  int numEnemies = 0;//RandomFloatRange(4, 7);
+    int numEnemies = GameEngine::GameEngineMain::GetInstance()->IsInNetworkMode() ? 0 : RandomFloatRange(4, 7);
 
     for (int i = 0; i < numEnemies; ++i) {
         PlayerEntity* enemy = new PlayerEntity(true);
