@@ -254,12 +254,11 @@ void GameEngineMain::RenderEntities()
         hpBox.setFillColor(sf::Color(250,0,0));
         
         hpBox.setPosition(healthStatus->HealthPos.x - 170.f,healthStatus->HealthPos.y - 170.f);
-        hpBox.setFillColor(sf::Color(50, 250, 50));
+        hpBox.setFillColor(sf::Color(244, 90, 162)); // nice green: (50, 250, 50)
         
         m_renderWindow->draw(hpMaxBox);
         m_renderWindow->draw(hpBox);
         m_renderWindow->draw(text);
-        
     }
 
 	if (m_renderWindow && m_renderWindow->isOpen())
