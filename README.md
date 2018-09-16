@@ -52,3 +52,17 @@ _Simple Fog of War_
 
 There is the preliminary workings of a fog of war - a safe area of the map where the players do not take damage over time. Currently, a shrinking circle is spawned on the map. In the future, damage to players outside of the circle can be added.
 
+# Challenges
+
+_Development Setup_
+
+The out-of-the-box API on Mac OS did not work. Unfortunately, all of our team members were on Mac laptops. We had to spend some time to manipulate project set-up code (like packages) to enable SFML and the API on Mac (specifically Xcode).
+
+_Networking_
+
+The additional networking layer we added provided a lot of challenge, as it was difficult to coordinate the updating of clients and hosts to sync game data with no built-in support from the API.
+
+_Adding and Removing Entities_
+
+We had lots of different logic that prompted entities to be added and removed in the game. The out-of-the-box API staggered these requests, resulting in some conflicts when multiple behaviours of an Entity request the same remove entity action. We addressed this by adding more robust guards to the removal process.
+
