@@ -225,11 +225,15 @@ void GameEngineMain::RenderEntities()
         std::cout << "Can't find the font file" << std::endl;
     }
     
+
     sf::Text text;
     text.setFont(font);
     text.setStyle(sf::Text::Bold);
     text.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
     text.setFillColor(sf::Color::White);
+    
+    const int hpBoxWidth = (GameEngineMain::WINDOW_WIDTH) / 10;
+    const int hpBoxHeight = (GameEngineMain::WINDOW_HEIGHT) / 22;
     
     
     for(auto healthStatus : Game::HealthStatusComponent::healths)
@@ -237,10 +241,16 @@ void GameEngineMain::RenderEntities()
         if(healthStatus->m_player == nullptr)
             continue;
         std::string hp(std::to_string((int)healthStatus->m_player->m_health));
-        text.setString(hp);
-        text.setPosition(healthStatus->HealthPos);
+        text.setString(hp+"%");
+        text.setPosition(healthStatus->HealthPos.x - 130.f,healthStatus->HealthPos.y - 170.f);
         
+        sf::RectangleShape hpBox(sf::Vector2f(hpBoxWidth, hpBoxHeight));
+        hpBox.setPosition(healthStatus->HealthPos.x - 170.f,healthStatus->HealthPos.y - 170.f);
+        hpBox.setFillColor(sf::Color(50, 250, 50));
+        
+        m_renderWindow->draw(hpBox);
         m_renderWindow->draw(text);
+        
     }
 
 	if (m_renderWindow && m_renderWindow->isOpen())
