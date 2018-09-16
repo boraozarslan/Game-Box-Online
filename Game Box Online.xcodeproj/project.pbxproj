@@ -56,6 +56,7 @@
 		E1B787C8214E19390085DF57 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787C7214E19390085DF57 /* GameOverScreen.png */; };
 		E1B787CB214E1DAE0085DF57 /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */; };
 		E1B787CD214E353F0085DF57 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CC214E353E0085DF57 /* shuriken.png */; };
+		E1B787CF214E3F180085DF57 /* ninjathrowing.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CE214E3F180085DF57 /* ninjathrowing.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +153,7 @@
 		E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScreen.cpp; sourceTree = "<group>"; };
 		E1B787CA214E1DAE0085DF57 /* GameOverScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverScreen.hpp; sourceTree = "<group>"; };
 		E1B787CC214E353E0085DF57 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
+		E1B787CE214E3F180085DF57 /* ninjathrowing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninjathrowing.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +367,7 @@
 		B5BADDF2214D89D600DA8DD6 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E1B787CE214E3F180085DF57 /* ninjathrowing.png */,
 				E1B787CC214E353E0085DF57 /* shuriken.png */,
 				E1B787C7214E19390085DF57 /* GameOverScreen.png */,
 				B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */,
@@ -445,6 +448,7 @@
 				E1B787C8214E19390085DF57 /* GameOverScreen.png in Resources */,
 				B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */,
 				2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */,
+				E1B787CF214E3F180085DF57 /* ninjathrowing.png in Resources */,
 				2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */,
 				B5BADDFB214D89D600DA8DD6 /* Flappy.png in Resources */,
 				B5BADDF9214D89D600DA8DD6 /* SplashScreen.png in Resources */,
