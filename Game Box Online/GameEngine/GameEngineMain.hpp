@@ -29,8 +29,12 @@ namespace GameEngine
 		void Update();		
 		void SetRenderTarget(sf::RenderTarget* target) { m_renderTarget = target; }
 
-    Game::GameBoard* GetGameBoard() { return m_gameBoard; }
+        Game::GameBoard* GetGameBoard() { return m_gameBoard; }
         
+        unsigned short GetPlayerId() { return m_playerId; }
+        
+        sf::TcpSocket & GetSocket() { return m_socket; }
+
 		void AddEntity(Entity* entity);
 		void RemoveEntity(Entity* entity);
         

@@ -18,6 +18,7 @@
 #include "NetworkDefs.hpp"
 #include "GameBoard.hpp"
 
+
 using namespace GameEngine;
 
 float GameEngineMain::WINDOW_HEIGHT = 1020;
@@ -123,46 +124,36 @@ void GameEngineMain::Update()
     m_windowInitialised = true;
     OnInitialised();
   }
-  
-  NetworkManager* networkManager = NetworkManager::GetInstance(m_host);
-  networkManager->PreUpdate();
-  
-  if(!m_host)
-  {
-    // The below code should be in preupdate if it's not host
-    sf::Packet packet;
-    if (m_socket.receive(packet) == sf::Socket::Status::Done) {
-      //assert(packet.getDataSize() == sizeof(WorldUpdate));
-      WorldUpdate worldUpdate;
-      packet >> worldUpdate;
-      
-      std::cout << "Received world update packet!" << std::endl;
-      // TODO diff the received packet
+    
+    NetworkManager* networkManager = nullptr;
+    
+    if (m_isInNetworkMode) {
+        networkManager = NetworkManager::GetInstance(m_host);
+        networkManager->PreUpdate();
+    }
+
+    if (m_isInNetworkMode && m_host)
+    {
+        if (m_gameBoard)
+          m_gameBoard->Update();
+
+        UpdateEntities();
+    } else {
+        RemovePendingEntities();
+        
+        UpdateWindowEvents();
+        if (m_gameBoard)
+            m_gameBoard->Update();
+        
+        UpdateEntities();
+        RenderEntities();
+        
+        AddPendingEntities();
     }
     
-    //First update will happen after init for the time being (we will add loading later)
-  
-  
-    RemovePendingEntities();
-  
-    UpdateWindowEvents();
-    if (m_gameBoard)
-      m_gameBoard->Update();
-  
-    UpdateEntities();
-    RenderEntities();
-  
-    AddPendingEntities();
-  }
-  else
-  {
-    if (m_gameBoard)
-      m_gameBoard->Update();
-    
-    UpdateEntities();
-  }
-  
-  networkManager->PostUpdate();
+    if (m_isInNetworkMode) {
+        networkManager->PostUpdate();
+    }
   
   m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
 
