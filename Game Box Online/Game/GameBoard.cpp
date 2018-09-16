@@ -21,7 +21,7 @@ GameBoard::GameBoard()
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
     // Initialize enemies (TODO: replace this with networks code)
-    int numEnemies = RandomFloatRange(4, 10);
+    int numEnemies = RandomFloatRange(4, 7);
 
     for (int i = 0; i < numEnemies; ++i) {
         PlayerEntity* enemy = new PlayerEntity(true);
@@ -29,8 +29,8 @@ GameBoard::GameBoard()
 
         GameEngine::GameEngineMain::GetInstance()->AddEntity(enemy);
         enemy->SetPos(sf::Vector2f(
-            RandomFloatRange(SCREEN_DIMENSION / 4, 3 * SCREEN_DIMENSION / 4),
-            RandomFloatRange(SCREEN_DIMENSION / 4, 3 * SCREEN_DIMENSION / 4)
+            RandomFloatRange(1.f, SCREEN_DIMENSION - 1.f),
+            RandomFloatRange(1.f, SCREEN_DIMENSION - 1.f)
         ));
         enemy->SetSize(sf::Vector2f(50.f, 50.f));
     }
