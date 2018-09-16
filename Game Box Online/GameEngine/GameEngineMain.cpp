@@ -23,10 +23,11 @@ GameEngineMain* GameEngineMain::sm_instance = nullptr;
 sf::Clock		GameEngineMain::sm_deltaTimeClock;
 sf::Clock		GameEngineMain::sm_gameClock;
 
-GameEngineMain::GameEngineMain()
+GameEngineMain::GameEngineMain(bool host)
 	: m_renderTarget(nullptr)	
 	, m_windowInitialised(false)
 	, m_gameBoard(nullptr)
+  , m_host(host)
 {
 	CreateAndSetUpWindow();
 	//Load predefined textures

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <SFML/Network.hpp>
 #include "NetworkDefs.hpp"
+#include "GameEngineMain.hpp"
 
 sf::Mutex networkLock;
 
@@ -18,33 +19,13 @@ unsigned short connectionLen = 0;
 
 int main(int argc, char** argv)
 {
-  sf::Thread* thread = nullptr;
-  
-  // Listen in UDP for unreliable shtuff
-  // Events it's listening for:
-  //  player movement
-  
-  sf::UdpSocket socket;
-  
-  auto status = sf::Socket::NotReady;
-  while(status != sf::Socket::Done)
-  {
-    status = socket.bind(UDP_PORT);
-    if(status == sf::Socket::Error)
-    {
-      std::cout << "UDP Socket binding returned an ERROR code.\n";
-    }
-  }
-  
-  socket.setBlocking(false);
-  
   // Listen in TCP for reliable shtuff
   // Events it's listening for
   //  player join
   
   sf::TcpListener tcpListener;
   
-  status = sf::Socket::NotReady;
+  auto status = sf::Socket::NotReady;
   while(status != sf::Socket::Done)
   {
     status = tcpListener.listen(TCP_PORT);
@@ -53,6 +34,15 @@ int main(int argc, char** argv)
       std::cout << "TCP Socket listening returned an ERROR code.\n";
     }
   }
+  
+  GameEngine::GameEngineMain* mainEngine = GameEngine::GameEngineMain::GetInstance();
+  while (mainEngine->GetRenderWindow()->isOpen())
+  {
+    mainEngine->Update();
+  }
+  
+  delete mainEngine;
+  return 0;
   
   tcpListener.setBlocking(false);
   for(unsigned short i = 0; i < MAX_PLAYERS; ++i)
