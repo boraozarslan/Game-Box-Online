@@ -36,6 +36,10 @@ void ProjectileMovementComponent::Update()
     GetEntity()->SetPos(GetEntity()->GetPos() + current_vector);
 }
 
-void ProjectileMovementComponent::setVector(sf::Vector2f new_vector) {
+void ProjectileMovementComponent::SetVector(sf::Vector2f new_vector) {
     current_vector = new_vector;
+}
+
+void ProjectileMovementComponent::SetDuration(float duration) {
+    duration_remaining = duration;
 }
