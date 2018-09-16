@@ -20,7 +20,7 @@ void ProjectileEmitterComponent::Update()
     float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
     m_toEmitTimer -= dt;
 
-    if (m_toEmitTimer > 0.f) {
+    if (m_toEmitTimer > 0.f || GameEngine::GameEngineMain::GetInstance()->IsGameOver()) {
         return;
     }
 
