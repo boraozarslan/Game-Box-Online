@@ -10,7 +10,6 @@
 #include "../ResourcePath.hpp"
 using namespace GameEngine;
 
-
 SplashScreen::SplashScreen(sf::RenderTarget* target, sf::RenderWindow* window) :
     m_target(target), m_window(window)
 {
