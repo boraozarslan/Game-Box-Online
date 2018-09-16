@@ -4,6 +4,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <sstream>
 #include <SFML/Graphics.hpp>
 #include "Util/TextureManager.hpp"
 #include "Util/AnimationManager.hpp"
@@ -11,6 +12,8 @@
 #include "SplashScreen.hpp"
 #include "Menu.hpp"
 #include "Camera.hpp"
+#include "HealthStatusComponent.hpp"
+#include "ResourcePath.hpp"
 
 using namespace GameEngine;
 
@@ -168,7 +171,6 @@ void GameEngineMain::UpdateWindowEvents()
 	}
 }
 
-
 void GameEngineMain::UpdateEntities()
 {
 	//Update que
@@ -217,6 +219,32 @@ void GameEngineMain::RenderEntities()
 	{		
 		renderer->Render(m_renderTarget);
 	}
+    
+    sf::Font font;
+    std::string filePath = resourcePath();
+    filePath.append("sansation.ttf");
+    if (!font.loadFromFile(filePath))
+    {
+        std::cout << "Can't find the font file" << std::endl;
+    }
+    
+    sf::Text text;
+    text.setFont(font);
+    text.setStyle(sf::Text::Bold);
+    text.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
+    text.setFillColor(sf::Color::White);
+    
+    
+    for(auto healthStatus : Game::HealthStatusComponent::healths)
+    {
+        if(healthStatus->m_player == nullptr)
+            continue;
+        std::string hp(std::to_string((int)healthStatus->m_player->m_health));
+        text.setString(hp);
+        text.setPosition(healthStatus->HealthPos);
+        
+        m_renderWindow->draw(text);
+    }
 
 	if (m_renderWindow && m_renderWindow->isOpen())
 	{

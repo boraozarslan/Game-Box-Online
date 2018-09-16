@@ -58,6 +58,7 @@
 		E1B787BE214D8A620085DF57 /* particles.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787B9214D8A610085DF57 /* particles.png */; };
 		E1B787BF214D8A620085DF57 /* Flappy.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787BA214D8A610085DF57 /* Flappy.png */; };
 		E1B787C0214D8A620085DF57 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787BB214D8A610085DF57 /* tileset.png */; };
+		E1B787C3214DCEB30085DF57 /* HealthStatusComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C1214DCEB30085DF57 /* HealthStatusComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,8 @@
 		E1B787B9214D8A610085DF57 /* particles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = particles.png; path = img/particles.png; sourceTree = "<group>"; };
 		E1B787BA214D8A610085DF57 /* Flappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Flappy.png; path = img/Flappy.png; sourceTree = "<group>"; };
 		E1B787BB214D8A610085DF57 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tileset.png; path = img/tileset.png; sourceTree = "<group>"; };
+		E1B787C1214DCEB30085DF57 /* HealthStatusComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HealthStatusComponent.cpp; sourceTree = "<group>"; };
+		E1B787C2214DCEB30085DF57 /* HealthStatusComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HealthStatusComponent.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 				E1B787AD214D06870085DF57 /* ProjectileMovementComponent.hpp */,
 				2B2AE5DF214C918A00AF4A0D /* PlayerMovementComponent.cpp */,
 				2B2AE5E0214C918A00AF4A0D /* PlayerMovementComponent.hpp */,
+				E1B787C1214DCEB30085DF57 /* HealthStatusComponent.cpp */,
+				E1B787C2214DCEB30085DF57 /* HealthStatusComponent.hpp */,
 			);
 			path = GameComponents;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				2B2AE612214C93D600AF4A0D /* SpriteRenderComponent.cpp in Sources */,
 				2B2AE5E7214C91AA00AF4A0D /* PlayerEntity.cpp in Sources */,
 				2B2AE5DA214C90FD00AF4A0D /* GameBoard.cpp in Sources */,
+				E1B787C3214DCEB30085DF57 /* HealthStatusComponent.cpp in Sources */,
 				B524F422214D0619006F4A2E /* SoundComponent.cpp in Sources */,
 				2B2AE619214CD14B00AF4A0D /* NetworkManager.cpp in Sources */,
 				2B2AE5EB214C921900AF4A0D /* GameEngineMain.cpp in Sources */,
