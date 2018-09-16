@@ -25,6 +25,7 @@ float GameEngineMain::WINDOW_WIDTH = 1920;
 GameEngineMain* GameEngineMain::sm_instance = nullptr;
 sf::Clock		GameEngineMain::sm_deltaTimeClock;
 sf::Clock		GameEngineMain::sm_gameClock;
+sf::Clock       GameEngineMain::sm_circleTimer;
 const std::string HOST_ADDR = "127.0.0.1";
 const unsigned HOST_PORT = 5051;
 const bool enableNetwork = false;
@@ -360,7 +361,7 @@ void GameEngineMain::RenderEntities()
         
       //  m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
         
-        circle.setRadius(fmax(0, circle.getRadius() - m_lastDT));
+        circle.setRadius(fmax(0, circle.getRadius() - sm_circleTimer.getElapsedTime().asSeconds()));
         
         
         m_renderWindow->draw(circle);
@@ -403,6 +404,7 @@ void GameEngineMain::StartGame()
     m_gameBoard = new Game::GameBoard();
     sm_deltaTimeClock.restart();
     sm_gameClock.restart();
+    sm_circleTimer.restart();
 }
 
 

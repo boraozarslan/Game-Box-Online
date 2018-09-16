@@ -65,7 +65,8 @@ namespace GameEngine
 
 		static GameEngineMain* sm_instance;
 		static sf::Clock	   sm_deltaTimeClock;
-		static sf::Clock	   sm_gameClock;
+        static sf::Clock       sm_gameClock;
+        static sf::Clock       sm_circleTimer;
 
 		std::vector<Entity*> m_entitiesToAdd;
 		std::vector<Entity*> m_entities;
