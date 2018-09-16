@@ -8,6 +8,8 @@ namespace GameEngine
 	class Entity
 	{
 	public:
+    unsigned short id;
+    
 		Entity();
 		virtual ~Entity();
 

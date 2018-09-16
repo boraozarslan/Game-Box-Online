@@ -73,6 +73,7 @@ sf::Packet& operator >>(sf::Packet& packet, HeartBeat& msg);
 struct WorldUpdate : public NetworkMessage
 {
   std::vector<EntityMessage> entities;
+  WorldUpdate(): NetworkMessage(WU) {}
 };
 
 sf::Packet& operator <<(sf::Packet& packet, const WorldUpdate& msg);
@@ -83,6 +84,8 @@ struct BulletShot : public NetworkMessage
 {
   unsigned short whoId;
   unsigned int dir;
+  
+  BulletShot(): NetworkMessage(BS) {}
 };
 
 sf::Packet& operator <<(sf::Packet& packet, const BulletShot& msg);

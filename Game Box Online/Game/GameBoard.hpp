@@ -29,14 +29,15 @@ namespace Game
 		bool IsGameOver() const { return m_isGameOver; }
         
         PlayerEntity* GetPlayer() const { return m_player; }
+    
+    //Placeholder temp - should go to helpers or smth.
+    static float RandomFloatRange(float a, float b)
+    {
+      return ((b - a) * ((float)rand() / RAND_MAX)) + a;
+    }
+
 
 	protected:
-		//Placeholder temp - should go to helpers or smth.
-		float RandomFloatRange(float a, float b)
-		{
-			return ((b - a) * ((float)rand() / RAND_MAX)) + a;
-		}
-
 		void CreateBackGround();
 		void UpdateBackGround();
 

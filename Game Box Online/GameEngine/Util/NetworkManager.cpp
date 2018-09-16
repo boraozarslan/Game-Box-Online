@@ -76,13 +76,15 @@ void NetworkManager::PreUpdate()
             HeartBeat hb;
             packet >> hb;
             // TODO: Use the heartbeat message
+            std::cout << "HB: " << hb.player.x << " " << hb.player.y << '\n';
           }
           else if(msg.messageCode == BS)
           {
             BulletShot bs;
             packet >> bs;
             // TODO: Use the bulletshot message
-            
+            mainEngine->ShootBullet(bs);
+            std::cout << "Somebody shot a bullet\n";
           }
           continue;
         }

@@ -16,6 +16,7 @@
 #include "ResourcePath.hpp"
 #include "NetworkManager.hpp"
 #include "NetworkDefs.hpp"
+#include "GameBoard.hpp"
 
 using namespace GameEngine;
 
@@ -65,7 +66,6 @@ GameEngineMain::GameEngineMain(bool host)
         
         // TODO: Receive the initial World update
         m_socket.receive(packet);
-        assert(packet.getDataSize() == sizeof(WorldUpdate));
         WorldUpdate worldUpdate;
         packet >> worldUpdate;
         assert(worldUpdate.messageCode == WU);
@@ -161,7 +161,7 @@ void GameEngineMain::Update()
     // The below code should be in preupdate if it's not host
     sf::Packet packet;
     if (m_socket.receive(packet) == sf::Socket::Status::Done) {
-      assert(packet.getDataSize() == sizeof(WorldUpdate));
+      //assert(packet.getDataSize() == sizeof(WorldUpdate));
       WorldUpdate worldUpdate;
       packet >> worldUpdate;
       
@@ -389,19 +389,60 @@ void GameEngineMain::StartGame()
 
 void GameEngineMain::SpawnPlayer(unsigned short i)
 {
+  Game::PlayerEntity* player = new Game::PlayerEntity(true);
   
+  AddEntity(player);
+  player->SetPos(sf::Vector2f(
+                              Game::GameBoard::RandomFloatRange(1.f, Game::GameBoard::SCREEN_DIMENSION - 1.f),
+                              Game::GameBoard::RandomFloatRange(1.f, Game::GameBoard::SCREEN_DIMENSION - 1.f)
+                             ));
+  player->SetSize(sf::Vector2f(50.f, 50.f));
+  
+  player->id = i;
 }
 
 void GameEngineMain::RemovePlayer(unsigned short i)
 {
-  
+  int j;
+  for(j = 0; j < m_entities.size(); ++j)
+  {
+    if(m_entities[j]->id == i)
+      break;
+  }
+  assert(j != m_entities.size());
+  RemoveEntity(m_entities[j]);
 }
 
 sf::Packet GameEngineMain::GetWorldUpdate()
 {
-  sf::Packet packet;
+  WorldUpdate wu;
+  for(int i = 0; i < m_entities.size(); ++i)
+  {
+    EntityMessage msg;
+    msg.id = m_entities[i]->id;
+    auto pos = m_entities[i]->GetPos();
+    msg.x = pos.x;
+    msg.y = pos.y;
+    wu.entities.push_back(msg);
+  }
   
+  sf::Packet packet;
+  packet << wu;
   return packet;
 }
 
+
+void GameEngineMain::ShootBullet(BulletShot bs)
+{
+  Game::PlayerEntity* player = nullptr;
+  for(auto entity : m_entities)
+  {
+    if(entity->id == bs.whoId)
+    {
+      player = static_cast<Game::PlayerEntity*>(entity);
+    }
+  }
+  
+  assert(player != nullptr);
+}
 
