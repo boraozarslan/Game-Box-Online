@@ -41,12 +41,10 @@ void DumbAIComponent::Update()
     
     auto game_instance = GameEngine::GameEngineMain::GetInstance();
 
-    /*
     if (game_instance->IsGameOver())
     {
         return;
     }
-    */
     
     Game::GameBoard* game_board = game_instance->GetGameBoard();
     
