@@ -11,14 +11,15 @@
 #include <vector>
 
 const std::string IP("35.186.166.163");
-const unsigned short TCP_PORT = 25931;
-const unsigned short UDP_PORT = 25930;
+const unsigned short TCP_PORT = 25930;
+const unsigned short UDP_PORT = 25931;
 
 const unsigned short MAX_PLAYERS = 16;
 
 const unsigned short HB = 0; // Heart Beat
 const unsigned short WU = 1; // world update
 const unsigned short BS = 2; // bullet shot
+const unsigned short ID = 3; // ID info that's sent initially
 
 struct NetworkMessage
 {
@@ -109,4 +110,19 @@ sf::Packet& operator <<(sf::Packet& packet, const BulletShot& msg)
 sf::Packet& operator >>(sf::Packet& packet, BulletShot& msg)
 {
   return packet >> msg.messageCode >> msg.whoId >> msg.dir;
+}
+
+struct IdMsg : public NetworkMessage
+{
+  unsigned short id;
+};
+
+sf::Packet& operator <<(sf::Packet& packet, const IdMsg& msg)
+{
+  return packet << msg.messageCode << msg.id;
+}
+
+sf::Packet& operator >>(sf::Packet& packet, IdMsg& msg)
+{
+  return packet >> msg.messageCode >> msg.id;
 }

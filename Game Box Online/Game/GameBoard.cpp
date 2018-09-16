@@ -17,16 +17,21 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity(false);
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(50.f, 50.f));	
+	m_player->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, SCREEN_DIMENSION / 2));
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
     // Initialize enemies (TODO: replace this with networks code)
-    m_enemies.push_back(new PlayerEntity(true));
-    m_enemies.push_back(new PlayerEntity(true));
-    for (int i = 0; i < m_enemies.size(); ++i) {
-        PlayerEntity* enemy = m_enemies[i];
+    int numEnemies = RandomFloatRange(4, 7);
+
+    for (int i = 0; i < numEnemies; ++i) {
+        PlayerEntity* enemy = new PlayerEntity(true);
+        m_enemies.push_back(enemy);
+
         GameEngine::GameEngineMain::GetInstance()->AddEntity(enemy);
-        enemy->SetPos(sf::Vector2f(RandomFloatRange(-500.f, 500.f), RandomFloatRange(-500.f, 500.f)));
+        enemy->SetPos(sf::Vector2f(
+            RandomFloatRange(1.f, SCREEN_DIMENSION - 1.f),
+            RandomFloatRange(1.f, SCREEN_DIMENSION - 1.f)
+        ));
         enemy->SetSize(sf::Vector2f(50.f, 50.f));
     }
 
@@ -175,11 +180,37 @@ void GameBoard::CreateBackGround()
 	GameEngine::SpriteRenderComponent* render = static_cast<GameEngine::SpriteRenderComponent*>(bgEntity->AddComponent<GameEngine::SpriteRenderComponent>());
 	render->SetTexture(GameEngine::eTexture::BG);
 	render->SetZLevel(0);
-	bgEntity->SetPos(sf::Vector2f(250.f, 250.f));
-	bgEntity->SetSize(sf::Vector2f(500.f, 500.f));
+	bgEntity->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, SCREEN_DIMENSION / 2));
+	bgEntity->SetSize(sf::Vector2f(SCREEN_DIMENSION, SCREEN_DIMENSION));
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
+
+    // Adding walls
+    GameEngine::Entity* topWall = new GameEngine::Entity();
+    GameEngine::Entity* bottomWall = new GameEngine::Entity();
+    GameEngine::Entity* leftWall = new GameEngine::Entity();
+    GameEngine::Entity* rightWall = new GameEngine::Entity();
+
+    topWall->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, 0.f));
+    bottomWall->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, SCREEN_DIMENSION));
+    leftWall->SetPos(sf::Vector2f(0.f, SCREEN_DIMENSION / 2));
+    rightWall->SetPos(sf::Vector2f(SCREEN_DIMENSION, SCREEN_DIMENSION / 2));
+
+    topWall->SetSize(sf::Vector2f(SCREEN_DIMENSION, 10.f));
+    bottomWall->SetSize(sf::Vector2f(SCREEN_DIMENSION, 10.f));
+    leftWall->SetSize(sf::Vector2f(10.f, SCREEN_DIMENSION));
+    rightWall->SetSize(sf::Vector2f(10.f, SCREEN_DIMENSION));
+
+    topWall->AddComponent<GameEngine::CollidableComponent>();
+    bottomWall->AddComponent<GameEngine::CollidableComponent>();
+    leftWall->AddComponent<GameEngine::CollidableComponent>();
+    rightWall->AddComponent<GameEngine::CollidableComponent>();
+
+    GameEngine::GameEngineMain::GetInstance()->AddEntity(topWall);
+    GameEngine::GameEngineMain::GetInstance()->AddEntity(bottomWall);
+    GameEngine::GameEngineMain::GetInstance()->AddEntity(leftWall);
+    GameEngine::GameEngineMain::GetInstance()->AddEntity(rightWall);
 }
 
 
