@@ -44,6 +44,10 @@ void DumbProjectileComponent::OnRemoveFromWorld()
 
 void DumbProjectileComponent::EmitProjectile()
 {
+    if (GameEngine::GameEngineMain::GetInstance()->IsGameOver()) {
+        return;
+    }
+
     sf::Vector2f emitPos = GetEntity()->GetPos();
     sf::Vector2f targetPos = GameEngine::GameEngineMain::GetInstance()->GetGameBoard()->GetPlayer()->GetPos();
 
