@@ -125,6 +125,9 @@ void GameEngineMain::Update()
     m_windowInitialised = true;
     OnInitialised();
   }
+    if (m_host) {
+        m_isInNetworkMode = true;
+    }
     
     NetworkManager* networkManager = nullptr;
     
@@ -139,6 +142,7 @@ void GameEngineMain::Update()
           m_gameBoard->Update();
 
         UpdateEntities();
+        AddPendingEntities();
     } else {
         RemovePendingEntities();
         
@@ -159,15 +163,6 @@ void GameEngineMain::Update()
   m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
 
   sm_deltaTimeClock.restart();
-  
-  // The below code should be networkManager postUpdate
-  // Send heartbeat to the server
-    if (m_isInNetworkMode && !m_host && m_gameBoard) {
-        HeartBeat heartBeatMsg (m_playerId, m_gameBoard->GetPlayer()->GetPos());
-        sf::Packet packet;
-        packet << heartBeatMsg;
-        while (m_socket.send(packet) == sf::Socket::Partial); // Block until packet is sent
-    }
 }
 
 
@@ -441,6 +436,7 @@ sf::Packet GameEngineMain::GetWorldUpdate()
 void GameEngineMain::ShootBullet(BulletShot bs)
 {
   Game::PlayerEntity* player = nullptr;
+
   for(auto entity : m_entities)
   {
     if(entity->id == bs.whoId)
@@ -449,16 +445,18 @@ void GameEngineMain::ShootBullet(BulletShot bs)
       Game::ProjectileEntity* projectileEntity = new Game::ProjectileEntity();
         Game::ProjectileMovementComponent* projMoveComponent = static_cast<Game::ProjectileMovementComponent*>(projectileEntity->AddComponent<Game::ProjectileMovementComponent>());
 
-      projectileEntity->id = m_currentBulletId;
-      projectileEntity->SetSource(player);
-      projectileEntity->SetPos(player->GetPos());
-      projectileEntity->SetSize(sf::Vector2f(16.f, 16.f));
-
+        
         if (m_currentBulletId > m_currentBulletId + 1) {
             m_currentBulletId = 16;
         } else {
             ++m_currentBulletId;
         }
+        
+      projectileEntity->id = m_currentBulletId;
+      projectileEntity->SetSource(player);
+      projectileEntity->SetPos(player->GetPos());
+      projectileEntity->SetSize(sf::Vector2f(16.f, 16.f));
+
 
       sf::Vector2f direction;
 
@@ -488,3 +486,16 @@ void GameEngineMain::ShootBullet(BulletShot bs)
   assert(player != nullptr);
 }
 
+void GameEngineMain::SendBulletShot(unsigned int direction) {
+    std::cout << "Sending a bullet shot to the server" << std::endl;
+    
+    BulletShot bulletShot;
+
+    bulletShot.dir = direction;
+    bulletShot.whoId = m_playerId;
+
+    sf::Packet packet;
+
+    packet << bulletShot;
+    while (m_socket.send(packet) == sf::Socket::Partial); // Block until packet is sent
+}

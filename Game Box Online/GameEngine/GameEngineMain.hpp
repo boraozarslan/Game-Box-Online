@@ -46,11 +46,15 @@ namespace GameEngine
         static float WINDOW_HEIGHT;
         static float WINDOW_WIDTH;
     
-    void SpawnPlayer(unsigned short i);
-    void RemovePlayer(unsigned short i);
-    sf::Packet GetWorldUpdate();
-    void ShootBullet(BulletShot bs);
-    
+        void SpawnPlayer(unsigned short i);
+        void RemovePlayer(unsigned short i);
+        sf::Packet GetWorldUpdate();
+        void ShootBullet(BulletShot bs);
+        
+        void SendBulletShot(unsigned int direction);
+        
+        bool IsInNetworkMode() { return m_isInNetworkMode; };
+        bool IsHost() { return m_host; }
 	private:
     GameEngineMain(bool host);
 

@@ -22,7 +22,9 @@ SpriteRenderComponent::~SpriteRenderComponent()
 void SpriteRenderComponent::OnAddToWorld()
 {
 	Component::OnAddToWorld();
-	UpdateSpriteParams();
+    if (!GameEngineMain::GetInstance()->IsHost()) {
+        UpdateSpriteParams();
+    }
 
 	m_animComponent = GetEntity()->GetComponent<AnimationComponent>();
 }
@@ -82,13 +84,15 @@ void SpriteRenderComponent::UpdateTileRect()
 
 void SpriteRenderComponent::Update()
 {
-	//If we have an animation component and there is an animation playing, use this info to figure out your wanted texture tile
-	if (m_animComponent && m_animComponent->IsAnimPlaying())
-	{
-		SetTileIndex(m_animComponent->GetWantedTileIndex());
-	}		
-
-	UpdateTileRect();
+    if (!GameEngine::GameEngineMain::GetInstance()->IsHost()) {
+        //If we have an animation component and there is an animation playing, use this info to figure out your wanted texture tile
+        if (m_animComponent && m_animComponent->IsAnimPlaying())
+        {
+            SetTileIndex(m_animComponent->GetWantedTileIndex());
+        }
+        
+        UpdateTileRect();
+    }
 }
 
 

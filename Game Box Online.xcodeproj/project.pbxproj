@@ -78,6 +78,7 @@
 		B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = B524F42E214D0B42006F4A2E /* glassBreak.wav */; };
 		B5696927214E458A0084AC21 /* NetworkDefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5696926214E45890084AC21 /* NetworkDefs.cpp */; };
 		B5696929214E45BA0084AC21 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5696928214E45BA0084AC21 /* GameOverScreen.png */; };
+		B5A1F319214E65770008963B /* BombEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC062090214E4EE4004B1F12 /* BombEmitterComponent.cpp */; };
 		B5BADDF9214D89D600DA8DD6 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */; };
 		B5BADDFC214D89D600DA8DD6 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF6214D89D600DA8DD6 /* tileset.png */; };
 		B5BADDFD214D89D600DA8DD6 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF7214D89D600DA8DD6 /* player.png */; };
@@ -637,6 +638,7 @@
 				2BB6D816214E4C7800B6A267 /* GameOverScreen.cpp in Sources */,
 				2BB6D80C214E447000B6A267 /* CollidableComponent.cpp in Sources */,
 				2BB6D812214E447000B6A267 /* NetworkedComponent.cpp in Sources */,
+				B5A1F319214E65770008963B /* BombEmitterComponent.cpp in Sources */,
 				2BB6D814214E44AE00B6A267 /* ResourcePath.mm in Sources */,
 				2BB6D810214E447000B6A267 /* RenderComponent.cpp in Sources */,
 				2BB6D800214E435B00B6A267 /* ProjectileMovementComponent.cpp in Sources */,

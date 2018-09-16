@@ -33,5 +33,7 @@ namespace Game
         float m_toEmitTimer;
         float m_projSpeed;
         float m_reloadTime;
+    private:
+        bool m_keyReleased;
     };
 }

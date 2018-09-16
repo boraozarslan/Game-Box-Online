@@ -14,7 +14,7 @@
 
 //const std::string IP("35.186.166.163");
 const std::string IP("127.0.0.1");
-const unsigned short TCP_PORT = 25930;
+const unsigned short TCP_PORT = 25932;
 const unsigned short UDP_PORT = 25931;
 
 const unsigned short MAX_PLAYERS = 16;
@@ -83,7 +83,7 @@ sf::Packet& operator >>(sf::Packet& packet, WorldUpdate& msg);
 struct BulletShot : public NetworkMessage
 {
   unsigned short whoId;
-  unsigned int dir;
+  unsigned int dir; // 1: N, 2: E, 3: S, 4: W
   
   BulletShot(): NetworkMessage(BS) {}
 };

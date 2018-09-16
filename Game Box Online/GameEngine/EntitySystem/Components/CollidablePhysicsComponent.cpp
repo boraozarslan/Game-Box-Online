@@ -65,23 +65,26 @@ void CollidablePhysicsComponent::Update()
                 handleDamage(projectile);
             }
         } else if (Game::PlayerEntity* player = dynamic_cast<Game::PlayerEntity*>(entity)) {
-            std::cout << "Player collision detected!" << std::endl;
             
-            sf::Vector2f pos = entity->GetPos();
-            if (intersection.width < intersection.height)
-            {
-                if (myBox.left < colideBox.left)
-                    pos.x += intersection.width / 2;
-                else
-                    pos.x -= intersection.width / 2;
-            } else {
-                if (myBox.top < colideBox.top)
-                    pos.y += intersection.height / 2;
-                else
-                    pos.y -= intersection.height / 2;
+            if (player == GetEntity()) {
+                std::cout << "Player collision detected!" << std::endl;
+                
+                sf::Vector2f pos = entity->GetPos();
+                if (intersection.width < intersection.height)
+                {
+                    if (myBox.left < colideBox.left)
+                        pos.x += intersection.width / 2;
+                    else
+                        pos.x -= intersection.width / 2;
+                } else {
+                    if (myBox.top < colideBox.top)
+                        pos.y += intersection.height / 2;
+                    else
+                        pos.y -= intersection.height / 2;
+                }
+                
+                entity->SetPos(pos);
             }
-            
-            entity->SetPos(pos);
         } else if (entity != nullptr) {
             std::cout << "Wall collision detected!" << std::endl;
             

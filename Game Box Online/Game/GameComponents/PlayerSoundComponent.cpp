@@ -20,10 +20,13 @@ void PlayerSoundComponent::OnAddToWorld()
 {
 	if (GameEngine::SoundComponent* const soundComponent = GetEntity()->GetComponent<GameEngine::SoundComponent>())
 	{
-        std::string filepath = resourcePath();
-		m_upSoundId   = soundComponent->LoadSoundFromFile(filepath + "thunder.wav");
-		m_downSoundId = soundComponent->LoadSoundFromFile(filepath + "glassbreak.wav");
-	}
+        if(!GameEngine::GameEngineMain::GetInstance()->IsHost()) {
+            std::string filepath = resourcePath();
+            m_upSoundId   = soundComponent->LoadSoundFromFile(filepath + "thunder.wav");
+            m_downSoundId = soundComponent->LoadSoundFromFile(filepath + "glassbreak.wav");
+
+        }
+    }
 }
 
 

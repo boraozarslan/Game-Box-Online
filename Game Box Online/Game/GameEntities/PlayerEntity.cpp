@@ -15,12 +15,12 @@
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity(bool isEnemy, bool isServer): m_health(100.f), m_score(0)
+PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 {
-  if(!isServer)
+  if(!GameEngine::GameEngineMain::GetInstance()->IsHost())
   {
     m_isEnemy = isEnemy;
-
+ 
 	//Render 
 	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
@@ -44,7 +44,7 @@ PlayerEntity::PlayerEntity(bool isEnemy, bool isServer): m_health(100.f), m_scor
         AddComponent<Game::BombEmitterComponent>();
     } else {
         AddComponent<GameEngine::DumbAIComponent>();
-        GameEngine::DumbProjectileComponent* dumbProjectile = static_cast<GameEngine::DumbProjectileComponent*>(AddComponent<GameEngine::DumbProjectileComponent>());
+//        GameEngine::DumbProjectileComponent* dumbProjectile = static_cast<GameEngine::DumbProjectileComponent*>(AddComponent<GameEngine::DumbProjectileComponent>());
     }
 
 	//Particles

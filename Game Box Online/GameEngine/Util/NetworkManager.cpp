@@ -38,10 +38,12 @@ NetworkManager::NetworkManager(bool host)
       // Keep the connections non blocking
       tcpConnections[i].setBlocking(false);
     }
+      
+    std::cout << "Server is running!" << std::endl;
   }
   else
   {
-    
+      std::cerr << "host is false. This is the client" << std::endl;
   }
 }
 
@@ -126,7 +128,7 @@ void NetworkManager::PreUpdate()
           WorldUpdate worldUpdate;
           packet >> worldUpdate;
           
-          std::cout << "Received world update packet!" << std::endl;
+//          std::cout << "Received world update packet!" << std::endl;
           // TODO diff the received packet
       }
   }
@@ -152,9 +154,9 @@ void NetworkManager::PostUpdate()
   }
   else
   {
-      HeartBeat heartBeatMsg (mainEngine->GetPlayerId(), mainEngine->GetGameBoard()->GetPlayer()->GetPos());
-      sf::Packet packet;
-      packet << heartBeatMsg;
-      while (mainEngine->GetSocket().send(packet) == sf::Socket::Partial); // Block until packet is sent
+//      HeartBeat heartBeatMsg (mainEngine->GetPlayerId(), mainEngine->GetGameBoard()->GetPlayer()->GetPos());
+//      sf::Packet packet;
+//      packet << heartBeatMsg;
+//      while (mainEngine->GetSocket().send(packet) == sf::Socket::Partial); // Block until packet is sent
   }
 }

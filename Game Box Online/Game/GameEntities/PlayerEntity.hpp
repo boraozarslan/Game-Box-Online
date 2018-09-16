@@ -14,7 +14,7 @@ namespace Game
   class PlayerEntity : public GameEngine::Entity
   {
   public:
-    PlayerEntity(bool isEnemy, bool isServer = false);
+    PlayerEntity(bool isEnemy);
     ~PlayerEntity();
     
     virtual void OnAddToWorld() override;
@@ -30,11 +30,11 @@ namespace Game
         return m_health > 0;
     }
   protected:
-    GameEngine::SpriteRenderComponent* m_renderComponent;
-    PlayerMovementComponent*   m_playerMovementComponent;
-    GameEngine::AnimationComponent* m_animComponent;
-    PlayerCameraComponent* m_camera;
-    HealthStatusComponent* m_healthStatus;
+    GameEngine::SpriteRenderComponent* m_renderComponent = nullptr;
+    PlayerMovementComponent*   m_playerMovementComponent = nullptr;
+    GameEngine::AnimationComponent* m_animComponent = nullptr;
+    PlayerCameraComponent* m_camera = nullptr;
+    HealthStatusComponent* m_healthStatus = nullptr;
     bool m_isEnemy;
     int m_score;
   };
