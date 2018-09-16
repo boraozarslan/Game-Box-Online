@@ -1,6 +1,4 @@
 #include "CollisionManager.hpp"
-
-
 #include "../EntitySystem/Components/CollidableComponent.hpp"
 
 #include <assert.h>

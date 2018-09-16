@@ -38,7 +38,7 @@ void DumbProjectileComponent::OnAddToWorld()
 
 void DumbProjectileComponent::OnRemoveFromWorld()
 {
-    Component::OnAddToWorld();
+    Component::OnRemoveFromWorld();
 }
 
 
