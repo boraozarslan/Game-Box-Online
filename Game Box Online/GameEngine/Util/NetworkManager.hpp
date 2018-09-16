@@ -9,27 +9,26 @@
 #pragma once
 
 #include <vector>
+#include <SFML/Network.hpp>
 
 namespace GameEngine
-{
-  class NetworkedComponent;
-  
+{ 
   class NetworkManager
   {
   public:
     ~NetworkManager();
     
-    static NetworkManager* GetInstance() { if (!sm_instance) sm_instance = new NetworkManager(); return sm_instance; }
+    static NetworkManager* GetInstance(bool host = false) { if (!sm_instance) sm_instance = new NetworkManager(host); return sm_instance; }
     
-    void RegisterNetworked(NetworkedComponent* networked);
-    void UnRegisterNetworked(NetworkedComponent* networked);
-    //TODO - optimisation - instead of getcollidables, provide get near collidables so that we do not check collisions with all entities, just the ones that could potentially collide
-    std::vector<NetworkedComponent*>& GetNetworkeds() { return m_networkeds; }
+    void PreUpdate();
+    void PostUpdate();
     
   private:
-    NetworkManager();
+    NetworkManager(bool host);
     static NetworkManager* sm_instance;
     
-    std::vector<NetworkedComponent*> m_networkeds;
+    sf::TcpSocket tcpConnections[16];
+    sf::TcpListener* m_listener;
+    bool m_host;
   };
 }

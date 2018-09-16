@@ -7,42 +7,138 @@
 //
 
 #include "NetworkManager.hpp"
-#include "../EntitySystem/Components/NetworkedComponent.hpp"
+#include "GameEngineMain.hpp"
+#include "NetworkDefs.hpp"
 
 #include <assert.h>
+#include <iostream>
 
 using namespace GameEngine;
 
 NetworkManager* NetworkManager::sm_instance = nullptr;
 
-NetworkManager::NetworkManager()
+NetworkManager::NetworkManager(bool host)
+: m_host(host), m_listener(new sf::TcpListener())
 {
-  
+  if(host)
+  {
+    auto status = sf::Socket::NotReady;
+    while(status != sf::Socket::Done)
+    {
+      status = m_listener->listen(TCP_PORT);
+      if(status == sf::Socket::Error)
+      {
+        std::cout << "TCP Socket listening returned an ERROR code.\n";
+      }
+    }
+    m_listener->setBlocking(false);
+    for(unsigned short i = 0; i < MAX_PLAYERS; ++i)
+    {
+      // Keep the connections non blocking
+      tcpConnections[i].setBlocking(false);
+    }
+  }
+  else
+  {
+    
+  }
 }
 
 
 NetworkManager::~NetworkManager()
 {
-  
+  delete m_listener;
 }
 
-void NetworkManager::RegisterNetworked(NetworkedComponent* networked)
+
+void NetworkManager::PreUpdate()
 {
-  auto found = std::find(m_networkeds.begin(), m_networkeds.end(), networked);
-  assert(found == m_networkeds.end()); //Drop an assert if we add duplicate;
-  if (found == m_networkeds.end())
+  auto mainEngine = GameEngine::GameEngineMain::GetInstance();
+  sf::Socket::Status status;
+  if(m_host)
   {
-    m_networkeds.push_back(networked);
+    for(unsigned short i = 0; i < MAX_PLAYERS; ++i)
+    {
+      // If there is already an established connection
+      if(tcpConnections[i].getRemoteAddress() != sf::IpAddress::None)
+      {
+        sf::Packet packet;
+        status = tcpConnections[i].receive(packet);
+        
+        if(status == sf::Socket::Status::Done)
+        {
+          // Received a packet
+          NetworkMessage msg;
+          packet >> msg;
+          if(msg.messageCode == HB)
+          {
+            // Heartbeat message
+            HeartBeat hb;
+            packet >> hb;
+            // TODO: Use the heartbeat message
+          }
+          else if(msg.messageCode == BS)
+          {
+            BulletShot bs;
+            packet >> bs;
+            // TODO: Use the bulletshot message
+            
+          }
+          continue;
+        }
+        if(status == sf::Socket::Status::Disconnected)
+        {
+          // A player has disconnected
+          mainEngine->RemovePlayer(i);
+        }
+        continue;
+      }
+      // If the socket isn't open
+      status = m_listener->accept(tcpConnections[i]);
+      if(status == sf::Socket::Done)
+      {
+        // There is a new connection
+        
+        // First let the connection know what it's id is
+        IdMsg msg;
+        msg.id = i;
+        sf::Packet packet;
+        packet << msg;
+        status = tcpConnections[i].send(packet);
+        while(status == sf::Socket::Status::Partial)
+          status = tcpConnections[i].send(packet);
+        
+        // Add player
+        mainEngine->SpawnPlayer(i);
+      }
+    }
+  }
+  else
+  {
+    
   }
 }
 
-void NetworkManager::UnRegisterNetworked(NetworkedComponent* networked)
+void NetworkManager::PostUpdate()
 {
-  auto found = std::find(m_networkeds.begin(), m_networkeds.end(), networked);
-  assert(found != m_networkeds.end()); //Drop an assert if we remove a non existing entity;
-  
-  if (found != m_networkeds.end())
+  auto mainEngine = GameEngine::GameEngineMain::GetInstance();
+  sf::Socket::Status status;
+  if(m_host)
   {
-    m_networkeds.erase(found);
+    sf::Packet packet = mainEngine->GetWorldUpdate();
+    for(unsigned short i = 0; i < MAX_PLAYERS; ++i)
+    {
+      // If there is already an established connection
+      if(tcpConnections[i].getRemoteAddress() != sf::IpAddress::None)
+      {
+        status = tcpConnections[i].send(packet);
+        while(status == sf::Socket::Status::Partial)
+          status = tcpConnections[i].send(packet);
+      }
+    }
+  }
+  else
+  {
+    
   }
 }

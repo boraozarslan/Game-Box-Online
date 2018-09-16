@@ -93,7 +93,7 @@ bool PlayerEntity::TakeDamage(float damage) {
 
 void PlayerEntity::IncreaseScore(int score) {
     m_score += score;
-    return m_score;
+    //return m_score;
 }
 
 int PlayerEntity::GetScore() {

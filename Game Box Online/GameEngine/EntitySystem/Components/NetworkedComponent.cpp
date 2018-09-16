@@ -8,4 +8,38 @@
 
 #include "NetworkedComponent.hpp"
 
-// TODO(BORA)
+#include "../../EntitySystem/Entity.hpp"
+
+#include <vector>
+#include <iostream>
+
+using namespace GameEngine;
+
+NetworkedComponent::NetworkedComponent()
+{
+    
+}
+
+
+NetworkedComponent::~NetworkedComponent()
+{
+    
+}
+
+
+void NetworkedComponent::OnAddToWorld()
+{
+    Component::OnAddToWorld();
+}
+
+
+void NetworkedComponent::OnRemoveFromWorld()
+{
+    Component::OnRemoveFromWorld();
+}
+
+
+void NetworkedComponent::Update()
+{
+    
+}
