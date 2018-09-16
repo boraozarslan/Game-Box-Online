@@ -8,4 +8,23 @@
 
 #pragma once
 
-//TODO(BORA)
+#include "GameEngine/EntitySystem/Component.hpp"
+
+namespace GameEngine
+{
+    //This one allows for movement and obstacle detection,
+    class NetworkedComponent : public Component
+    {
+    public:
+        NetworkedComponent();
+        virtual ~NetworkedComponent();
+        
+        virtual void OnAddToWorld() override;
+        virtual void OnRemoveFromWorld() override;
+        
+        virtual void Update() override;
+        
+    private:
+    };
+}
+

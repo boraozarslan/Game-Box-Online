@@ -2,6 +2,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
+#include <SFML/Network.hpp>
 
 #include "Game/GameBoard.hpp"
 #include "EntitySystem/Entity.hpp"
@@ -67,8 +68,9 @@ namespace GameEngine
 		Game::GameBoard*    m_gameBoard;
 		float				m_lastDT;
     
-    bool m_host;
-
+        bool m_host;
+        sf::TcpSocket m_socket;
+        unsigned short m_playerId;
 
 		bool m_windowInitialised;
 	};

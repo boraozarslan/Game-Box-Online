@@ -9,6 +9,7 @@
 
 #include <string>
 #include <vector>
+#include <SFML/Network.hpp>
 
 const std::string IP("35.186.166.163");
 const unsigned short TCP_PORT = 25930;
@@ -24,6 +25,10 @@ const unsigned short ID = 3; // ID info that's sent initially
 struct NetworkMessage
 {
   unsigned short messageCode;
+    
+    NetworkMessage(unsigned short messageCode) : messageCode(messageCode) {}
+    
+    NetworkMessage() {}
 };
 
 sf::Packet& operator <<(sf::Packet& packet, const NetworkMessage& msg)
@@ -55,6 +60,18 @@ sf::Packet& operator >>(sf::Packet& packet, EntityMessage& msg)
 struct HeartBeat : public NetworkMessage
 {
   EntityMessage player;
+    
+    HeartBeat(unsigned short id, float x, float y) : NetworkMessage(HB) {
+        player.id = id;
+        player.x = x;
+        player.y = y;
+    }
+    
+    HeartBeat(unsigned short id, sf::Vector2f coords) : NetworkMessage(HB) {
+        player.id = id;
+        player.x = coords.x;
+        player.y = coords.y;
+    }
 };
 
 sf::Packet& operator <<(sf::Packet& packet, const HeartBeat& msg)
