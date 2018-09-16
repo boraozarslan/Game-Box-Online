@@ -21,8 +21,9 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	m_renderComponent->SetZLevel(2);
     
-    if(!isEnemy)
+    if(!isEnemy) {
         AddComponent<Game::PlayerCameraComponent>();
+    }
 
 	//Animation
 	m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
