@@ -78,11 +78,15 @@ void GameEngineMain::AddEntity(Entity* entity)
 
 void GameEngineMain::RemoveEntity(Entity* entity)
 {
+    auto ignore = std::find(m_entitiesToRemove.begin(), m_entitiesToRemove.end(), entity);
+    if (ignore != m_entitiesToRemove.end())
+        return;
+
 	auto found = std::find(m_entities.begin(), m_entities.end(), entity);
 	if (found == m_entities.end())
 	{
-		found = std::find(m_entitiesToRemove.begin(), m_entitiesToRemove.end(), entity);
-		assert(found != m_entitiesToRemove.end()); //Drop an assert if we remove a non existing entity (neither on entity list and on entity to remove list);
+		auto found2 = std::find(m_entitiesToRemove.begin(), m_entitiesToRemove.end(), entity);
+		assert(found2 != m_entitiesToRemove.end()); //Drop an assert if we remove a non existing entity (neither on entity list and on entity to remove list);
 	}	
 
 	if (found != m_entities.end())
