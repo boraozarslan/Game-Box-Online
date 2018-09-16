@@ -22,7 +22,7 @@ GameBoard::GameBoard()
 	
     // Initialize enemies (TODO: replace this with networks code)
     m_enemies.push_back(new PlayerEntity(true));
-//    m_enemies.push_back(new PlayerEntity(true));
+    m_enemies.push_back(new PlayerEntity(true));
     for (int i = 0; i < m_enemies.size(); ++i) {
         PlayerEntity* enemy = m_enemies[i];
         GameEngine::GameEngineMain::GetInstance()->AddEntity(enemy);

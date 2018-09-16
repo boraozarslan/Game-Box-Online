@@ -56,10 +56,7 @@ void DumbProjectileComponent::EmitProjectile()
     float yDiff = targetPos.y - emitPos.y;
 
     float magnitude = sqrt(xDiff*xDiff + yDiff*yDiff);
-    sf::Vector2f direction = sf::Vector2f(xDiff/magnitude, yDiff/magnitude);
-
-    direction.x *= m_projSpeed;
-    direction.y *= m_projSpeed;
+    sf::Vector2f direction = sf::Vector2f(xDiff * m_projSpeed / magnitude, yDiff * m_projSpeed / magnitude);
 
     projMoveComponent->SetVector(direction);
     projMoveComponent->SetDuration(2.f);
