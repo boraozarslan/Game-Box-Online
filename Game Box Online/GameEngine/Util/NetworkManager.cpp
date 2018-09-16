@@ -90,6 +90,7 @@ void NetworkManager::PreUpdate()
         {
           // A player has disconnected
           mainEngine->RemovePlayer(i);
+          std::cout << "A player has disconnected!\n";
         }
         continue;
       }
@@ -98,7 +99,7 @@ void NetworkManager::PreUpdate()
       if(status == sf::Socket::Done)
       {
         // There is a new connection
-        
+        std::cout << "New guy\n";
         // First let the connection know what it's id is
         IdMsg msg;
         msg.id = i;
@@ -107,7 +108,7 @@ void NetworkManager::PreUpdate()
         status = tcpConnections[i].send(packet);
         while(status == sf::Socket::Status::Partial)
           status = tcpConnections[i].send(packet);
-        
+        std::cout << "Id msg sent to new guy\n";
         // Add player
         mainEngine->SpawnPlayer(i);
       }

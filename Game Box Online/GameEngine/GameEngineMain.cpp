@@ -27,7 +27,7 @@ sf::Clock		GameEngineMain::sm_deltaTimeClock;
 sf::Clock		GameEngineMain::sm_gameClock;
 const std::string HOST_ADDR = "127.0.0.1";
 const unsigned HOST_PORT = 5051;
-const bool enableNetwork = false;
+const bool enableNetwork = true;
 
 GameEngineMain::GameEngineMain(bool host)
 	: m_renderTarget(nullptr)	
@@ -48,7 +48,7 @@ GameEngineMain::GameEngineMain(bool host)
 
     if (enableNetwork && !m_host) {
         // Open a connection with the host
-        sf::Socket::Status connectStatus = m_socket.connect(HOST_ADDR, HOST_PORT);
+        sf::Socket::Status connectStatus = m_socket.connect(HOST_ADDR, TCP_PORT);
         if (connectStatus != sf::Socket::Status::Done) {
             std::cerr << "Error connecting to the server! Status " << connectStatus << std::endl;
             throw "Connection failed";
@@ -197,7 +197,7 @@ void GameEngineMain::Update()
 
   sm_deltaTimeClock.restart();
   
-  // The below code should be networkManager postUpdate 
+  // The below code should be networkManager postUpdate
   // Send heartbeat to the server
     if (enableNetwork && !m_host && m_gameBoard) {
         HeartBeat heartBeatMsg (m_playerId, m_gameBoard->GetPlayer()->GetPos());
