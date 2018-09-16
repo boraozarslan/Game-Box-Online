@@ -15,7 +15,6 @@ namespace GameEngine
 		static SoundId constexpr INVALID_SOUND_ID = std::numeric_limits<size_t>::max();
 		static unsigned int constexpr MAX_SOUND_INSTANCES = 256; // SMFL supports a maximum of 256 sound and music instances. 
 		
-
 	private:
 		struct SoundInstance
 		{

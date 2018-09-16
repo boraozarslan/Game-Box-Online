@@ -28,7 +28,7 @@ sf::Clock		GameEngineMain::sm_deltaTimeClock;
 sf::Clock		GameEngineMain::sm_gameClock;
 const std::string HOST_ADDR = "127.0.0.1";
 const unsigned HOST_PORT = 5051;
-const bool enableNetwork = true;
+const bool enableNetwork = false;
 
 GameEngineMain::GameEngineMain(bool host)
 	: m_renderTarget(nullptr)	
