@@ -11,7 +11,6 @@
 #include "Util/CameraManager.hpp"
 #include "SplashScreen.hpp"
 #include "Menu.hpp"
-#include "Camera.hpp"
 #include "HealthStatusComponent.hpp"
 #include "ResourcePath.hpp"
 
@@ -43,7 +42,6 @@ GameEngineMain::GameEngineMain()
 GameEngineMain::~GameEngineMain()
 {
       delete m_renderTarget;
-      delete m_camera;
 }
 
 
@@ -110,7 +108,6 @@ void GameEngineMain::Update()
     m_gameBoard->Update();
   
   UpdateEntities();
-  m_camera->Update();
   RenderEntities();
   
   AddPendingEntities();
@@ -200,7 +197,7 @@ void GameEngineMain::RenderEntities()
 	//Render que
 	std::vector<RenderComponent*> renderers;
 	//Every entity that has RenderComponent, or a component that extends RenderComponent - should end up in a render que
-	for (auto entity : m_entities)
+	for (auto&& entity : m_entities)
 	{
 		if (RenderComponent* render = entity->GetComponent< RenderComponent >())
 		{
@@ -215,7 +212,7 @@ void GameEngineMain::RenderEntities()
 		return a->GetZLevel() < b->GetZLevel();
 	});	
 
-	for (auto renderer : renderers)
+	for (auto&& renderer : renderers)
 	{		
 		renderer->Render(m_renderTarget);
 	}
@@ -270,7 +267,6 @@ void GameEngineMain::ShowMenu()
 void GameEngineMain::StartGame()
 {
     m_gameBoard = new Game::GameBoard();
-    m_camera = new Camera(m_gameBoard->GetPlayer(), m_renderWindow);
     sm_deltaTimeClock.restart();
     sm_gameClock.restart();
 }

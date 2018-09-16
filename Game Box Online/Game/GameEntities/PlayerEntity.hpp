@@ -22,7 +22,12 @@ namespace Game
     bool TakeDamage(float damage);
     void IncreaseScore(int score);
     int GetScore();
+      
     float m_health;
+      
+    bool IsAlive() {
+        return m_health > 0;
+    }
   protected:
     GameEngine::SpriteRenderComponent* m_renderComponent;
     PlayerMovementComponent*   m_playerMovementComponent;
