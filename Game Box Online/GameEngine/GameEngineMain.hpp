@@ -2,6 +2,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
+#include <SFML/Network.hpp>
 
 #include "Game/GameBoard.hpp"
 #include "EntitySystem/Entity.hpp"
@@ -27,7 +28,7 @@ namespace GameEngine
 		void Update();		
 		void SetRenderTarget(sf::RenderTarget* target) { m_renderTarget = target; }
 
-        Game::GameBoard* GetGameBoard() { return m_gameBoard; }
+    Game::GameBoard* GetGameBoard() { return m_gameBoard; }
         
 		void AddEntity(Entity* entity);
 		void RemoveEntity(Entity* entity);
@@ -37,7 +38,11 @@ namespace GameEngine
         
         static float WINDOW_HEIGHT;
         static float WINDOW_WIDTH;
-        
+    
+    void SpawnPlayer(unsigned short i);
+    void RemovePlayer(unsigned short i);
+    sf::Packet GetWorldUpdate();
+    
 	private:
     GameEngineMain(bool host);
 

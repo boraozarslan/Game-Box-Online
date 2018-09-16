@@ -89,7 +89,7 @@ void NetworkManager::PreUpdate()
         if(status == sf::Socket::Status::Disconnected)
         {
           // A player has disconnected
-          //mainEngine->RemovePlayer(i);
+          mainEngine->RemovePlayer(i);
         }
         continue;
       }
@@ -109,7 +109,7 @@ void NetworkManager::PreUpdate()
           status = tcpConnections[i].send(packet);
         
         // Add player
-        //mainEngine->SpawnPlayer(i);
+        mainEngine->SpawnPlayer(i);
       }
     }
   }
@@ -125,7 +125,7 @@ void NetworkManager::PostUpdate()
   sf::Socket::Status status;
   if(m_host)
   {
-    sf::Packet packet ;//= mainEngine->GetWorldUpdate();
+    sf::Packet packet = mainEngine->GetWorldUpdate();
     for(unsigned short i = 0; i < MAX_PLAYERS; ++i)
     {
       // If there is already an established connection

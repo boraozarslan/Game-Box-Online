@@ -1,27 +1,21 @@
-//
-//  HostMain.cpp
-//  Game Box Online
-//
-//  Created by Bora Ozarslan on 2018-09-15.
-//  Copyright © 2018 Gamebox. All rights reserved.
-//
-
 #include <iostream>
 #include "GameEngineMain.hpp"
 #include "NetworkManager.hpp"
+#include "ResourcePath.hpp"
 
-#define HOST
+#define HOST true
+
+bool quit;
 
 int main(int argc, char** argv)
-{/*
+{
   GameEngine::GameEngineMain* mainEngine = GameEngine::GameEngineMain::GetInstance(true);
-  while (true)
+  quit = false;
+  while (!quit)
   {
     mainEngine->Update();
   }
-  
+   
   delete mainEngine;
   return 0;
-  */
-  std::cout << "Hello\n";
 }

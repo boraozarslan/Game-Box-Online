@@ -30,14 +30,17 @@ GameEngineMain::GameEngineMain(bool host)
 	, m_gameBoard(nullptr)
   , m_host(host)
 {
-	CreateAndSetUpWindow();
-	//Load predefined textures
-	TextureManager::GetInstance()->LoadTextures();
-	//Create predefined animation definition vector
-	AnimationManager::GetInstance()->InitStaticGameAnimations();
+  if(!m_host)
+  {
+    CreateAndSetUpWindow();
+    //Load predefined textures
+    TextureManager::GetInstance()->LoadTextures();
+    //Create predefined animation definition vector
+    AnimationManager::GetInstance()->InitStaticGameAnimations();
 
-	CameraManager::GetInstance()->GetCameraView().setCenter(sf::Vector2f(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT / 2.f));
-	CameraManager::GetInstance()->GetCameraView().setSize(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
+    CameraManager::GetInstance()->GetCameraView().setCenter(sf::Vector2f(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT / 2.f));
+    CameraManager::GetInstance()->GetCameraView().setSize(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
+  }
 }
 
 
@@ -49,7 +52,13 @@ GameEngineMain::~GameEngineMain()
 
 void GameEngineMain::OnInitialised()
 {
-    ShowSplashScreen();
+  if(m_host)
+  {
+    StartGame();
+    return;
+  }
+  
+  ShowSplashScreen();
 }
 
 
@@ -96,23 +105,40 @@ void GameEngineMain::RemoveEntity(Entity* entity)
 void GameEngineMain::Update()
 {
   std::this_thread::sleep_for(std::chrono::milliseconds(20));
-  //First update will happen after init for the time being (we will add loading later)
   if (!m_windowInitialised)
   {
     m_windowInitialised = true;
     OnInitialised();
   }
   
-  RemovePendingEntities();
+  NetworkManager* networkManager = NetworkManager::GetInstance(m_host);
+  networkManager->PreUpdate();
   
-  UpdateWindowEvents();
-  if (m_gameBoard)
-    m_gameBoard->Update();
+  if(!m_host)
+  {
+    //First update will happen after init for the time being (we will add loading later)
   
-  UpdateEntities();
-  RenderEntities();
   
-  AddPendingEntities();
+    RemovePendingEntities();
+  
+    UpdateWindowEvents();
+    if (m_gameBoard)
+      m_gameBoard->Update();
+  
+    UpdateEntities();
+    RenderEntities();
+  
+    AddPendingEntities();
+  }
+  else
+  {
+    if (m_gameBoard)
+      m_gameBoard->Update();
+    
+    UpdateEntities();
+  }
+  
+  networkManager->PostUpdate();
   
   m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
 
@@ -290,4 +316,23 @@ void GameEngineMain::StartGame()
     sm_deltaTimeClock.restart();
     sm_gameClock.restart();
 }
+
+
+void GameEngineMain::SpawnPlayer(unsigned short i)
+{
+  
+}
+
+void GameEngineMain::RemovePlayer(unsigned short i)
+{
+  
+}
+
+sf::Packet GameEngineMain::GetWorldUpdate()
+{
+  sf::Packet packet;
+  
+  return packet;
+}
+
 

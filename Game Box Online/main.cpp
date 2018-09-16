@@ -2,6 +2,8 @@
 #include "ResourcePath.hpp"
 #include <iostream>
 
+#define CLIENT true
+
 int main()
 {
     std::cout << "[INFO] Resources folder: " << resourcePath() << '\n';
