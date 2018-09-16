@@ -32,13 +32,13 @@ namespace Game
         PlayerEntity* GetPlayer() const { return m_player; }
         void DeleteIfEnemy(PlayerEntity* enemy);
         std::vector<PlayerEntity*> GetEnemies() const { return m_enemies; }
-	protected:
-		//Placeholder temp - should go to helpers or smth.
-		float RandomFloatRange(float a, float b)
-		{
-			return ((b - a) * ((float)rand() / RAND_MAX)) + a;
-		}
+    //Placeholder temp - should go to helpers or smth.
+    static float RandomFloatRange(float a, float b)
+    {
+      return ((b - a) * ((float)rand() / RAND_MAX)) + a;
+    }
 
+	protected:
 		void CreateBackGround();
 		void UpdateBackGround();
 

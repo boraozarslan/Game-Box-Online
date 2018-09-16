@@ -11,6 +11,7 @@
 #include "./EntitySystem/Entity.hpp"
 #include "./EntitySystem/Components/RenderComponent.hpp"
 
+class BulletShot;
 
 namespace GameEngine
 {
@@ -44,6 +45,7 @@ namespace GameEngine
     void SpawnPlayer(unsigned short i);
     void RemovePlayer(unsigned short i);
     sf::Packet GetWorldUpdate();
+    void ShootBullet(BulletShot bs);
     
 	private:
     GameEngineMain(bool host);

@@ -14,7 +14,7 @@ namespace Game
   class PlayerEntity : public GameEngine::Entity
   {
   public:
-    PlayerEntity(bool isEnemy);
+    PlayerEntity(bool isEnemy, bool isServer = false);
     ~PlayerEntity();
     
     virtual void OnAddToWorld() override;

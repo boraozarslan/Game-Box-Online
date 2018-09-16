@@ -15,8 +15,10 @@
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
+PlayerEntity::PlayerEntity(bool isEnemy, bool isServer): m_health(100.f), m_score(0)
 {
+  if(!isServer)
+  {
     m_isEnemy = isEnemy;
 
 	//Render 
@@ -50,8 +52,7 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 	GameEngine::SParticleDefinition particleDef = GameEngine::SParticleDefinition(GameEngine::eTexture::Particles, 1, sf::Vector2f(32.f, 32.f), GameEngine::EAnimationId::Smoke, 1.f);
 	emitterComponent->SetParticleDefinition(particleDef);
 
-    //Collisions
-    AddComponent<GameEngine::CollidablePhysicsComponent>();
+    
     
     //Health Bar Component
     m_healthStatus = static_cast<Game::HealthStatusComponent*>(AddComponent<Game::HealthStatusComponent>());
@@ -61,6 +62,9 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 	soundComponent->SetNumSimultaneousSounds(2); // Hard coded 5 simultaneous sounds for the player
 												 
 	AddComponent<PlayerSoundComponent>();
+  }
+  //Collisions
+  AddComponent<GameEngine::CollidablePhysicsComponent>();
 }
 
  
