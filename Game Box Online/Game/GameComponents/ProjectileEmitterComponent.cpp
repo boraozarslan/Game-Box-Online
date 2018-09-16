@@ -73,7 +73,7 @@ void ProjectileEmitterComponent::EmitProjectile(sf::Vector2f direction)
     direction.x *= m_projSpeed;
     direction.y *= m_projSpeed;
 
-    projMoveComponent->setVector(direction);
+    projMoveComponent->SetVector(direction);
 
     render->SetTexture(GameEngine::eTexture::Particles);
     render->SetZLevel(1);

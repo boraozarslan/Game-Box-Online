@@ -12,7 +12,6 @@ using namespace Game;
 GameBoard::GameBoard()
 	: m_lastObstacleSpawnTimer(0.f)
 	, m_isGameOver(false)
-	, m_player(nullptr)
 	, m_backGround(nullptr)
 {
 	m_player = new PlayerEntity(false);
@@ -23,11 +22,11 @@ GameBoard::GameBoard()
 	
     // Initialize enemies (TODO: replace this with networks code)
     m_enemies.push_back(new PlayerEntity(true));
-//    m_enemies.push_back(new PlayerEntity(true));
+    m_enemies.push_back(new PlayerEntity(true));
     for (int i = 0; i < m_enemies.size(); ++i) {
         PlayerEntity* enemy = m_enemies[i];
         GameEngine::GameEngineMain::GetInstance()->AddEntity(enemy);
-        enemy->SetPos(sf::Vector2f(i * 60.f, 530.f));
+        enemy->SetPos(sf::Vector2f(RandomFloatRange(-500.f, 500.f), RandomFloatRange(-500.f, 500.f)));
         enemy->SetSize(sf::Vector2f(50.f, 50.f));
     }
 
