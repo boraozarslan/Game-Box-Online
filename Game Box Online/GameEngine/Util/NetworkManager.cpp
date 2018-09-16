@@ -78,8 +78,8 @@ void NetworkManager::PreUpdate()
             // Heartbeat message
             HeartBeat hb;
             packet >> hb;
-            // TODO: Use the heartbeat message
-            std::cout << "HB: " << hb.player.x << " " << hb.player.y << '\n';
+            
+            mainEngine->UpdatePlayer(hb);
           }
           else if(msg.messageCode == BS)
           {
@@ -127,7 +127,8 @@ void NetworkManager::PreUpdate()
           //assert(packet.getDataSize() == sizeof(WorldUpdate));
           WorldUpdate worldUpdate;
           packet >> worldUpdate;
-          
+        
+        mainEngine->UpdateWorld(worldUpdate);
 //          std::cout << "Received world update packet!" << std::endl;
           // TODO diff the received packet
       }
@@ -154,9 +155,9 @@ void NetworkManager::PostUpdate()
   }
   else
   {
-//      HeartBeat heartBeatMsg (mainEngine->GetPlayerId(), mainEngine->GetGameBoard()->GetPlayer()->GetPos());
-//      sf::Packet packet;
-//      packet << heartBeatMsg;
-//      while (mainEngine->GetSocket().send(packet) == sf::Socket::Partial); // Block until packet is sent
+      HeartBeat heartBeatMsg (mainEngine->GetPlayerId(), mainEngine->GetGameBoard()->GetPlayer()->GetPos());
+      sf::Packet packet;
+      packet << heartBeatMsg;
+      while (mainEngine->GetSocket().send(packet) == sf::Socket::Partial); // Block until packet is sent
   }
 }

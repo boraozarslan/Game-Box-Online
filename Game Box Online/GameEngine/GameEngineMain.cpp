@@ -4,6 +4,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <string>
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include "Util/TextureManager.hpp"
@@ -138,8 +139,6 @@ void GameEngineMain::Update()
 
     if (m_isInNetworkMode && m_host)
     {
-        if (m_gameBoard)
-          m_gameBoard->Update();
 
         UpdateEntities();
         AddPendingEntities();
@@ -191,7 +190,7 @@ void GameEngineMain::RemovePendingEntities()
 		{
 			m_entities.erase(found);
 
-			delete entity;
+			//delete entity;
 		}
 	}
 
@@ -309,6 +308,17 @@ void GameEngineMain::RenderEntities()
         m_renderWindow->draw(text);
     }
 
+    sf::Text score;
+    Game::PlayerEntity* playerEntity = GetGameBoard()->GetPlayer();
+    score.setFont(font);
+    score.setStyle(sf::Text::Bold);
+    score.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/30);
+    score.setFillColor(sf::Color::Black);
+    score.setString("Score: " + std::to_string(playerEntity->GetScore()));
+    score.setPosition(playerEntity->GetPos().x + 450.f, playerEntity->GetPos().y + 400.f);
+
+    m_renderWindow->draw(score);
+
 	if (m_renderWindow && m_renderWindow->isOpen())
 	{
 		m_renderWindow->display();
@@ -419,6 +429,8 @@ sf::Packet GameEngineMain::GetWorldUpdate()
   WorldUpdate wu;
   for(int i = 0; i < m_entities.size(); ++i)
   {
+    if(m_entities[i]->id == INVALID_ID)
+      continue;
     EntityMessage msg;
     msg.id = m_entities[i]->id;
     auto pos = m_entities[i]->GetPos();
@@ -432,6 +444,59 @@ sf::Packet GameEngineMain::GetWorldUpdate()
   return packet;
 }
 
+void GameEngineMain::UpdateWorld(WorldUpdate wu)
+{
+  for(auto msg : wu.entities)
+  {
+    bool updated = false;
+    for(auto entity : m_entities)
+    {
+      if(entity->id == msg.id)
+      {
+        // found what to update
+        updated = true;
+        entity->SetPos(sf::Vector2f(msg.x, msg.y));
+      }
+    }
+    if(updated)
+      continue;
+    // Something new came
+    if(msg.type == Types::Projectile)
+    {
+      Game::ProjectileEntity* pr = new Game::ProjectileEntity();
+      AddEntity(pr);
+      pr->SetPos(sf::Vector2f(msg.x, msg.y));
+      pr->SetSize(sf::Vector2f(16.f, 16.f));
+      pr->id = msg.id;
+      continue;
+    }
+    else if(msg.type == Types::Player)
+    {
+      Game::PlayerEntity* pl = new Game::PlayerEntity(false);
+      AddEntity(pl);
+      pl->id = msg.id;
+      pl->SetPos(sf::Vector2f(msg.x, msg.y));
+      pl->SetSize(sf::Vector2f(40.f, 40.f));
+      continue;
+    }
+    assert(false); // missing type info data
+  }
+  // Check for destroyed entities
+  for(auto entity : m_entities)
+  {
+    bool destroyed = true;
+    for(auto msg : wu.entities)
+    {
+      if(msg.id == entity->id)
+      {
+        destroyed = false;
+        break;
+      }
+    }
+    if(destroyed)
+      RemoveEntity(entity);
+  }
+}
 
 void GameEngineMain::ShootBullet(BulletShot bs)
 {
@@ -498,4 +563,18 @@ void GameEngineMain::SendBulletShot(unsigned int direction) {
 
     packet << bulletShot;
     while (m_socket.send(packet) == sf::Socket::Partial); // Block until packet is sent
+}
+
+void GameEngineMain::UpdatePlayer(HeartBeat hb)
+{
+  for(auto entity : m_entities)
+  {
+    if(entity->id == hb.player.id)
+    {
+      Game::PlayerEntity* player = static_cast<Game::PlayerEntity*>(entity);
+      player->SetPos(sf::Vector2f(hb.player.x, hb.player.y));
+      return;
+    }
+  }
+  assert(false);
 }

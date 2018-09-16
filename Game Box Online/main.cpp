@@ -12,7 +12,6 @@ int main()
     {
         mainEngine->Update();
     }
-    
     delete mainEngine;
     return 0;
 }

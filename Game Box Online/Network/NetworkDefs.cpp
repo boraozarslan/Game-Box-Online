@@ -20,12 +20,12 @@ sf::Packet& operator >>(sf::Packet& packet, NetworkMessage& msg)
 
 sf::Packet& operator <<(sf::Packet& packet, const EntityMessage& msg)
 {
-    return packet << msg.id << msg.x << msg.y;
+    return packet << msg.id << msg.type << msg.x << msg.y;
 }
 
 sf::Packet& operator >>(sf::Packet& packet, EntityMessage& msg)
 {
-    return packet >> msg.id >> msg.x >> msg.y;
+    return packet >> msg.id >> msg.type >> msg.x >> msg.y;
 }
 
 sf::Packet& operator <<(sf::Packet& packet, const HeartBeat& msg)

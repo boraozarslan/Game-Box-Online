@@ -11,7 +11,9 @@
 #include "./EntitySystem/Entity.hpp"
 #include "./EntitySystem/Components/RenderComponent.hpp"
 
-class BulletShot;
+struct BulletShot;
+struct HeartBeat;
+struct WorldUpdate;
 
 namespace GameEngine
 {
@@ -42,6 +44,7 @@ namespace GameEngine
 
 		void OnInitialised();
 		bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
+        bool IsInNetworkMode() const { return m_isInNetworkMode; }
         
         static float WINDOW_HEIGHT;
         static float WINDOW_WIDTH;
@@ -50,6 +53,8 @@ namespace GameEngine
         void RemovePlayer(unsigned short i);
         sf::Packet GetWorldUpdate();
         void ShootBullet(BulletShot bs);
+    void UpdateWorld(WorldUpdate wu);
+    void UpdatePlayer(HeartBeat hb);
         
         void SendBulletShot(unsigned int direction);
         

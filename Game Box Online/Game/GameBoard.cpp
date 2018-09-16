@@ -14,14 +14,15 @@ GameBoard::GameBoard()
 	, m_isGameOver(false)
 	, m_backGround(nullptr)
 {
+  if(!GameEngine::GameEngineMain::GetInstance()->IsHost())
+  {
 	m_player = new PlayerEntity(false);
-
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 	m_player->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, SCREEN_DIMENSION / 2));
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
     // Initialize enemies (TODO: replace this with networks code)
-  int numEnemies = 0;//RandomFloatRange(4, 7);
+    int numEnemies = GameEngine::GameEngineMain::GetInstance()->IsInNetworkMode() ? 0 : RandomFloatRange(4, 7);
 
     for (int i = 0; i < numEnemies; ++i) {
         PlayerEntity* enemy = new PlayerEntity(true);
@@ -34,6 +35,7 @@ GameBoard::GameBoard()
         ));
         enemy->SetSize(sf::Vector2f(50.f, 50.f));
     }
+  }
 
 	CreateBackGround();
 	//Debug
@@ -176,6 +178,12 @@ void GameBoard::SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& si
 
 void GameBoard::CreateBackGround()
 {
+  if(GameEngine::GameEngineMain::GetInstance()->IsHost())
+  {
+    m_backGround = nullptr;
+  }
+  else
+  {
 	GameEngine::Entity* bgEntity = new GameEngine::Entity();
 	GameEngine::SpriteRenderComponent* render = static_cast<GameEngine::SpriteRenderComponent*>(bgEntity->AddComponent<GameEngine::SpriteRenderComponent>());
 	render->SetTexture(GameEngine::eTexture::BG);
@@ -185,7 +193,7 @@ void GameBoard::CreateBackGround()
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
-
+  }
     // Adding walls
     GameEngine::Entity* topWall = new GameEngine::Entity();
     GameEngine::Entity* bottomWall = new GameEngine::Entity();
