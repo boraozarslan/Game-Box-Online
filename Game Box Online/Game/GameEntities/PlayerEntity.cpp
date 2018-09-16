@@ -39,6 +39,7 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 
         // Projectile Emitter
         AddComponent<Game::ProjectileEmitterComponent>();
+        AddComponent<Game::BombEmitterComponent>();
     } else {
         AddComponent<GameEngine::DumbAIComponent>();
         GameEngine::DumbProjectileComponent* dumbProjectile = static_cast<GameEngine::DumbProjectileComponent*>(AddComponent<GameEngine::DumbProjectileComponent>());

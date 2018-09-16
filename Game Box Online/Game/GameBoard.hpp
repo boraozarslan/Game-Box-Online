@@ -4,6 +4,7 @@
 
 #include <SFML/System/Vector2.hpp>
 #include <vector>
+#include <math.h>
 
 namespace Game
 {
@@ -29,7 +30,8 @@ namespace Game
 		bool IsGameOver() const { return m_isGameOver; }
         
         PlayerEntity* GetPlayer() const { return m_player; }
-
+        void DeleteIfEnemy(PlayerEntity* enemy);
+        std::vector<PlayerEntity*> GetEnemies() const { return m_enemies; }
 	protected:
 		//Placeholder temp - should go to helpers or smth.
 		float RandomFloatRange(float a, float b)

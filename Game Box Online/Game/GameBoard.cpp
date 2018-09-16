@@ -15,7 +15,7 @@ GameBoard::GameBoard()
 	, m_backGround(nullptr)
 {
 	m_player = new PlayerEntity(false);
-	
+
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 	m_player->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, SCREEN_DIMENSION / 2));
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
@@ -223,4 +223,15 @@ void GameBoard::UpdateBackGround()
 		return;
 
 	m_backGround->SetPos(m_player->GetPos());
+}
+
+
+void GameBoard::DeleteIfEnemy(Game::PlayerEntity* enemy) {
+    auto found = std::find(m_enemies.begin(), m_enemies.end(), enemy);
+
+    if (found != m_enemies.end())
+    {
+        m_enemies.erase(found);
+    }
+
 }

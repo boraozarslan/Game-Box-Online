@@ -107,13 +107,15 @@ void CollidablePhysicsComponent::Update()
 }
 
 void CollidablePhysicsComponent::handleDamage(Game::ProjectileEntity* projectile) {
-    bool wasKilled = static_cast<Game::PlayerEntity*>(GetEntity())->TakeDamage(projectile->GetDamage());
+    Game::PlayerEntity* playerEntity = static_cast<Game::PlayerEntity*>(GetEntity());
+    bool wasKilled = playerEntity->TakeDamage(projectile->GetDamage());
     Game::PlayerEntity* projectileSrc = projectile->GetSource();
 
     auto currentEngine = GameEngine::GameEngineMain::GetInstance();
     currentEngine->RemoveEntity(projectile);
 
     if (wasKilled) {
+        currentEngine->GetGameBoard()->DeleteIfEnemy(playerEntity);
         currentEngine->RemoveEntity(GetEntity());
         projectileSrc->IncreaseScore(1);
         //std::cout << projectileSrc->GetScore() << std::endl << std::flush;
