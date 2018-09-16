@@ -66,3 +66,6 @@ _Adding and Removing Entities_
 
 We had lots of different logic that prompted entities to be added and removed in the game. The out-of-the-box API staggered these requests, resulting in some conflicts when multiple behaviours of an Entity request the same remove entity action. We addressed this by adding more robust guards to the removal process.
 
+_Ideation_
+
+Unfortunately, our team was made only a day before the competition started so we had little time to brainstorm ideas. To counteract this, we spent some of the first few hours of the Hackathon to flesh out an idea, as well as designate tasks.
