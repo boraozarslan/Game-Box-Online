@@ -53,6 +53,9 @@
 		E1B787B0214D06880085DF57 /* ProjectileMovementComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */; };
 		E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */; };
 		E1B787C6214DEC3A0085DF57 /* HealthStatusComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */; };
+		E1B787C8214E19390085DF57 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787C7214E19390085DF57 /* GameOverScreen.png */; };
+		E1B787CB214E1DAE0085DF57 /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */; };
+		E1B787CD214E353F0085DF57 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CC214E353E0085DF57 /* shuriken.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +148,10 @@
 		E1B787B7214D8A610085DF57 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = img/bg.png; sourceTree = "<group>"; };
 		E1B787C4214DEC390085DF57 /* HealthStatusComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HealthStatusComponent.hpp; sourceTree = "<group>"; };
 		E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthStatusComponent.cpp; sourceTree = "<group>"; };
+		E1B787C7214E19390085DF57 /* GameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GameOverScreen.png; path = ../../../Desktop/GameOverScreen.png; sourceTree = "<group>"; };
+		E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScreen.cpp; sourceTree = "<group>"; };
+		E1B787CA214E1DAE0085DF57 /* GameOverScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverScreen.hpp; sourceTree = "<group>"; };
+		E1B787CC214E353E0085DF57 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +224,8 @@
 				E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */,
 				E1B787A7214CCCB70085DF57 /* SplashScreen.hpp */,
 				2BA3C2EE214D056200D9441F /* Defs.h */,
+				E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */,
+				E1B787CA214E1DAE0085DF57 /* GameOverScreen.hpp */,
 			);
 			path = GameEngine;
 			sourceTree = "<group>";
@@ -356,6 +365,8 @@
 		B5BADDF2214D89D600DA8DD6 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E1B787CC214E353E0085DF57 /* shuriken.png */,
+				E1B787C7214E19390085DF57 /* GameOverScreen.png */,
 				B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */,
 				B5BADDF5214D89D600DA8DD6 /* Flappy.png */,
 				B5BADDF6214D89D600DA8DD6 /* tileset.png */,
@@ -430,6 +441,8 @@
 				B5BADDFC214D89D600DA8DD6 /* tileset.png in Resources */,
 				B5BADDFD214D89D600DA8DD6 /* player.png in Resources */,
 				2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */,
+				E1B787CD214E353F0085DF57 /* shuriken.png in Resources */,
+				E1B787C8214E19390085DF57 /* GameOverScreen.png in Resources */,
 				B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */,
 				2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */,
 				2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */,
@@ -485,6 +498,7 @@
 				E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */,
 				2B2AE5E4214C919F00AF4A0D /* ObstacleEntity.cpp in Sources */,
 				E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */,
+				E1B787CB214E1DAE0085DF57 /* GameOverScreen.cpp in Sources */,
 				E1B787B0214D06880085DF57 /* ProjectileMovementComponent.cpp in Sources */,
 				2B2AE60F214C93C800AF4A0D /* RenderComponent.cpp in Sources */,
 				B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */,

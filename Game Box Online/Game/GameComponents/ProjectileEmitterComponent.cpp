@@ -57,7 +57,7 @@ void ProjectileEmitterComponent::OnAddToWorld()
 
 void ProjectileEmitterComponent::OnRemoveFromWorld()
 {
-    Component::OnAddToWorld();
+    Component::OnRemoveFromWorld();
 }
 
 

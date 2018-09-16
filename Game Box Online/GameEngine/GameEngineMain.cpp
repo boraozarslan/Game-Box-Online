@@ -10,6 +10,7 @@
 #include "Util/AnimationManager.hpp"
 #include "Util/CameraManager.hpp"
 #include "SplashScreen.hpp"
+#include "GameOverScreen.hpp"
 #include "Menu.hpp"
 #include "HealthStatusComponent.hpp"
 #include "ResourcePath.hpp"
@@ -114,11 +115,15 @@ void GameEngineMain::AddEntity(Entity* entity)
 
 void GameEngineMain::RemoveEntity(Entity* entity)
 {
+    auto ignore = std::find(m_entitiesToRemove.begin(), m_entitiesToRemove.end(), entity);
+    if (ignore != m_entitiesToRemove.end())
+        return;
+
 	auto found = std::find(m_entities.begin(), m_entities.end(), entity);
 	if (found == m_entities.end())
 	{
-		found = std::find(m_entitiesToRemove.begin(), m_entitiesToRemove.end(), entity);
-		assert(found != m_entitiesToRemove.end()); //Drop an assert if we remove a non existing entity (neither on entity list and on entity to remove list);
+		auto found2 = std::find(m_entitiesToRemove.begin(), m_entitiesToRemove.end(), entity);
+		assert(found2 != m_entitiesToRemove.end()); //Drop an assert if we remove a non existing entity (neither on entity list and on entity to remove list);
 	}	
 
 	if (found != m_entities.end())
@@ -310,7 +315,7 @@ void GameEngineMain::RenderEntities()
         hpBox.setFillColor(sf::Color(250,0,0));
         
         hpBox.setPosition(healthStatus->HealthPos.x - 170.f,healthStatus->HealthPos.y - 170.f);
-        hpBox.setFillColor(sf::Color(244, 90, 162)); // nice green: (50, 250, 50)
+        hpBox.setFillColor(sf::Color(50, 250, 50));
         
         m_renderWindow->draw(hpMaxBox);
         m_renderWindow->draw(hpBox);
@@ -321,6 +326,13 @@ void GameEngineMain::RenderEntities()
 	{
 		m_renderWindow->display();
 	}	
+}
+
+void GameEngineMain::ShowGameOver()
+{
+    GameOverScreen gameOverScreen(m_renderTarget, m_renderWindow);
+    gameOverScreen.WaitForKeystroke();
+    exit(0);
 }
 
 
