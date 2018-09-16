@@ -81,6 +81,7 @@ namespace GameEngine
         bool m_host;
         sf::TcpSocket m_socket;
         unsigned short m_playerId;
+        unsigned short m_currentBulletId;
 
 		bool m_windowInitialised;
 	};
