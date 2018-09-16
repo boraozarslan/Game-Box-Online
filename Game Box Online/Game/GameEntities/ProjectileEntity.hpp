@@ -19,7 +19,7 @@ namespace Game
 
         float GetDamage();
         PlayerEntity* GetSource();
-        void SetSource(PlayerEntity* soruce);
+        void SetSource(PlayerEntity* source);
     protected:
         GameEngine::SpriteRenderComponent* m_renderComponent;
         ProjectileMovementComponent*   m_projectileMovementComponent;
