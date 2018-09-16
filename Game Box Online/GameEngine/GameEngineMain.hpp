@@ -6,7 +6,6 @@
 #include "Game/GameBoard.hpp"
 #include "EntitySystem/Entity.hpp"
 #include "EntitySystem/Components/RenderComponent.hpp"
-#include "Camera.hpp"
 
 #include "./EntitySystem/Entity.hpp"
 #include "./EntitySystem/Components/RenderComponent.hpp"
@@ -65,7 +64,6 @@ namespace GameEngine
 
 		Game::GameBoard*    m_gameBoard;
 		float				m_lastDT;
-        Camera* m_camera;
 
 
 		bool m_windowInitialised;

@@ -9,7 +9,7 @@ namespace GameEngine
 	public:
 		~CameraManager();
 		static CameraManager* GetInstance() { if (!sm_instance) sm_instance = new CameraManager(); return sm_instance; }
-		static bool IsFollowCameraEnabled() { return false; }
+		static bool IsFollowCameraEnabled() { return true; }
 
 		sf::View& GetCameraView() { return m_cameraView; }
 

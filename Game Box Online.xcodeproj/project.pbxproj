@@ -33,7 +33,6 @@
 		2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC60214C8CF800CFF6A2 /* sansation.ttf */; };
 		2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC62214C8CF800CFF6A2 /* icon.png */; };
 		2B7B8B37214D5F030087FCD6 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B7B8B36214D5F030087FCD6 /* SplashScreen.png */; };
-		2B7C858D214D142800DF0C0D /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C858B214D142800DF0C0D /* Camera.cpp */; };
 		B524F419214D03A2006F4A2E /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F411214D03A1006F4A2E /* SoundManager.cpp */; };
 		B524F41A214D03A2006F4A2E /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F413214D03A2006F4A2E /* CameraManager.cpp */; };
 		B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F41E214D05EF006F4A2E /* PlayerSoundComponent.cpp */; };
@@ -43,7 +42,6 @@
 		B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = B524F42E214D0B42006F4A2E /* glassBreak.wav */; };
 		B5CCBEF1214D880100750DD7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCBEEB214D880100750DD7 /* bg.png */; };
 		B5CCBEF2214D880100750DD7 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCBEEC214D880100750DD7 /* player.png */; };
-		B5CCBEF3214D880100750DD7 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCBEED214D880100750DD7 /* SplashScreen.png */; };
 		B5CCBEF4214D880100750DD7 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCBEEE214D880100750DD7 /* tileset.png */; };
 		B5CCBEF5214D880100750DD7 /* particles.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCBEEF214D880100750DD7 /* particles.png */; };
 		B5CCBEF6214D880100750DD7 /* Flappy.png in Resources */ = {isa = PBXBuildFile; fileRef = B5CCBEF0214D880100750DD7 /* Flappy.png */; };
@@ -109,8 +107,6 @@
 		2B7C8583214D069100DF0C0D /* ProjectileMovementComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileMovementComponent.hpp; sourceTree = "<group>"; };
 		2B7C8584214D069100DF0C0D /* ProjectileEmitterComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEmitterComponent.cpp; sourceTree = "<group>"; };
 		2B7C8585214D069100DF0C0D /* ProjectileEmitterComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEmitterComponent.hpp; sourceTree = "<group>"; };
-		2B7C858B214D142800DF0C0D /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
-		2B7C858C214D142800DF0C0D /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
 		2BA3C2EE214D056200D9441F /* Defs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defs.h; sourceTree = "<group>"; };
 		B524F40E214D03A1006F4A2E /* CameraManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CameraManager.hpp; sourceTree = "<group>"; };
 		B524F40F214D03A1006F4A2E /* SoundManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SoundManager.hpp; sourceTree = "<group>"; };
@@ -126,7 +122,6 @@
 		B524F42E214D0B42006F4A2E /* glassBreak.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glassBreak.wav; sourceTree = "<group>"; };
 		B5CCBEEB214D880100750DD7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		B5CCBEEC214D880100750DD7 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		B5CCBEED214D880100750DD7 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		B5CCBEEE214D880100750DD7 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
 		B5CCBEEF214D880100750DD7 /* particles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particles.png; sourceTree = "<group>"; };
 		B5CCBEF0214D880100750DD7 /* Flappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flappy.png; sourceTree = "<group>"; };
@@ -210,8 +205,6 @@
 				E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */,
 				E1B787A7214CCCB70085DF57 /* SplashScreen.hpp */,
 				2BA3C2EE214D056200D9441F /* Defs.h */,
-				2B7C858B214D142800DF0C0D /* Camera.cpp */,
-				2B7C858C214D142800DF0C0D /* Camera.hpp */,
 			);
 			path = GameEngine;
 			sourceTree = "<group>";
@@ -341,7 +334,6 @@
 				B5CCBEF0214D880100750DD7 /* Flappy.png */,
 				B5CCBEEF214D880100750DD7 /* particles.png */,
 				B5CCBEEC214D880100750DD7 /* player.png */,
-				B5CCBEED214D880100750DD7 /* SplashScreen.png */,
 				B5CCBEEE214D880100750DD7 /* tileset.png */,
 			);
 			name = img;
@@ -417,7 +409,6 @@
 				B524F434214D0B42006F4A2E /* thunder.wav in Resources */,
 				B5CCBEF4214D880100750DD7 /* tileset.png in Resources */,
 				2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */,
-				B5CCBEF3214D880100750DD7 /* SplashScreen.png in Resources */,
 				B5CCBEF2214D880100750DD7 /* player.png in Resources */,
 				B5CCBEF1214D880100750DD7 /* bg.png in Resources */,
 				B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */,
@@ -482,7 +473,6 @@
 				2B2AE61C214CD31D00AF4A0D /* NetworkedComponent.cpp in Sources */,
 				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,
 				2B2AE609214C93A700AF4A0D /* ParticleComponent.cpp in Sources */,
-				2B7C858D214D142800DF0C0D /* Camera.cpp in Sources */,
 				2B2AE5E1214C918A00AF4A0D /* PlayerMovementComponent.cpp in Sources */,
 				2B2AE5F6214C92A900AF4A0D /* TextureManager.cpp in Sources */,
 			);
@@ -497,29 +487,27 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
-				FRAMEWORK_SEARCH_PATHS = (
-					/Library/Frameworks/,
-					"$(inherited)",
-				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
 				);
 				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib/,
-					"$(inherited)",
-				);
+				KEEP_PRIVATE_EXTERNS = YES;
+				LD_GENERATE_MAP_FILE = YES;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"$(SFML_SYSTEM)",
-					"$(SFML_WINDOW)",
-					"$(SFML_GRAPHICS)",
-					"$(SFML_AUDIO)",
-					"$(SFML_NETWORK)",
+					"-lsfml-system",
+					"-lsfml-window",
+					"-lsfml-graphics",
+					"-lsfml-audio",
+					"-lsfml-network",
 				);
 				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
 				SFML_BINARY_TYPE = FRAMEWORKS;
@@ -544,29 +532,27 @@
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
-				FRAMEWORK_SEARCH_PATHS = (
-					/Library/Frameworks/,
-					"$(inherited)",
-				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include/,
 					"$(inherited)",
 				);
 				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib/,
-					"$(inherited)",
-				);
+				KEEP_PRIVATE_EXTERNS = YES;
+				LD_GENERATE_MAP_FILE = YES;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"$(SFML_SYSTEM)",
-					"$(SFML_WINDOW)",
-					"$(SFML_GRAPHICS)",
-					"$(SFML_AUDIO)",
-					"$(SFML_NETWORK)",
+					"-lsfml-system",
+					"-lsfml-window",
+					"-lsfml-graphics",
+					"-lsfml-audio",
+					"-lsfml-network",
 				);
 				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
 				SFML_BINARY_TYPE = FRAMEWORKS;
@@ -591,9 +577,96 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = "Game Box Online/Game Box Online-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
@@ -606,9 +679,96 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-osx/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = "Game Box Online/Game Box Online-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/mips",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi-v7a",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-android/armeabi",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-ios",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-mingw/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x64",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+					"$(PROJECT_DIR)/Game\\ Box\\ Online/SFML-2.5.0/extlibs/libs-msvc-universal/x86",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
