@@ -5,12 +5,14 @@
 //  Created by Bora Ozarslan on 2018-09-15.
 //  Copyright © 2018 Gamebox. All rights reserved.
 //
+
 #pragma once
 
 #include <string>
 #include <vector>
 
-const std::string IP("35.186.166.163");
+//const std::string IP("35.186.166.163");
+const std::string IP("127.0.0.1");
 const unsigned short TCP_PORT = 25930;
 const unsigned short UDP_PORT = 25931;
 
