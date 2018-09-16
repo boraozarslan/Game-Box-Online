@@ -283,6 +283,7 @@ void GameEngineMain::RenderEntities()
 	//If that setting is on, PlayerCamera component will update the camera position to player position - making our camera center on player entity
 	//With that test setting on, our bird implementation changes a bunch of rules, just so we can test it easilly
 	m_renderTarget->setView(CameraManager::GetInstance()->GetCameraView());
+    std::cout << "Current location: x[" << CameraManager::GetInstance()->GetCameraView().getCenter().x << "] y[" << CameraManager::GetInstance()->GetCameraView().getCenter().x << "]\n";
 
 	//Render que
 	std::vector<RenderComponent*> renderers;
@@ -345,6 +346,24 @@ void GameEngineMain::RenderEntities()
         
         hpBox.setPosition(healthStatus->HealthPos.x - 170.f,healthStatus->HealthPos.y - 170.f);
         hpBox.setFillColor(sf::Color(50, 250, 50));
+        
+        // Draw Diminishing Circle
+        float initialRadius = 500;
+        
+        sf::CircleShape circle(initialRadius);
+        circle.setFillColor(sf::Color::Transparent);
+        circle.setOutlineThickness(3);
+        circle.setOutlineColor(sf::Color(0, 250, 0));
+        circle.setPosition(sf::Vector2f(m_renderWindow->getView().getCenter().x- (GameEngineMain::WINDOW_WIDTH/2),
+                                        m_renderWindow->getView().getCenter().y- (GameEngineMain::WINDOW_HEIGHT/2))); // always same origin
+        
+        
+      //  m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
+        
+        circle.setRadius(fmax(0, circle.getRadius() - m_lastDT));
+        
+        
+        m_renderWindow->draw(circle);
         
         m_renderWindow->draw(hpMaxBox);
         m_renderWindow->draw(hpBox);

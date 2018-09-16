@@ -3,6 +3,7 @@
 #include "GameEngine/Defs.h"
 
 #include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics.hpp>
 #include <vector>
 #include <math.h>
 
@@ -24,6 +25,12 @@ namespace Game
 		void SpawnNewRandomObstacles();
 		void SpawnNewRandomTiledObstacles();
 		void SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& size);
+        
+//        sf::RenderTarget* m_target;
+//        sf::RenderWindow* m_window;
+        //GameBoard::GameBoard(sf::RenderWindow& window);
+        
+        void DiminishingCircle(sf::RenderTarget* target);
 
         static constexpr float SCREEN_DIMENSION = UNITS(100);
 
@@ -45,6 +52,7 @@ namespace Game
 		PlayerEntity* m_player;
         std::vector<PlayerEntity*> m_enemies;
 		GameEngine::Entity* m_backGround;
+        
 
 		std::vector<GameEngine::Entity*> m_obstacles;
 		float m_lastObstacleSpawnTimer;

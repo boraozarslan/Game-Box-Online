@@ -24,7 +24,7 @@ namespace GameEngine
 		static float		   GetTimeDelta() { return GetInstance()->m_lastDT; }
 		static float		   GetGameTime() { return sm_gameClock.getElapsedTime().asSeconds(); }
 
-		sf::RenderWindow* GetRenderWindow() const { return m_renderWindow; }
+		sf::RenderTarget* GetRenderTarget() const { return m_renderTarget; }
 		void Update();		
 		void SetRenderTarget(sf::RenderTarget* target) { m_renderTarget = target; }
 
@@ -38,6 +38,7 @@ namespace GameEngine
 		void OnInitialised();
 		bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
         
+        sf::RenderWindow* GetRenderWindow() const { return m_renderWindow; }
         static float WINDOW_HEIGHT;
         static float WINDOW_WIDTH;
     

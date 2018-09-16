@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558781746.140497"
+            timestampString = "558793232.979622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558781746.14064"
+            timestampString = "558793232.982317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558781746.140721"
+            timestampString = "558793232.984354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -574,409 +574,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558781746.140878"
+            timestampString = "558793232.986519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "210"
             endingLineNumber = "210"
             landmarkName = "unknown"
             landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.2988369"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "75">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.302774"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "98">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.307229"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "155">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.311896"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "172">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.316242"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "333">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.321739"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "364">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.326025"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "427">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.3305579"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "444">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.334523"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "472">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.339031"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "626">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.342787"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "689">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "void std::__1::__sort&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.346617"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "723">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort3&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.350219"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort3&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.354008"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "31">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort3&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.358054"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "74">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort3&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.36146"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "101">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort4&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.364379"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "38">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort4&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.367951"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "59">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort4&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.371731"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "79">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort5&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.375731"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort5&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.379536"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "66">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort5&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.382973"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "unsigned int std::__1::__sort5&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.3862571"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "109">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bool std::__1::__insertion_sort_incomplete&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.389946"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bool std::__1::__insertion_sort_incomplete&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.3934079"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "158">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "bool std::__1::__insertion_sort_incomplete&lt;GameEngine::GameEngineMain::RenderEntities()::$_0&amp;, GameEngine::RenderComponent**&gt;(GameEngine::RenderComponent**, GameEngine::RenderComponent**, GameEngine::GameEngineMain::RenderEntities()::$_0&amp;)"
-                  moduleName = "Game Box Online"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/amy/Game-Box-Online/Game%20Box%20Online/GameEngine/GameEngineMain.cpp"
-                  timestampString = "558753177.396666"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "192">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -992,6 +600,38 @@
             startingLineNumber = "22"
             endingLineNumber = "22"
             landmarkName = "PlayerEntity::PlayerEntity(bool isEnemy)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Game Box Online/GameEngine/EntitySystem/Components/CircleRenderComponent.cpp"
+            timestampString = "558793232.988639"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "CircleRenderComponent::Render(sf::RenderTarget* target)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
+            timestampString = "558793232.989585"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "GameEngineMain::RenderEntities()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

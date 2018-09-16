@@ -6,11 +6,12 @@
 #include "GameEngine/Util/CameraManager.hpp"
 #include "Game/GameEntities/PlayerEntity.hpp"
 #include "Game/GameEntities/ObstacleEntity.hpp"
+#include "CircleRenderComponent.hpp"
 
 using namespace Game;
 
 GameBoard::GameBoard()
-	: m_lastObstacleSpawnTimer(0.f)
+: m_lastObstacleSpawnTimer(0.f)
 	, m_isGameOver(false)
 	, m_backGround(nullptr)
 {
@@ -41,6 +42,7 @@ GameBoard::GameBoard()
 	{
 		//SpawnNewRandomObstacles();
 	}
+    DiminishingCircle(GameEngine::GameEngineMain::GetInstance()->GetRenderTarget());
 }
 
 
@@ -235,3 +237,22 @@ void GameBoard::DeleteIfEnemy(Game::PlayerEntity* enemy) {
     }
 
 }
+
+void GameBoard::DiminishingCircle(sf::RenderTarget* target)
+{
+    GameEngine::Entity* circleEntity = new GameEngine::Entity();
+    GameEngine::CircleRenderComponent* render = static_cast<GameEngine::CircleRenderComponent*>(circleEntity->AddComponent<GameEngine::CircleRenderComponent>());
+
+    
+ 
+    render->Circle.setRadius(50.f);
+    render->Circle.setFillColor(sf::Color::Red);
+    render->Circle.setOutlineThickness(3);
+    render->Circle.setOutlineColor(sf::Color(0, 250, 0));
+    render->Circle.setOrigin(500, 500);
+    
+    
+    
+    GameEngine::GameEngineMain::GetInstance()->AddEntity(circleEntity);
+}
+
