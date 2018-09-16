@@ -11,6 +11,7 @@
 #include "./EntitySystem/Entity.hpp"
 #include "./EntitySystem/Components/RenderComponent.hpp"
 
+class BulletShot;
 
 namespace GameEngine
 {
@@ -28,8 +29,12 @@ namespace GameEngine
 		void Update();		
 		void SetRenderTarget(sf::RenderTarget* target) { m_renderTarget = target; }
 
-    Game::GameBoard* GetGameBoard() { return m_gameBoard; }
+        Game::GameBoard* GetGameBoard() { return m_gameBoard; }
         
+        unsigned short GetPlayerId() { return m_playerId; }
+        
+        sf::TcpSocket & GetSocket() { return m_socket; }
+
 		void AddEntity(Entity* entity);
 		void RemoveEntity(Entity* entity);
         
@@ -37,6 +42,7 @@ namespace GameEngine
 
 		void OnInitialised();
 		bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
+        bool IsInNetworkMode() const { return m_isInNetworkMode; }
         
         sf::RenderWindow* GetRenderWindow() const { return m_renderWindow; }
         static float WINDOW_HEIGHT;
@@ -45,6 +51,7 @@ namespace GameEngine
     void SpawnPlayer(unsigned short i);
     void RemovePlayer(unsigned short i);
     sf::Packet GetWorldUpdate();
+    void ShootBullet(BulletShot bs);
     
 	private:
     GameEngineMain(bool host);
@@ -81,6 +88,7 @@ namespace GameEngine
         bool m_host;
         sf::TcpSocket m_socket;
         unsigned short m_playerId;
+        bool m_isInNetworkMode;
 
 		bool m_windowInitialised;
 	};

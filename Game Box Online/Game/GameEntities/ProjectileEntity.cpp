@@ -49,6 +49,10 @@ void ProjectileEntity::SetSource(PlayerEntity* source) {
     m_source = source;
 }
 
+void ProjectileEntity::SetTexture(GameEngine::eTexture::type texture) {
+    m_renderComponent->SetTexture(texture);
+}
+
 Game::PlayerEntity* ProjectileEntity::GetSource() {
     return m_source;
 }

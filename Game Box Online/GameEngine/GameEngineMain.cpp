@@ -4,6 +4,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <string>
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include "Util/TextureManager.hpp"
@@ -16,6 +17,8 @@
 #include "ResourcePath.hpp"
 #include "NetworkManager.hpp"
 #include "NetworkDefs.hpp"
+#include "GameBoard.hpp"
+
 
 using namespace GameEngine;
 
@@ -27,13 +30,12 @@ sf::Clock		GameEngineMain::sm_deltaTimeClock;
 sf::Clock		GameEngineMain::sm_gameClock;
 sf::Clock       GameEngineMain::sm_circleTimer;
 const std::string HOST_ADDR = "127.0.0.1";
-const unsigned HOST_PORT = 5051;
-const bool enableNetwork = false;
 
 GameEngineMain::GameEngineMain(bool host)
 	: m_renderTarget(nullptr)	
 	, m_windowInitialised(false)
 	, m_gameBoard(nullptr)
+    , m_isInNetworkMode(false)
   , m_host(host)
 {
   if(!m_host)
@@ -46,35 +48,6 @@ GameEngineMain::GameEngineMain(bool host)
 
 	CameraManager::GetInstance()->GetCameraView().setCenter(sf::Vector2f(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT / 2.f));
 	CameraManager::GetInstance()->GetCameraView().setSize(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
-
-    if (enableNetwork && !m_host) {
-        // Open a connection with the host
-        sf::Socket::Status connectStatus = m_socket.connect(HOST_ADDR, TCP_PORT);
-        if (connectStatus != sf::Socket::Status::Done) {
-            std::cerr << "Error connecting to the server! Status " << connectStatus << std::endl;
-            throw "Connection failed";
-        }
-        sf::Packet packet;
-        m_socket.receive(packet);
-        
-        assert(packet.getDataSize() == sizeof(IdMsg));
-        IdMsg idMsg;
-        packet >> idMsg;
-        assert(idMsg.messageCode == ID);
-        std::cout << "Received ID: " << idMsg.id << std::endl;
-        m_playerId = idMsg.id;
-        
-        // TODO: Receive the initial World update
-        m_socket.receive(packet);
-        assert(packet.getDataSize() == sizeof(WorldUpdate));
-        WorldUpdate worldUpdate;
-        packet >> worldUpdate;
-        assert(worldUpdate.messageCode == WU);
-        std::cout << "Received World Update!" << std::endl;
-        
-        // Set TCP to non-blocking
-        m_socket.setBlocking(false);
-    }
   }
 }
 
@@ -82,7 +55,7 @@ GameEngineMain::GameEngineMain(bool host)
 GameEngineMain::~GameEngineMain()
 {
     // Disconnect from the host
-    if (enableNetwork && !m_host) {
+    if (m_isInNetworkMode && !m_host) {
         m_socket.disconnect();
     }
     delete m_renderTarget;
@@ -153,46 +126,36 @@ void GameEngineMain::Update()
     m_windowInitialised = true;
     OnInitialised();
   }
-  
-  NetworkManager* networkManager = NetworkManager::GetInstance(m_host);
-  networkManager->PreUpdate();
-  
-  if(!m_host)
-  {
-    // The below code should be in preupdate if it's not host
-    sf::Packet packet;
-    if (m_socket.receive(packet) == sf::Socket::Status::Done) {
-      assert(packet.getDataSize() == sizeof(WorldUpdate));
-      WorldUpdate worldUpdate;
-      packet >> worldUpdate;
-      
-      std::cout << "Received world update packet!" << std::endl;
-      // TODO diff the received packet
+    
+    NetworkManager* networkManager = nullptr;
+    
+    if (m_isInNetworkMode) {
+        networkManager = NetworkManager::GetInstance(m_host);
+        networkManager->PreUpdate();
+    }
+
+    if (m_isInNetworkMode && m_host)
+    {
+        if (m_gameBoard)
+          m_gameBoard->Update();
+
+        UpdateEntities();
+    } else {
+        RemovePendingEntities();
+        
+        UpdateWindowEvents();
+        if (m_gameBoard)
+            m_gameBoard->Update();
+        
+        UpdateEntities();
+        RenderEntities();
+        
+        AddPendingEntities();
     }
     
-    //First update will happen after init for the time being (we will add loading later)
-  
-  
-    RemovePendingEntities();
-  
-    UpdateWindowEvents();
-    if (m_gameBoard)
-      m_gameBoard->Update();
-  
-    UpdateEntities();
-    RenderEntities();
-  
-    AddPendingEntities();
-  }
-  else
-  {
-    if (m_gameBoard)
-      m_gameBoard->Update();
-    
-    UpdateEntities();
-  }
-  
-  networkManager->PostUpdate();
+    if (m_isInNetworkMode) {
+        networkManager->PostUpdate();
+    }
   
   m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
 
@@ -200,7 +163,7 @@ void GameEngineMain::Update()
   
   // The below code should be networkManager postUpdate
   // Send heartbeat to the server
-    if (enableNetwork && !m_host && m_gameBoard) {
+    if (m_isInNetworkMode && !m_host && m_gameBoard) {
         HeartBeat heartBeatMsg (m_playerId, m_gameBoard->GetPlayer()->GetPos());
         sf::Packet packet;
         packet << heartBeatMsg;
@@ -371,6 +334,17 @@ void GameEngineMain::RenderEntities()
         m_renderWindow->draw(text);
     }
 
+    sf::Text score;
+    Game::PlayerEntity* playerEntity = GetGameBoard()->GetPlayer();
+    score.setFont(font);
+    score.setStyle(sf::Text::Bold);
+    score.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/30);
+    score.setFillColor(sf::Color::Black);
+    score.setString("Score: " + std::to_string(playerEntity->GetScore()));
+    score.setPosition(playerEntity->GetPos().x + 450.f, playerEntity->GetPos().y + 400.f);
+
+    m_renderWindow->draw(score);
+
 	if (m_renderWindow && m_renderWindow->isOpen())
 	{
 		m_renderWindow->display();
@@ -395,8 +369,51 @@ void GameEngineMain::ShowSplashScreen()
 void GameEngineMain::ShowMenu()
 {
     Menu menu{m_renderTarget, m_renderWindow};
-    menu.ShowMenu();
-    StartGame();
+    Menu::MenuResult buttonClicked = menu.ShowMenu();
+    
+    switch (buttonClicked) {
+        case Menu::Exit:
+            exit(0);
+        case Menu::Play:
+            StartGame();
+            break;
+        case Menu::Online:
+            if (!m_host) {
+                m_isInNetworkMode = true;
+                // Open a connection with the host
+                sf::Socket::Status connectStatus = m_socket.connect(HOST_ADDR, TCP_PORT);
+                if (connectStatus != sf::Socket::Status::Done) {
+                    std::cerr << "Error connecting to the server! Status " << connectStatus << std::endl;
+                    throw "Connection failed";
+                }
+                sf::Packet packet;
+                m_socket.receive(packet);
+                
+                assert(packet.getDataSize() == sizeof(IdMsg));
+                IdMsg idMsg;
+                packet >> idMsg;
+                assert(idMsg.messageCode == ID);
+                std::cout << "Received ID: " << idMsg.id << std::endl;
+                m_playerId = idMsg.id;
+                
+                // TODO: Receive the initial World update
+                m_socket.receive(packet);
+                WorldUpdate worldUpdate;
+                packet >> worldUpdate;
+                assert(worldUpdate.messageCode == WU);
+                std::cout << "Received World Update!" << std::endl;
+                
+                // Set TCP to non-blocking
+                m_socket.setBlocking(false);
+                StartGame();
+            } else {
+                std::cerr << "Online mode is not enabled!" << std::endl;
+            }
+            break;
+        case Menu::Nothing:
+            std::cerr << "This game mode is not yet implemented!" << std::endl;
+            break;
+    }
 }
 
 void GameEngineMain::StartGame()
@@ -410,19 +427,60 @@ void GameEngineMain::StartGame()
 
 void GameEngineMain::SpawnPlayer(unsigned short i)
 {
+  Game::PlayerEntity* player = new Game::PlayerEntity(true);
   
+  AddEntity(player);
+  player->SetPos(sf::Vector2f(
+                              Game::GameBoard::RandomFloatRange(1.f, Game::GameBoard::SCREEN_DIMENSION - 1.f),
+                              Game::GameBoard::RandomFloatRange(1.f, Game::GameBoard::SCREEN_DIMENSION - 1.f)
+                             ));
+  player->SetSize(sf::Vector2f(50.f, 50.f));
+  
+  player->id = i;
 }
 
 void GameEngineMain::RemovePlayer(unsigned short i)
 {
-  
+  int j;
+  for(j = 0; j < m_entities.size(); ++j)
+  {
+    if(m_entities[j]->id == i)
+      break;
+  }
+  assert(j != m_entities.size());
+  RemoveEntity(m_entities[j]);
 }
 
 sf::Packet GameEngineMain::GetWorldUpdate()
 {
-  sf::Packet packet;
+  WorldUpdate wu;
+  for(int i = 0; i < m_entities.size(); ++i)
+  {
+    EntityMessage msg;
+    msg.id = m_entities[i]->id;
+    auto pos = m_entities[i]->GetPos();
+    msg.x = pos.x;
+    msg.y = pos.y;
+    wu.entities.push_back(msg);
+  }
   
+  sf::Packet packet;
+  packet << wu;
   return packet;
 }
 
+
+void GameEngineMain::ShootBullet(BulletShot bs)
+{
+  Game::PlayerEntity* player = nullptr;
+  for(auto entity : m_entities)
+  {
+    if(entity->id == bs.whoId)
+    {
+      player = static_cast<Game::PlayerEntity*>(entity);
+    }
+  }
+  
+  assert(player != nullptr);
+}
 
