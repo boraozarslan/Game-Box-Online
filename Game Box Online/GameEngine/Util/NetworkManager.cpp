@@ -75,8 +75,8 @@ void NetworkManager::PreUpdate()
             // Heartbeat message
             HeartBeat hb;
             packet >> hb;
-            // TODO: Use the heartbeat message
-            std::cout << "HB: " << hb.player.x << " " << hb.player.y << '\n';
+            
+            mainEngine->UpdatePlayer(hb);
           }
           else if(msg.messageCode == BS)
           {

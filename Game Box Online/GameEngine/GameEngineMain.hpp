@@ -11,7 +11,8 @@
 #include "./EntitySystem/Entity.hpp"
 #include "./EntitySystem/Components/RenderComponent.hpp"
 
-class BulletShot;
+struct BulletShot;
+struct HeartBeat;
 
 namespace GameEngine
 {
@@ -46,6 +47,7 @@ namespace GameEngine
     void RemovePlayer(unsigned short i);
     sf::Packet GetWorldUpdate();
     void ShootBullet(BulletShot bs);
+    void UpdatePlayer(HeartBeat hb);
     
 	private:
     GameEngineMain(bool host);

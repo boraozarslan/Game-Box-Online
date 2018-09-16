@@ -3,7 +3,7 @@
 
 using namespace GameEngine;
 
-Entity::Entity()
+Entity::Entity(Type type)
 : m_pos(0.f, 0.f)
 , m_size(0.f, 0.f)
 , m_direction(1.f, 0.f)

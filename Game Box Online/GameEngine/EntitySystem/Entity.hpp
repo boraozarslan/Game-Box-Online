@@ -2,15 +2,17 @@
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 #include "./Component.hpp"
+#include "Defs.h"
 
 namespace GameEngine
 {    
 	class Entity
 	{
 	public:
-    unsigned short id;
+    unsigned short id = INVALID_ID;
+    Type type;
     
-		Entity();
+    Entity(Type type = Types::Default);
 		virtual ~Entity();
 
 		virtual void OnAddToWorld();

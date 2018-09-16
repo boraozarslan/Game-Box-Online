@@ -15,7 +15,7 @@
 
 using namespace Game;
 
-PlayerEntity::PlayerEntity(bool isEnemy, bool isServer): m_health(100.f), m_score(0)
+PlayerEntity::PlayerEntity(bool isEnemy, bool isServer): m_health(100.f), m_score(0), GameEngine::Entity(Types::Player)
 {
   if(!isServer)
   {

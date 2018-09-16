@@ -432,6 +432,8 @@ sf::Packet GameEngineMain::GetWorldUpdate()
   WorldUpdate wu;
   for(int i = 0; i < m_entities.size(); ++i)
   {
+    if(m_entities[i]->id == INVALID_ID)
+      continue;
     EntityMessage msg;
     msg.id = m_entities[i]->id;
     auto pos = m_entities[i]->GetPos();
@@ -458,5 +460,20 @@ void GameEngineMain::ShootBullet(BulletShot bs)
   }
   
   assert(player != nullptr);
+}
+
+
+void GameEngineMain::UpdatePlayer(HeartBeat hb)
+{
+  for(auto entity : m_entities)
+  {
+    if(entity->id == hb.player.id)
+    {
+      Game::PlayerEntity* player = static_cast<Game::PlayerEntity*>(entity);
+      player->SetPos(sf::Vector2f(hb.player.x, hb.player.y));
+      return;
+    }
+  }
+  assert(false);
 }
 
