@@ -77,7 +77,6 @@
 		B5696927214E458A0084AC21 /* NetworkDefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5696926214E45890084AC21 /* NetworkDefs.cpp */; };
 		B5696929214E45BA0084AC21 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5696928214E45BA0084AC21 /* GameOverScreen.png */; };
 		B5BADDF9214D89D600DA8DD6 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */; };
-		B5BADDFB214D89D600DA8DD6 /* Flappy.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF5214D89D600DA8DD6 /* Flappy.png */; };
 		B5BADDFC214D89D600DA8DD6 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF6214D89D600DA8DD6 /* tileset.png */; };
 		B5BADDFD214D89D600DA8DD6 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF7214D89D600DA8DD6 /* player.png */; };
 		B5BADDFE214D89D600DA8DD6 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF8214D89D600DA8DD6 /* bg.png */; };
@@ -92,6 +91,7 @@
 		E1B787CB214E1DAE0085DF57 /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */; };
 		E1B787CD214E353F0085DF57 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CC214E353E0085DF57 /* shuriken.png */; };
 		E1B787CF214E3F180085DF57 /* ninjathrowing.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CE214E3F180085DF57 /* ninjathrowing.png */; };
+		E1B787D1214E4F4F0085DF57 /* goose.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787D0214E4F4F0085DF57 /* goose.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,7 +178,6 @@
 		B5696926214E45890084AC21 /* NetworkDefs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkDefs.cpp; sourceTree = "<group>"; };
 		B5696928214E45BA0084AC21 /* GameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverScreen.png; sourceTree = "<group>"; };
 		B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
-		B5BADDF5214D89D600DA8DD6 /* Flappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flappy.png; sourceTree = "<group>"; };
 		B5BADDF6214D89D600DA8DD6 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
 		B5BADDF7214D89D600DA8DD6 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		B5BADDF8214D89D600DA8DD6 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
@@ -203,6 +202,7 @@
 		E1B787CA214E1DAE0085DF57 /* GameOverScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverScreen.hpp; sourceTree = "<group>"; };
 		E1B787CC214E353E0085DF57 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
 		E1B787CE214E3F180085DF57 /* ninjathrowing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninjathrowing.png; sourceTree = "<group>"; };
+		E1B787D0214E4F4F0085DF57 /* goose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goose.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,10 +433,10 @@
 		B5BADDF2214D89D600DA8DD6 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				E1B787D0214E4F4F0085DF57 /* goose.png */,
 				E1B787CE214E3F180085DF57 /* ninjathrowing.png */,
 				E1B787CC214E353E0085DF57 /* shuriken.png */,
 				B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */,
-				B5BADDF5214D89D600DA8DD6 /* Flappy.png */,
 				B5696928214E45BA0084AC21 /* GameOverScreen.png */,
 				B5BADDF6214D89D600DA8DD6 /* tileset.png */,
 				B5BADDF7214D89D600DA8DD6 /* player.png */,
@@ -537,8 +537,8 @@
 				E1B787CF214E3F180085DF57 /* ninjathrowing.png in Resources */,
 				B5696929214E45BA0084AC21 /* GameOverScreen.png in Resources */,
 				2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */,
-				B5BADDFB214D89D600DA8DD6 /* Flappy.png in Resources */,
 				B5BADDF9214D89D600DA8DD6 /* SplashScreen.png in Resources */,
+				E1B787D1214E4F4F0085DF57 /* goose.png in Resources */,
 				2B33FC5D214C8CF800CFF6A2 /* cute_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

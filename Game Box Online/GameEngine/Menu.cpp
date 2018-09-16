@@ -40,10 +40,12 @@ void Menu::ShowMenu()
   const int buttonHeight = (GameEngineMain::WINDOW_WIDTH) / 20;
   
   screen.setTexture(&texture);
+    
+  // Play Button
   
   sf::RectangleShape play(sf::Vector2f(buttonWidth, buttonHeight));
   
-  play.setPosition((GameEngineMain::WINDOW_WIDTH)*.30, (GameEngineMain::WINDOW_HEIGHT)*.7);
+  play.setPosition((GameEngineMain::WINDOW_WIDTH)*.20, (GameEngineMain::WINDOW_HEIGHT)*.7);
   play.setFillColor(sf::Color::Blue);
   
   sf::Text playText;
@@ -52,10 +54,26 @@ void Menu::ShowMenu()
   playText.setString( "Play Game" );
   playText.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
   playText.setFillColor(sf::Color::White);
-  playText.setPosition((GameEngineMain::WINDOW_WIDTH)*.30, (GameEngineMain::WINDOW_HEIGHT)*.7);
+  playText.setPosition((GameEngineMain::WINDOW_WIDTH)*.20, (GameEngineMain::WINDOW_HEIGHT)*.7);
+    
+    // Online Multiplayer Button
+    
+    sf::RectangleShape online(sf::Vector2f(buttonWidth*1.7, buttonHeight));
+    online.setPosition((GameEngineMain::WINDOW_WIDTH)*.40, (GameEngineMain::WINDOW_HEIGHT)*.7);
+    online.setFillColor(sf::Color::Blue);
+    sf::Text onlineText;
+    onlineText.setFont(font);
+    onlineText.setStyle(1);
+    onlineText.setString( "Online Multiplayer" );
+    onlineText.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
+    onlineText.setFillColor(sf::Color::White);
+    onlineText.setPosition((GameEngineMain::WINDOW_WIDTH)*.40, (GameEngineMain::WINDOW_HEIGHT)*.7);
+    
+    
+  // Exit Button
   
   sf::RectangleShape exitgame(sf::Vector2f(buttonWidth, buttonHeight));
-  exitgame.setPosition((GameEngineMain::WINDOW_WIDTH)*.60,(GameEngineMain::WINDOW_HEIGHT)*.7);
+  exitgame.setPosition((GameEngineMain::WINDOW_WIDTH)*.75,(GameEngineMain::WINDOW_HEIGHT)*.7);
   exitgame.setFillColor(sf::Color::Blue);
   
   sf::Text exitText;
@@ -64,14 +82,15 @@ void Menu::ShowMenu()
   exitText.setString( "Exit" );
   exitText.setCharacterSize((GameEngineMain::WINDOW_WIDTH)/42);
   exitText.setFillColor(sf::Color::White);
-  exitText.setPosition((GameEngineMain::WINDOW_WIDTH)*.60,(GameEngineMain::WINDOW_HEIGHT)*.7);
+  exitText.setPosition((GameEngineMain::WINDOW_WIDTH)*.75,(GameEngineMain::WINDOW_HEIGHT)*.7);
   
   
     bool done = false;
     while (m_window->isOpen())
     {
-        // get the bounding box of the entities
-        sf::FloatRect boundingBox = play.getGlobalBounds();
+        // get the bounding boxes of the entities
+        sf::FloatRect boundingBoxPlay = play.getGlobalBounds();
+        sf::FloatRect boundingBoxOnline = online.getGlobalBounds();
         sf::FloatRect boundingBoxExit = exitgame.getGlobalBounds();
         
         // Event processing
@@ -94,7 +113,7 @@ void Menu::ShowMenu()
                 m_window->close();
             }
             
-            if (boundingBox.contains(Mouse))
+            if (boundingBoxPlay.contains(Mouse))
             {
                 // collision!
                 //std::cout << "COLLISION!" << std::endl;
@@ -105,6 +124,17 @@ void Menu::ShowMenu()
                     break;
                 }
             }
+            if (boundingBoxOnline.contains(Mouse))
+            {
+                // collision!
+                
+                if(event.type == sf::Event::MouseButtonPressed)
+                {
+                    done = true;
+                    break;
+                }
+            }
+            
         }
         if(done)
             break;
@@ -118,8 +148,10 @@ void Menu::ShowMenu()
       
         m_window->draw(screen);
         m_window->draw(play);
+        m_window->draw(online);
         m_window->draw(exitgame);
         m_window->draw(playText);
+        m_window->draw(onlineText);
         m_window->draw(exitText);
         
         // End the current frame and display its contents on screen
