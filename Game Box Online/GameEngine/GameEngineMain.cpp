@@ -10,6 +10,7 @@
 #include "Util/AnimationManager.hpp"
 #include "Util/CameraManager.hpp"
 #include "SplashScreen.hpp"
+#include "GameOverScreen.hpp"
 #include "Menu.hpp"
 #include "HealthStatusComponent.hpp"
 #include "ResourcePath.hpp"
@@ -255,7 +256,7 @@ void GameEngineMain::RenderEntities()
         hpBox.setFillColor(sf::Color(250,0,0));
         
         hpBox.setPosition(healthStatus->HealthPos.x - 170.f,healthStatus->HealthPos.y - 170.f);
-        hpBox.setFillColor(sf::Color(244, 90, 162)); // nice green: (50, 250, 50)
+        hpBox.setFillColor(sf::Color(50, 250, 50));
         
         m_renderWindow->draw(hpMaxBox);
         m_renderWindow->draw(hpBox);
@@ -266,6 +267,13 @@ void GameEngineMain::RenderEntities()
 	{
 		m_renderWindow->display();
 	}	
+}
+
+void GameEngineMain::ShowGameOver()
+{
+    GameOverScreen gameOverScreen(m_renderTarget, m_renderWindow);
+    gameOverScreen.WaitForKeystroke();
+    exit(0);
 }
 
 

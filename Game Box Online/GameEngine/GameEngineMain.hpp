@@ -30,6 +30,8 @@ namespace GameEngine
         
 		void AddEntity(Entity* entity);
 		void RemoveEntity(Entity* entity);
+        
+        void ShowGameOver();
 
 		void OnInitialised();
 		bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
@@ -43,6 +45,7 @@ namespace GameEngine
 		void CreateAndSetUpWindow();
 
         void ShowSplashScreen();
+        
         void ShowMenu();
         void StartGame();
         

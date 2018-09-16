@@ -63,6 +63,9 @@ void GameBoard::Update()
 		//UpdateBackGround();
 		UpdatePlayerDying();
 	}
+    else {
+        GameEngine::GameEngineMain::GetInstance()->ShowGameOver();
+    }
 }
 
 
