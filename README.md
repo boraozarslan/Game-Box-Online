@@ -46,5 +46,9 @@ Score is kept at the bottom-right of the screen and updates dynamically as the p
 
 _Simple AI_
 
-In the game's single-player mode, programmatically generated enemies which spawn in random places on the map attack toward the player. They also have the ability to hurt each other. 
+In the game's single-player mode, programmatically generated enemies which spawn in random places on the map attack toward the player. They also have the ability to hurt each other.
+
+_Simple Fog of War_
+
+There is the preliminary workings of a fog of war - a safe area of the map where the players do not take damage over time. Currently, a shrinking circle is spawned on the map. In the future, damage to players outside of the circle can be added.
 
