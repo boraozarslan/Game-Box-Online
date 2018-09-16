@@ -18,6 +18,14 @@ _Collision_
 
 Multiple types of collision can be tracked by our game, including player-to-player and player to boundaries.
 
+_Menu_
+
+Any keystroke on the splash screen will lead to the menu, where the user can choose between starting a single-player game, joining an online multiplayer game or exiting.
+
+_Particles_
+
+Game Box Online decided to keep the smoke trail feature that Ubisoft's API came with. It gives our ninjas an effervescent touch.
+
 # Features
 
 _Health Status Bar_
