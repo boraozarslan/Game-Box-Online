@@ -26,13 +26,12 @@ GameEngineMain* GameEngineMain::sm_instance = nullptr;
 sf::Clock		GameEngineMain::sm_deltaTimeClock;
 sf::Clock		GameEngineMain::sm_gameClock;
 const std::string HOST_ADDR = "127.0.0.1";
-const unsigned HOST_PORT = 5051;
-const bool enableNetwork = false;
 
 GameEngineMain::GameEngineMain(bool host)
 	: m_renderTarget(nullptr)	
 	, m_windowInitialised(false)
 	, m_gameBoard(nullptr)
+    , m_isInNetworkMode(false)
   , m_host(host)
 {
   if(!m_host)
@@ -45,35 +44,6 @@ GameEngineMain::GameEngineMain(bool host)
 
 	CameraManager::GetInstance()->GetCameraView().setCenter(sf::Vector2f(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT / 2.f));
 	CameraManager::GetInstance()->GetCameraView().setSize(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT));
-
-    if (enableNetwork && !m_host) {
-        // Open a connection with the host
-        sf::Socket::Status connectStatus = m_socket.connect(HOST_ADDR, TCP_PORT);
-        if (connectStatus != sf::Socket::Status::Done) {
-            std::cerr << "Error connecting to the server! Status " << connectStatus << std::endl;
-            throw "Connection failed";
-        }
-        sf::Packet packet;
-        m_socket.receive(packet);
-        
-        assert(packet.getDataSize() == sizeof(IdMsg));
-        IdMsg idMsg;
-        packet >> idMsg;
-        assert(idMsg.messageCode == ID);
-        std::cout << "Received ID: " << idMsg.id << std::endl;
-        m_playerId = idMsg.id;
-        
-        // TODO: Receive the initial World update
-        m_socket.receive(packet);
-        assert(packet.getDataSize() == sizeof(WorldUpdate));
-        WorldUpdate worldUpdate;
-        packet >> worldUpdate;
-        assert(worldUpdate.messageCode == WU);
-        std::cout << "Received World Update!" << std::endl;
-        
-        // Set TCP to non-blocking
-        m_socket.setBlocking(false);
-    }
   }
 }
 
@@ -81,7 +51,7 @@ GameEngineMain::GameEngineMain(bool host)
 GameEngineMain::~GameEngineMain()
 {
     // Disconnect from the host
-    if (enableNetwork && !m_host) {
+    if (m_isInNetworkMode && !m_host) {
         m_socket.disconnect();
     }
     delete m_renderTarget;
@@ -199,7 +169,7 @@ void GameEngineMain::Update()
   
   // The below code should be networkManager postUpdate
   // Send heartbeat to the server
-    if (enableNetwork && !m_host && m_gameBoard) {
+    if (m_isInNetworkMode && !m_host && m_gameBoard) {
         HeartBeat heartBeatMsg (m_playerId, m_gameBoard->GetPlayer()->GetPos());
         sf::Packet packet;
         packet << heartBeatMsg;
@@ -375,8 +345,51 @@ void GameEngineMain::ShowSplashScreen()
 void GameEngineMain::ShowMenu()
 {
     Menu menu{m_renderTarget, m_renderWindow};
-    menu.ShowMenu();
-    StartGame();
+    Menu::MenuResult buttonClicked = menu.ShowMenu();
+    
+    switch (buttonClicked) {
+        case Menu::Exit:
+            exit(0);
+        case Menu::Play:
+            StartGame();
+            break;
+        case Menu::Online:
+            if (!m_host) {
+                m_isInNetworkMode = true;
+                // Open a connection with the host
+                sf::Socket::Status connectStatus = m_socket.connect(HOST_ADDR, TCP_PORT);
+                if (connectStatus != sf::Socket::Status::Done) {
+                    std::cerr << "Error connecting to the server! Status " << connectStatus << std::endl;
+                    throw "Connection failed";
+                }
+                sf::Packet packet;
+                m_socket.receive(packet);
+                
+                assert(packet.getDataSize() == sizeof(IdMsg));
+                IdMsg idMsg;
+                packet >> idMsg;
+                assert(idMsg.messageCode == ID);
+                std::cout << "Received ID: " << idMsg.id << std::endl;
+                m_playerId = idMsg.id;
+                
+                // TODO: Receive the initial World update
+                m_socket.receive(packet);
+                WorldUpdate worldUpdate;
+                packet >> worldUpdate;
+                assert(worldUpdate.messageCode == WU);
+                std::cout << "Received World Update!" << std::endl;
+                
+                // Set TCP to non-blocking
+                m_socket.setBlocking(false);
+                StartGame();
+            } else {
+                std::cerr << "Online mode is not enabled!" << std::endl;
+            }
+            break;
+        case Menu::Nothing:
+            std::cerr << "This game mode is not yet implemented!" << std::endl;
+            break;
+    }
 }
 
 void GameEngineMain::StartGame()
