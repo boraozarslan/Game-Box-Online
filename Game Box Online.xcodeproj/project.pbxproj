@@ -40,6 +40,8 @@
 		B524F425214D08EC006F4A2E /* PlayerCameraComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F423214D08EC006F4A2E /* PlayerCameraComponent.cpp */; };
 		B524F434214D0B42006F4A2E /* thunder.wav in Resources */ = {isa = PBXBuildFile; fileRef = B524F42D214D0B42006F4A2E /* thunder.wav */; };
 		B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = B524F42E214D0B42006F4A2E /* glassBreak.wav */; };
+		B5696927214E458A0084AC21 /* NetworkDefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5696926214E45890084AC21 /* NetworkDefs.cpp */; };
+		B5696929214E45BA0084AC21 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5696928214E45BA0084AC21 /* GameOverScreen.png */; };
 		B5BADDF9214D89D600DA8DD6 /* SplashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */; };
 		B5BADDFB214D89D600DA8DD6 /* Flappy.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF5214D89D600DA8DD6 /* Flappy.png */; };
 		B5BADDFC214D89D600DA8DD6 /* tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF6214D89D600DA8DD6 /* tileset.png */; };
@@ -53,7 +55,6 @@
 		E1B787B0214D06880085DF57 /* ProjectileMovementComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */; };
 		E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */; };
 		E1B787C6214DEC3A0085DF57 /* HealthStatusComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */; };
-		E1B787C8214E19390085DF57 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787C7214E19390085DF57 /* GameOverScreen.png */; };
 		E1B787CB214E1DAE0085DF57 /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */; };
 		E1B787CD214E353F0085DF57 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CC214E353E0085DF57 /* shuriken.png */; };
 /* End PBXBuildFile section */
@@ -126,6 +127,8 @@
 		B524F424214D08EC006F4A2E /* PlayerCameraComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerCameraComponent.hpp; sourceTree = "<group>"; };
 		B524F42D214D0B42006F4A2E /* thunder.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = thunder.wav; sourceTree = "<group>"; };
 		B524F42E214D0B42006F4A2E /* glassBreak.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = glassBreak.wav; sourceTree = "<group>"; };
+		B5696926214E45890084AC21 /* NetworkDefs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkDefs.cpp; sourceTree = "<group>"; };
+		B5696928214E45BA0084AC21 /* GameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverScreen.png; sourceTree = "<group>"; };
 		B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen.png; sourceTree = "<group>"; };
 		B5BADDF5214D89D600DA8DD6 /* Flappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flappy.png; sourceTree = "<group>"; };
 		B5BADDF6214D89D600DA8DD6 /* tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileset.png; sourceTree = "<group>"; };
@@ -148,7 +151,6 @@
 		E1B787B7214D8A610085DF57 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = img/bg.png; sourceTree = "<group>"; };
 		E1B787C4214DEC390085DF57 /* HealthStatusComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HealthStatusComponent.hpp; sourceTree = "<group>"; };
 		E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthStatusComponent.cpp; sourceTree = "<group>"; };
-		E1B787C7214E19390085DF57 /* GameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GameOverScreen.png; path = ../../../Desktop/GameOverScreen.png; sourceTree = "<group>"; };
 		E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScreen.cpp; sourceTree = "<group>"; };
 		E1B787CA214E1DAE0085DF57 /* GameOverScreen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverScreen.hpp; sourceTree = "<group>"; };
 		E1B787CC214E353E0085DF57 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				2B2AE614214CC40E00AF4A0D /* HostMain.cpp */,
+				B5696926214E45890084AC21 /* NetworkDefs.cpp */,
 				2B2AE616214CC5EE00AF4A0D /* NetworkDefs.hpp */,
 			);
 			path = Network;
@@ -366,9 +369,9 @@
 			isa = PBXGroup;
 			children = (
 				E1B787CC214E353E0085DF57 /* shuriken.png */,
-				E1B787C7214E19390085DF57 /* GameOverScreen.png */,
 				B5BADDF3214D89D600DA8DD6 /* SplashScreen.png */,
 				B5BADDF5214D89D600DA8DD6 /* Flappy.png */,
+				B5696928214E45BA0084AC21 /* GameOverScreen.png */,
 				B5BADDF6214D89D600DA8DD6 /* tileset.png */,
 				B5BADDF7214D89D600DA8DD6 /* player.png */,
 				B5BADDF8214D89D600DA8DD6 /* bg.png */,
@@ -442,9 +445,9 @@
 				B5BADDFD214D89D600DA8DD6 /* player.png in Resources */,
 				2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */,
 				E1B787CD214E353F0085DF57 /* shuriken.png in Resources */,
-				E1B787C8214E19390085DF57 /* GameOverScreen.png in Resources */,
 				B524F435214D0B42006F4A2E /* glassBreak.wav in Resources */,
 				2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */,
+				B5696929214E45BA0084AC21 /* GameOverScreen.png in Resources */,
 				2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */,
 				B5BADDFB214D89D600DA8DD6 /* Flappy.png in Resources */,
 				B5BADDF9214D89D600DA8DD6 /* SplashScreen.png in Resources */,
@@ -503,6 +506,7 @@
 				2B2AE60F214C93C800AF4A0D /* RenderComponent.cpp in Sources */,
 				B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */,
 				B524F41A214D03A2006F4A2E /* CameraManager.cpp in Sources */,
+				B5696927214E458A0084AC21 /* NetworkDefs.cpp in Sources */,
 				2B2AE61C214CD31D00AF4A0D /* NetworkedComponent.cpp in Sources */,
 				E1B787C6214DEC3A0085DF57 /* HealthStatusComponent.cpp in Sources */,
 				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,
