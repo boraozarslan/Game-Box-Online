@@ -19,7 +19,7 @@ m_target(target), m_window(window)
 {
 }
 
-void Menu::ShowMenu()
+enum Menu::MenuResult Menu::ShowMenu()
 {
   sf::Font font;
   std::string filePath = resourcePath();
@@ -103,13 +103,14 @@ void Menu::ShowMenu()
                 // collision!
                 if(event.type == sf::Event::MouseButtonPressed)
                 {
-                    exit(0);
+                    return Exit;
+                 //  exit(0);
                 }
             }
+            
             // Request for closing the window
             if (event.type == sf::Event::Closed)
             {
-                
                 m_window->close();
             }
             
@@ -120,8 +121,7 @@ void Menu::ShowMenu()
                 
                 if(event.type == sf::Event::MouseButtonPressed)
                 {
-                    done = true;
-                    break;
+                    return Play;
                 }
             }
             if (boundingBoxOnline.contains(Mouse))
@@ -130,15 +130,12 @@ void Menu::ShowMenu()
                 
                 if(event.type == sf::Event::MouseButtonPressed)
                 {
-                    done = true;
-                    break;
+                    return Online;
                 }
             }
             
+            
         }
-        if(done)
-            break;
-      
       
         // Clear the whole window before rendering a new frame
         m_window->clear();
@@ -157,4 +154,6 @@ void Menu::ShowMenu()
         // End the current frame and display its contents on screen
         m_window->display();
     }
+    
+    return Nothing;
 }

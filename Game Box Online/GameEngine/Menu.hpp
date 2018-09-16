@@ -17,7 +17,7 @@ namespace GameEngine {
     {
     public:
         Menu(sf::RenderTarget* target, sf::RenderWindow* window);
-        enum MenuResult { Nothing, Exit, Play };
+        enum MenuResult { Nothing, Play, Online, Exit  };
         struct MenuItem
             {
             public:
@@ -26,7 +26,7 @@ namespace GameEngine {
             };
         MenuResult Show(sf::RenderWindow& window);
         
-        void ShowMenu();
+        enum MenuResult ShowMenu();
     private:
         sf::RenderTarget* m_target;
         sf::RenderWindow* m_window;
