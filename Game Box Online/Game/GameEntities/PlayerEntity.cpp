@@ -9,6 +9,9 @@
 #include "GameEngine/EntitySystem/Components/DumbAIComponent.hpp"
 #include "GameEngine/EntitySystem/Components/DumbProjectileComponent.hpp"
 #include "GameEngine/Util/AnimationManager.hpp"
+#include "../ResourcePath.hpp"
+#include <string>
+#include <iostream>
 
 using namespace Game;
 
@@ -25,6 +28,8 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
         AddComponent<Game::PlayerCameraComponent>();
     }
 
+    AddComponent<Game::HealthStatusComponent>();
+    
 	//Animation
 	m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
     
@@ -46,6 +51,9 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
 
     //Collisions
     AddComponent<GameEngine::CollidablePhysicsComponent>();
+    
+    //Health Bar Component
+    m_healthStatus = static_cast<Game::HealthStatusComponent*>(AddComponent<Game::HealthStatusComponent>());
 
 	//Sound
 	GameEngine::SoundComponent* const soundComponent = static_cast<GameEngine::SoundComponent*>(AddComponent<GameEngine::SoundComponent>());
@@ -79,6 +87,7 @@ void PlayerEntity::OnRemoveFromWorld()
 
 bool PlayerEntity::TakeDamage(float damage) {
     m_health -= damage;
+ 
     return m_health <= 0;
 }
 

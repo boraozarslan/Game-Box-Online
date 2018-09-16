@@ -52,6 +52,7 @@
 		E1B787AF214D06880085DF57 /* ProjectileEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */; };
 		E1B787B0214D06880085DF57 /* ProjectileMovementComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AE214D06880085DF57 /* ProjectileMovementComponent.cpp */; };
 		E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */; };
+		E1B787C6214DEC3A0085DF57 /* HealthStatusComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,8 @@
 		E1B787B1214D069B0085DF57 /* ProjectileEntity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProjectileEntity.hpp; sourceTree = "<group>"; };
 		E1B787B2214D069B0085DF57 /* ProjectileEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileEntity.cpp; sourceTree = "<group>"; };
 		E1B787B7214D8A610085DF57 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = img/bg.png; sourceTree = "<group>"; };
+		E1B787C4214DEC390085DF57 /* HealthStatusComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HealthStatusComponent.hpp; sourceTree = "<group>"; };
+		E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthStatusComponent.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 		2B2AE5DE214C916200AF4A0D /* GameComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */,
+				E1B787C4214DEC390085DF57 /* HealthStatusComponent.hpp */,
 				B524F423214D08EC006F4A2E /* PlayerCameraComponent.cpp */,
 				B524F424214D08EC006F4A2E /* PlayerCameraComponent.hpp */,
 				B524F41E214D05EF006F4A2E /* PlayerSoundComponent.cpp */,
@@ -485,6 +490,7 @@
 				B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */,
 				B524F41A214D03A2006F4A2E /* CameraManager.cpp in Sources */,
 				2B2AE61C214CD31D00AF4A0D /* NetworkedComponent.cpp in Sources */,
+				E1B787C6214DEC3A0085DF57 /* HealthStatusComponent.cpp in Sources */,
 				2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */,
 				2B2AE609214C93A700AF4A0D /* ParticleComponent.cpp in Sources */,
 				B5BADE01214D9CFB00DA8DD6 /* DumbAIComponent.cpp in Sources */,

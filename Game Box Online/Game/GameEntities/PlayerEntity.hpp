@@ -5,10 +5,11 @@
 #include "../GameComponents/PlayerMovementComponent.hpp"
 #include "../GameComponents/PlayerCameraComponent.hpp"
 #include "ProjectileEmitterComponent.hpp"
+#include "HealthStatusComponent.hpp"
 
 namespace Game
 {
-  
+    class HealthStatusComponent;
   class PlayerEntity : public GameEngine::Entity
   {
   public:
@@ -21,6 +22,9 @@ namespace Game
     bool TakeDamage(float damage);
     void IncreaseScore(int score);
     int GetScore();
+      
+    float m_health;
+      
     bool IsAlive() {
         return m_health > 0;
     }
@@ -29,7 +33,7 @@ namespace Game
     PlayerMovementComponent*   m_playerMovementComponent;
     GameEngine::AnimationComponent* m_animComponent;
     PlayerCameraComponent* m_camera;
-    float m_health;
+    HealthStatusComponent* m_healthStatus;
     bool m_isEnemy;
     int m_score;
   };
