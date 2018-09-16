@@ -35,6 +35,7 @@ GameEngineMain::GameEngineMain(bool host)
 	, m_gameBoard(nullptr)
     , m_isInNetworkMode(false)
   , m_host(host)
+    , m_currentBulletId(16)
 {
   if(!m_host)
   {
@@ -445,6 +446,42 @@ void GameEngineMain::ShootBullet(BulletShot bs)
     if(entity->id == bs.whoId)
     {
       player = static_cast<Game::PlayerEntity*>(entity);
+      Game::ProjectileEntity* projectileEntity = new Game::ProjectileEntity();
+        Game::ProjectileMovementComponent* projMoveComponent = static_cast<Game::ProjectileMovementComponent*>(projectileEntity->AddComponent<Game::ProjectileMovementComponent>());
+
+      projectileEntity->id = m_currentBulletId;
+      projectileEntity->SetSource(player);
+      projectileEntity->SetPos(player->GetPos());
+      projectileEntity->SetSize(sf::Vector2f(16.f, 16.f));
+
+        if (m_currentBulletId > m_currentBulletId + 1) {
+            m_currentBulletId = 16;
+        } else {
+            ++m_currentBulletId;
+        }
+
+      sf::Vector2f direction;
+
+        switch (bs.dir) {
+            case 1:
+                direction = sf::Vector2f(0, 1);
+                break;
+            case 2:
+                direction = sf::Vector2f(1, 0);
+                break;
+            case 3:
+                direction = sf::Vector2f(0, -1);
+                break;
+            case 4:
+                direction = sf::Vector2f(-1, 0);
+                break;
+            default:
+                direction = sf::Vector2f(0, 0);
+        }
+        projMoveComponent->SetVector(direction * 50.f);
+        projMoveComponent->SetDuration(5.f);
+
+        AddEntity(projectileEntity);
     }
   }
   
