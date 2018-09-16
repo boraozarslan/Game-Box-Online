@@ -318,8 +318,11 @@ void GameEngineMain::RenderEntities()
         circle.setFillColor(sf::Color::Transparent);
         circle.setOutlineThickness(3);
         circle.setOutlineColor(sf::Color(0, 250, 0));
-        circle.setPosition(sf::Vector2f(m_renderWindow->getView().getCenter().x- (GameEngineMain::WINDOW_WIDTH/2),
-                                        m_renderWindow->getView().getCenter().y- (GameEngineMain::WINDOW_HEIGHT/2))); // always same origin
+       // circle.setPosition(sf::Vector2f(m_renderWindow->getView().getCenter().x- (GameEngineMain::WINDOW_WIDTH/2),
+                                       // m_renderWindow->getView().getCenter().y- (GameEngineMain::WINDOW_HEIGHT/2))); // always same origin
+        
+        circle.setPosition(sf::Vector2f((GameEngineMain::WINDOW_WIDTH/2),
+                                        (GameEngineMain::WINDOW_HEIGHT/2)));
         
         
       //  m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();

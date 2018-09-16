@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558793839.259935"
+            timestampString = "558794167.843003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
-            landmarkName = "GameEngineMain::CreateAndSetUpWindow()"
+            landmarkName = "GameEngineMain::RemoveEntity(Entity* entity)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558793839.261909"
+            timestampString = "558794167.8435889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
             endingLineNumber = "108"
-            landmarkName = "GameEngineMain::CreateAndSetUpWindow()"
+            landmarkName = "GameEngineMain::RemoveEntity(Entity* entity)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558793839.263209"
+            timestampString = "558794167.844008"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
             endingLineNumber = "107"
-            landmarkName = "GameEngineMain::CreateAndSetUpWindow()"
+            landmarkName = "GameEngineMain::RemoveEntity(Entity* entity)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -578,13 +578,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558793839.264559"
+            timestampString = "558794167.844502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "211"
             endingLineNumber = "211"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "GameEngineMain::UpdateWindowEvents()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -610,7 +610,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/EntitySystem/Components/CircleRenderComponent.cpp"
-            timestampString = "558793839.265901"
+            timestampString = "558794167.8450021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -626,7 +626,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Game Box Online/GameEngine/GameEngineMain.cpp"
-            timestampString = "558793839.266606"
+            timestampString = "558794167.845522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "302"
