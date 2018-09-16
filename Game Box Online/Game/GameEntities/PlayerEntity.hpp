@@ -5,6 +5,7 @@
 #include "../GameComponents/PlayerMovementComponent.hpp"
 #include "../GameComponents/PlayerCameraComponent.hpp"
 #include "ProjectileEmitterComponent.hpp"
+#include "BombEmitterComponent.hpp"
 #include "HealthStatusComponent.hpp"
 
 namespace Game

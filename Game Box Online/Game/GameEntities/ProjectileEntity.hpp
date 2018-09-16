@@ -18,6 +18,7 @@ namespace Game
         virtual void OnRemoveFromWorld() override;
 
         float GetDamage();
+        void SetDamage(float damage);
         PlayerEntity* GetSource();
         void SetSource(PlayerEntity* source);
     protected:

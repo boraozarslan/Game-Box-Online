@@ -41,6 +41,10 @@ float ProjectileEntity::GetDamage() {
     return m_damage;
 }
 
+void ProjectileEntity::SetDamage(float damage) {
+    m_damage = damage;
+}
+
 void ProjectileEntity::SetSource(PlayerEntity* source) {
     m_source = source;
 }
