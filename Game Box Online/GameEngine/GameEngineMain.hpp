@@ -30,8 +30,12 @@ namespace GameEngine
 		void Update();		
 		void SetRenderTarget(sf::RenderTarget* target) { m_renderTarget = target; }
 
-    Game::GameBoard* GetGameBoard() { return m_gameBoard; }
+        Game::GameBoard* GetGameBoard() { return m_gameBoard; }
         
+        unsigned short GetPlayerId() { return m_playerId; }
+        
+        sf::TcpSocket & GetSocket() { return m_socket; }
+
 		void AddEntity(Entity* entity);
 		void RemoveEntity(Entity* entity);
         
@@ -39,6 +43,7 @@ namespace GameEngine
 
 		void OnInitialised();
 		bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
+        bool IsInNetworkMode() const { return m_isInNetworkMode; }
         
         static float WINDOW_HEIGHT;
         static float WINDOW_WIDTH;

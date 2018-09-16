@@ -9,6 +9,7 @@
 #include "NetworkManager.hpp"
 #include "GameEngineMain.hpp"
 #include "NetworkDefs.hpp"
+#include "PlayerEntity.hpp"
 
 #include <assert.h>
 #include <iostream>
@@ -118,7 +119,16 @@ void NetworkManager::PreUpdate()
   }
   else
   {
-    
+      // The below code should be in preupdate if it's not host
+      sf::Packet packet;
+      if (mainEngine->GetSocket().receive(packet) == sf::Socket::Status::Done) {
+          //assert(packet.getDataSize() == sizeof(WorldUpdate));
+          WorldUpdate worldUpdate;
+          packet >> worldUpdate;
+          
+          std::cout << "Received world update packet!" << std::endl;
+          // TODO diff the received packet
+      }
   }
 }
 
@@ -142,6 +152,9 @@ void NetworkManager::PostUpdate()
   }
   else
   {
-    
+      HeartBeat heartBeatMsg (mainEngine->GetPlayerId(), mainEngine->GetGameBoard()->GetPlayer()->GetPos());
+      sf::Packet packet;
+      packet << heartBeatMsg;
+      while (mainEngine->GetSocket().send(packet) == sf::Socket::Partial); // Block until packet is sent
   }
 }
