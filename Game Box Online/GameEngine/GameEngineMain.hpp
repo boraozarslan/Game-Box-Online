@@ -32,6 +32,8 @@ namespace GameEngine
         
 		void AddEntity(Entity* entity);
 		void RemoveEntity(Entity* entity);
+        
+        void ShowGameOver();
 
 		void OnInitialised();
 		bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
@@ -49,6 +51,7 @@ namespace GameEngine
 		void CreateAndSetUpWindow();
 
         void ShowSplashScreen();
+        
         void ShowMenu();
         void StartGame();
         
@@ -73,8 +76,9 @@ namespace GameEngine
 		Game::GameBoard*    m_gameBoard;
 		float				m_lastDT;
     
-    bool m_host;
-
+        bool m_host;
+        sf::TcpSocket m_socket;
+        unsigned short m_playerId;
 
 		bool m_windowInitialised;
 	};

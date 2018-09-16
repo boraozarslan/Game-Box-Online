@@ -9,7 +9,7 @@ ProjectileEntity::ProjectileEntity(): m_damage(10.f), m_source(nullptr)
 {
     m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
     AddComponent<GameEngine::CollidableComponent>();
-    m_renderComponent->SetTexture(GameEngine::eTexture::Player);
+    m_renderComponent->SetTexture(GameEngine::eTexture::Shuriken);
     m_renderComponent->SetZLevel(2);
     m_animComponent = static_cast<GameEngine::AnimationComponent*>(AddComponent<GameEngine::AnimationComponent>());
 }
