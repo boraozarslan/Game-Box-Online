@@ -461,7 +461,7 @@ void GameEngineMain::UpdateWorld(WorldUpdate wu)
     if(updated)
       continue;
     // Something new came
-    if(msg.type == Types::Projectile)
+    if(msg.type == Types::Projectile || msg.id > 15)
     {
       Game::ProjectileEntity* pr = new Game::ProjectileEntity();
       AddEntity(pr);
@@ -470,7 +470,7 @@ void GameEngineMain::UpdateWorld(WorldUpdate wu)
       pr->id = msg.id;
       continue;
     }
-    else if(msg.type == Types::Player)
+    else if(msg.type == Types::Player || msg.id < 16)
     {
       Game::PlayerEntity* pl = new Game::PlayerEntity(false);
       AddEntity(pl);
@@ -493,7 +493,7 @@ void GameEngineMain::UpdateWorld(WorldUpdate wu)
         break;
       }
     }
-    if(destroyed)
+    if(destroyed && entity->id != INVALID_ID)
       RemoveEntity(entity);
   }
 }
