@@ -1,5 +1,6 @@
 #pragma once
 #include "GameEngine/EntitySystem/Entity.hpp"
+#include "GameEngine/Defs.h"
 
 #include <SFML/System/Vector2.hpp>
 #include <vector>
@@ -22,6 +23,8 @@ namespace Game
 		void SpawnNewRandomObstacles();
 		void SpawnNewRandomTiledObstacles();
 		void SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& size);
+
+        static constexpr float SCREEN_DIMENSION = UNITS(100);
 
 		bool IsGameOver() const { return m_isGameOver; }
         
