@@ -67,6 +67,8 @@
 		2BB6D812214E447000B6A267 /* NetworkedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2AE61A214CD31D00AF4A0D /* NetworkedComponent.cpp */; };
 		2BB6D813214E447000B6A267 /* DumbAIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5BADDFF214D9CFB00DA8DD6 /* DumbAIComponent.cpp */; };
 		2BB6D814214E44AE00B6A267 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B33FC56214C8CF800CFF6A2 /* ResourcePath.mm */; };
+		2BB6D815214E4C4F00B6A267 /* NetworkDefs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5696926214E45890084AC21 /* NetworkDefs.cpp */; };
+		2BB6D816214E4C7800B6A267 /* GameOverScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787C9214E1DAE0085DF57 /* GameOverScreen.cpp */; };
 		B524F419214D03A2006F4A2E /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F411214D03A1006F4A2E /* SoundManager.cpp */; };
 		B524F41A214D03A2006F4A2E /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F413214D03A2006F4A2E /* CameraManager.cpp */; };
 		B524F41F214D05EF006F4A2E /* PlayerSoundComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B524F41E214D05EF006F4A2E /* PlayerSoundComponent.cpp */; };
@@ -82,6 +84,7 @@
 		B5BADDFE214D89D600DA8DD6 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B5BADDF8214D89D600DA8DD6 /* bg.png */; };
 		B5BADE01214D9CFB00DA8DD6 /* DumbAIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5BADDFF214D9CFB00DA8DD6 /* DumbAIComponent.cpp */; };
 		CC062084214DEB8A004B1F12 /* DumbProjectileComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC062082214DEB8A004B1F12 /* DumbProjectileComponent.cpp */; };
+		CC062092214E4EE5004B1F12 /* BombEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CC062090214E4EE4004B1F12 /* BombEmitterComponent.cpp */; };
 		E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A3214CB7CE0085DF57 /* Menu.cpp */; };
 		E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */; };
 		E1B787AF214D06880085DF57 /* ProjectileEmitterComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787AB214D06870085DF57 /* ProjectileEmitterComponent.cpp */; };
@@ -185,6 +188,8 @@
 		B5BADE00214D9CFB00DA8DD6 /* DumbAIComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DumbAIComponent.hpp; sourceTree = "<group>"; };
 		CC062082214DEB8A004B1F12 /* DumbProjectileComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DumbProjectileComponent.cpp; sourceTree = "<group>"; };
 		CC062083214DEB8A004B1F12 /* DumbProjectileComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DumbProjectileComponent.hpp; sourceTree = "<group>"; };
+		CC062090214E4EE4004B1F12 /* BombEmitterComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BombEmitterComponent.cpp; sourceTree = "<group>"; };
+		CC062091214E4EE4004B1F12 /* BombEmitterComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BombEmitterComponent.hpp; sourceTree = "<group>"; };
 		E1B787A3214CB7CE0085DF57 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		E1B787A4214CB7CE0085DF57 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 		E1B787A6214CCCB70085DF57 /* SplashScreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreen.cpp; sourceTree = "<group>"; };
@@ -250,6 +255,8 @@
 		2B2AE5DE214C916200AF4A0D /* GameComponents */ = {
 			isa = PBXGroup;
 			children = (
+				CC062090214E4EE4004B1F12 /* BombEmitterComponent.cpp */,
+				CC062091214E4EE4004B1F12 /* BombEmitterComponent.hpp */,
 				E1B787C5214DEC3A0085DF57 /* HealthStatusComponent.cpp */,
 				E1B787C4214DEC390085DF57 /* HealthStatusComponent.hpp */,
 				B524F423214D08EC006F4A2E /* PlayerCameraComponent.cpp */,
@@ -586,6 +593,7 @@
 				CC062084214DEB8A004B1F12 /* DumbProjectileComponent.cpp in Sources */,
 				2B2AE5EB214C921900AF4A0D /* GameEngineMain.cpp in Sources */,
 				E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */,
+				CC062092214E4EE5004B1F12 /* BombEmitterComponent.cpp in Sources */,
 				E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */,
 				2B2AE5E4214C919F00AF4A0D /* ObstacleEntity.cpp in Sources */,
 				E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */,
@@ -615,6 +623,7 @@
 				2BB6D7F9214E435B00B6A267 /* GameEngineMain.cpp in Sources */,
 				2BB6D7FC214E435B00B6A267 /* HealthStatusComponent.cpp in Sources */,
 				2BB6D7F1214E435B00B6A267 /* Entity.cpp in Sources */,
+				2BB6D815214E4C4F00B6A267 /* NetworkDefs.cpp in Sources */,
 				2BB6D7FB214E435B00B6A267 /* SplashScreen.cpp in Sources */,
 				2BB6D80F214E447000B6A267 /* ParticleEmitterComponent.cpp in Sources */,
 				2BB6D809214E447000B6A267 /* DumbProjectileComponent.cpp in Sources */,
@@ -625,6 +634,7 @@
 				2BB6D80B214E447000B6A267 /* SoundComponent.cpp in Sources */,
 				2BB6D801214E435B00B6A267 /* PlayerMovementComponent.cpp in Sources */,
 				2BB6D7F3214E435B00B6A267 /* CameraManager.cpp in Sources */,
+				2BB6D816214E4C7800B6A267 /* GameOverScreen.cpp in Sources */,
 				2BB6D80C214E447000B6A267 /* CollidableComponent.cpp in Sources */,
 				2BB6D812214E447000B6A267 /* NetworkedComponent.cpp in Sources */,
 				2BB6D814214E44AE00B6A267 /* ResourcePath.mm in Sources */,

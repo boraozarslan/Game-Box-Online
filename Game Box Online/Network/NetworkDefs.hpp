@@ -92,6 +92,8 @@ sf::Packet& operator >>(sf::Packet& packet, BulletShot& msg);
 struct IdMsg : public NetworkMessage
 {
   unsigned short id;
+  
+  IdMsg(): NetworkMessage(ID) {}
 };
 
 sf::Packet& operator <<(sf::Packet& packet, const IdMsg& msg);
