@@ -15,12 +15,22 @@ GameBoard::GameBoard()
 	, m_player(nullptr)
 	, m_backGround(nullptr)
 {
-	m_player = new PlayerEntity();
+	m_player = new PlayerEntity(false);
 	
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 	m_player->SetPos(sf::Vector2f(50.f, 50.f));	
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));
 	
+    // Initialize enemies (TODO: replace this with networks code)
+    m_enemies.push_back(new PlayerEntity(true));
+//    m_enemies.push_back(new PlayerEntity(true));
+    for (int i = 0; i < m_enemies.size(); ++i) {
+        PlayerEntity* enemy = m_enemies[i];
+        GameEngine::GameEngineMain::GetInstance()->AddEntity(enemy);
+        enemy->SetPos(sf::Vector2f(i * 60.f, 530.f));
+        enemy->SetSize(sf::Vector2f(50.f, 50.f));
+    }
+
 	CreateBackGround();
 	//Debug
 	for (int a = 0; a < 3; ++a)
@@ -38,20 +48,22 @@ GameBoard::~GameBoard()
 
 void GameBoard::Update()
 {	
-	float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
-	if (!m_isGameOver && false)
+	//float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
+    if (!m_isGameOver)
 	{
+        /*
 		m_lastObstacleSpawnTimer -= dt;
 		if (m_lastObstacleSpawnTimer <= 0.f)
 		{
 			//SpawnNewRandomObstacles();
 			SpawnNewRandomTiledObstacles();
 		}
+        */
 
-		UpdateObstacles(dt);
-		UpdateBackGround();
+		//UpdateObstacles(dt);
+		//UpdateBackGround();
 		UpdatePlayerDying();
-	}		
+	}
 }
 
 
@@ -83,11 +95,10 @@ void GameBoard::UpdatePlayerDying()
 {	
 	bool noGameOver = GameEngine::CameraManager::IsFollowCameraEnabled();
 
-	if (noGameOver)
+	if (noGameOver && false)
 		return;
 
-	static float xToPlayerDie = 0.f;
-	if (m_player->GetPos().x < xToPlayerDie)
+    if (!m_player->IsAlive())
 	{
 		m_isGameOver = true;
 	}

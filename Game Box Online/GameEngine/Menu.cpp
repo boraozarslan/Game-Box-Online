@@ -70,17 +70,40 @@ void Menu::ShowMenu()
     bool done = false;
     while (m_window->isOpen())
     {
+        // get the bounding box of the entities
+        sf::FloatRect boundingBox = play.getGlobalBounds();
+        sf::FloatRect boundingBoxExit = exitgame.getGlobalBounds();
+        
         // Event processing
         sf::Event event;
         while (m_window->pollEvent(event))
         {
+            sf::Vector2f Mouse = m_window->mapPixelToCoords(sf::Mouse::getPosition(*m_window));
+            if (boundingBoxExit.contains(Mouse))
+            {
+                // collision!
+                if(event.type == sf::Event::MouseButtonPressed)
+                {
+                    exit(0);
+                }
+            }
             // Request for closing the window
             if (event.type == sf::Event::Closed)
-                m_window->close();
-            if(event.type == sf::Event::MouseButtonPressed)
             {
-                done = true;
-                break;
+                
+                m_window->close();
+            }
+            
+            if (boundingBox.contains(Mouse))
+            {
+                // collision!
+                //std::cout << "COLLISION!" << std::endl;
+                
+                if(event.type == sf::Event::MouseButtonPressed)
+                {
+                    done = true;
+                    break;
+                }
             }
         }
         if(done)

@@ -26,6 +26,8 @@ namespace GameEngine
 		void Update();		
 		void SetRenderTarget(sf::RenderTarget* target) { m_renderTarget = target; }
 
+        Game::GameBoard* GetGameBoard() { return m_gameBoard; }
+        
 		void AddEntity(Entity* entity);
 		void RemoveEntity(Entity* entity);
 

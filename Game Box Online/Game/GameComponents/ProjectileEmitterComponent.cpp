@@ -20,7 +20,7 @@ void ProjectileEmitterComponent::Update()
     float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
     m_toEmitTimer -= dt;
 
-    if (m_toEmitTimer > 0.f) {
+    if (m_toEmitTimer > 0.f || GameEngine::GameEngineMain::GetInstance()->IsGameOver()) {
         return;
     }
 
@@ -65,7 +65,7 @@ void ProjectileEmitterComponent::EmitProjectile(sf::Vector2f direction)
 {
     sf::Vector2f emitPos = GetEntity()->GetPos();
 
-    GameEngine::Entity* projectileEntity = new ProjectileEntity();
+    ProjectileEntity* projectileEntity = new ProjectileEntity();
     ProjectileMovementComponent* projMoveComponent = static_cast<ProjectileMovementComponent*>(projectileEntity->AddComponent<ProjectileMovementComponent>());
     GameEngine::SpriteRenderComponent* render = static_cast<GameEngine::SpriteRenderComponent*>(projectileEntity->AddComponent<GameEngine::SpriteRenderComponent>());
     GameEngine::AnimationComponent* animComponent = static_cast<GameEngine::AnimationComponent*>(projectileEntity->AddComponent<GameEngine::AnimationComponent>());
@@ -80,6 +80,7 @@ void ProjectileEmitterComponent::EmitProjectile(sf::Vector2f direction)
 
     projectileEntity->SetPos(emitPos);
     projectileEntity->SetSize(sf::Vector2f(16.f, 16.f));
+    projectileEntity->SetSource(static_cast<PlayerEntity*>(GetEntity()));
 
     GameEngine::GameEngineMain::GetInstance()->AddEntity(projectileEntity);
 }
