@@ -5,12 +5,15 @@
 //  Created by Bora Ozarslan on 2018-09-15.
 //  Copyright © 2018 Gamebox. All rights reserved.
 //
+
 #pragma once
 
 #include <string>
 #include <vector>
+#include <SFML/Network.hpp>
 
-const std::string IP("35.186.166.163");
+//const std::string IP("35.186.166.163");
+const std::string IP("127.0.0.1");
 const unsigned short TCP_PORT = 25930;
 const unsigned short UDP_PORT = 25931;
 
@@ -24,17 +27,15 @@ const unsigned short ID = 3; // ID info that's sent initially
 struct NetworkMessage
 {
   unsigned short messageCode;
+    
+    NetworkMessage(unsigned short messageCode) : messageCode(messageCode) {}
+    
+    NetworkMessage() {}
 };
 
-sf::Packet& operator <<(sf::Packet& packet, const NetworkMessage& msg)
-{
-  return packet << msg.messageCode;
-}
+sf::Packet& operator <<(sf::Packet& packet, const NetworkMessage& msg);
 
-sf::Packet& operator >>(sf::Packet& packet, NetworkMessage& msg)
-{
-  return packet >> msg.messageCode;
-}
+sf::Packet& operator >>(sf::Packet& packet, NetworkMessage& msg);
 
 struct EntityMessage
 {
@@ -42,59 +43,41 @@ struct EntityMessage
   float x, y;
 };
 
-sf::Packet& operator <<(sf::Packet& packet, const EntityMessage& msg)
-{
-  return packet << msg.id << msg.x << msg.y;
-}
+sf::Packet& operator <<(sf::Packet& packet, const EntityMessage& msg);
 
-sf::Packet& operator >>(sf::Packet& packet, EntityMessage& msg)
-{
-  return packet >> msg.id >> msg.x >> msg.y;
-}
+sf::Packet& operator >>(sf::Packet& packet, EntityMessage& msg);
 
 struct HeartBeat : public NetworkMessage
 {
   EntityMessage player;
+  
+  HeartBeat(): NetworkMessage(HB) {}
+  
+    HeartBeat(unsigned short id, float x, float y) : NetworkMessage(HB) {
+        player.id = id;
+        player.x = x;
+        player.y = y;
+    }
+    
+    HeartBeat(unsigned short id, sf::Vector2f coords) : NetworkMessage(HB) {
+        player.id = id;
+        player.x = coords.x;
+        player.y = coords.y;
+    }
 };
 
-sf::Packet& operator <<(sf::Packet& packet, const HeartBeat& msg)
-{
-  return packet << msg.messageCode << msg.player;
-}
+sf::Packet& operator <<(sf::Packet& packet, const HeartBeat& msg);
 
-sf::Packet& operator >>(sf::Packet& packet, HeartBeat& msg)
-{
-  return packet >> msg.messageCode >> msg.player;
-}
+sf::Packet& operator >>(sf::Packet& packet, HeartBeat& msg);
 
 struct WorldUpdate : public NetworkMessage
 {
   std::vector<EntityMessage> entities;
 };
 
-sf::Packet& operator <<(sf::Packet& packet, const WorldUpdate& msg)
-{
-  packet = packet << msg.messageCode;
-  
-  for(int i = 0; i < msg.entities.size(); ++i)
-  {
-    packet = packet << msg.entities[i];
-  }
-  
-  return packet;
-}
+sf::Packet& operator <<(sf::Packet& packet, const WorldUpdate& msg);
 
-sf::Packet& operator >>(sf::Packet& packet, WorldUpdate& msg)
-{
-  return packet >> msg.messageCode;
-  
-  EntityMessage ent;
-  while((packet = (packet >> ent)))
-  {
-    msg.entities.push_back(ent);
-  }
-  return packet;
-}
+sf::Packet& operator >>(sf::Packet& packet, WorldUpdate& msg);
 
 struct BulletShot : public NetworkMessage
 {
@@ -102,27 +85,15 @@ struct BulletShot : public NetworkMessage
   unsigned int dir;
 };
 
-sf::Packet& operator <<(sf::Packet& packet, const BulletShot& msg)
-{
-  return packet << msg.messageCode << msg.whoId << msg.dir;
-}
+sf::Packet& operator <<(sf::Packet& packet, const BulletShot& msg);
 
-sf::Packet& operator >>(sf::Packet& packet, BulletShot& msg)
-{
-  return packet >> msg.messageCode >> msg.whoId >> msg.dir;
-}
+sf::Packet& operator >>(sf::Packet& packet, BulletShot& msg);
 
 struct IdMsg : public NetworkMessage
 {
   unsigned short id;
 };
 
-sf::Packet& operator <<(sf::Packet& packet, const IdMsg& msg)
-{
-  return packet << msg.messageCode << msg.id;
-}
+sf::Packet& operator <<(sf::Packet& packet, const IdMsg& msg);
 
-sf::Packet& operator >>(sf::Packet& packet, IdMsg& msg)
-{
-  return packet >> msg.messageCode >> msg.id;
-}
+sf::Packet& operator >>(sf::Packet& packet, IdMsg& msg);
