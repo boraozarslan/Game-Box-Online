@@ -7,6 +7,7 @@
 #include "GameEngine/EntitySystem/Components/ParticleEmitterComponent.hpp"
 #include "GameEngine/EntitySystem/Components/SoundComponent.hpp"
 #include "GameEngine/EntitySystem/Components/DumbAIComponent.hpp"
+#include "GameEngine/EntitySystem/Components/DumbProjectileComponent.hpp"
 #include "GameEngine/Util/AnimationManager.hpp"
 
 using namespace Game;
@@ -34,6 +35,7 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0)
         AddComponent<Game::ProjectileEmitterComponent>();
     } else {
         AddComponent<GameEngine::DumbAIComponent>();
+        GameEngine::DumbProjectileComponent* dumbProjectile = static_cast<GameEngine::DumbProjectileComponent*>(AddComponent<GameEngine::DumbProjectileComponent>());
     }
 
 	//Particles

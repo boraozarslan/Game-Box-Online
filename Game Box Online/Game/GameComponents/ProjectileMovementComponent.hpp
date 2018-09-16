@@ -15,7 +15,8 @@ namespace Game
         virtual void OnAddToWorld() override;
 
         // Sets the direction vector particle moves at
-        void setVector(sf::Vector2f new_vector);
+        void SetVector(sf::Vector2f new_vector);
+        void SetDuration(float duration);
 
         GameEngine::AnimationComponent* m_animComponent;
 
