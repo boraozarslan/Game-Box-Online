@@ -17,9 +17,12 @@ using namespace Game;
 
 PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0), GameEngine::Entity(Types::Player)
 {
-  if(!GameEngine::GameEngineMain::GetInstance()->IsHost())
+  bool isHost = GameEngine::GameEngineMain::GetInstance()->IsHost();
+  if(!isHost)
   {
-    m_isEnemy = isEnemy;
+    static bool firstplayer = true;
+    m_isEnemy = isEnemy || !firstplayer;
+    firstplayer = false;
  
 	//Render 
 	m_renderComponent = static_cast<GameEngine::SpriteRenderComponent*>(AddComponent<GameEngine::SpriteRenderComponent>());
@@ -64,7 +67,8 @@ PlayerEntity::PlayerEntity(bool isEnemy): m_health(100.f), m_score(0), GameEngin
 	AddComponent<PlayerSoundComponent>();
   }
   //Collisions
-  AddComponent<GameEngine::CollidablePhysicsComponent>();
+  if(isHost || !GameEngine::GameEngineMain::GetInstance()->IsInNetworkMode())
+    AddComponent<GameEngine::CollidablePhysicsComponent>();
 }
 
  

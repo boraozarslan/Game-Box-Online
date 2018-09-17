@@ -347,7 +347,8 @@ void GameEngineMain::ShowMenu()
     
     switch (buttonClicked) {
         case Menu::Exit:
-            exit(0);
+          m_renderWindow->close();
+          break;
         case Menu::Play:
             StartGame();
             break;
@@ -379,7 +380,8 @@ void GameEngineMain::ShowMenu()
                 
                 // Set TCP to non-blocking
                 m_socket.setBlocking(false);
-                StartGame();
+              StartGame();
+              UpdateWorld(worldUpdate);
             } else {
                 std::cerr << "Online mode is not enabled!" << std::endl;
             }
@@ -403,10 +405,7 @@ void GameEngineMain::SpawnPlayer(unsigned short i)
   Game::PlayerEntity* player = new Game::PlayerEntity(true);
   
   AddEntity(player);
-  player->SetPos(sf::Vector2f(
-                              Game::GameBoard::RandomFloatRange(1.f, Game::GameBoard::SCREEN_DIMENSION - 1.f),
-                              Game::GameBoard::RandomFloatRange(1.f, Game::GameBoard::SCREEN_DIMENSION - 1.f)
-                             ));
+  player->SetPos(sf::Vector2f(1600.f, 1600.f));
   player->SetSize(sf::Vector2f(50.f, 50.f));
   
   player->id = i;
@@ -426,6 +425,7 @@ void GameEngineMain::RemovePlayer(unsigned short i)
 
 sf::Packet GameEngineMain::GetWorldUpdate()
 {
+  std::cout << "World Update\n";
   WorldUpdate wu;
   for(int i = 0; i < m_entities.size(); ++i)
   {
@@ -437,6 +437,12 @@ sf::Packet GameEngineMain::GetWorldUpdate()
     msg.x = pos.x;
     msg.y = pos.y;
     wu.entities.push_back(msg);
+    std::cout << "Id: " << m_entities[i]->id << " x: " << pos.x << " y: " << pos.y << '\n';
+  }
+  std::cout << "World Update count: " << wu.entities.size() << std::endl;
+  for(int i = 0; i < wu.entities.size(); ++i)
+  {
+    assert(wu.entities[i].id != INVALID_ID);
   }
   
   sf::Packet packet;
@@ -448,6 +454,9 @@ void GameEngineMain::UpdateWorld(WorldUpdate wu)
 {
   for(auto msg : wu.entities)
   {
+    assert(msg.id != INVALID_ID);
+    if(m_playerId == msg.id)
+      continue;
     bool updated = false;
     for(auto entity : m_entities)
     {

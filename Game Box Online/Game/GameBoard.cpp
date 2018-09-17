@@ -17,6 +17,7 @@ GameBoard::GameBoard()
   if(!GameEngine::GameEngineMain::GetInstance()->IsHost())
   {
 	m_player = new PlayerEntity(false);
+  m_player->id = GameEngine::GameEngineMain::GetInstance()->GetPlayerId();
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
 	m_player->SetPos(sf::Vector2f(SCREEN_DIMENSION / 2, SCREEN_DIMENSION / 2));
 	m_player->SetSize(sf::Vector2f(40.f, 40.f));

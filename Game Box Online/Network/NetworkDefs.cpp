@@ -30,12 +30,12 @@ sf::Packet& operator >>(sf::Packet& packet, EntityMessage& msg)
 
 sf::Packet& operator <<(sf::Packet& packet, const HeartBeat& msg)
 {
-    return packet << msg.messageCode << msg.player;
+    return packet << msg.messageCode << msg.player.id << msg.player.x << msg.player.y;
 }
 
 sf::Packet& operator >>(sf::Packet& packet, HeartBeat& msg)
 {
-    return packet >> msg.messageCode >> msg.player;
+  return packet >> msg.messageCode >> msg.player.id >> msg.player.x >> msg.player.y;
 }
 
 sf::Packet& operator <<(sf::Packet& packet, const WorldUpdate& msg)
@@ -52,7 +52,7 @@ sf::Packet& operator <<(sf::Packet& packet, const WorldUpdate& msg)
 
 sf::Packet& operator >>(sf::Packet& packet, WorldUpdate& msg)
 {
-    return packet >> msg.messageCode;
+    packet >> msg.messageCode;
     
     EntityMessage ent;
     while((packet = (packet >> ent)))

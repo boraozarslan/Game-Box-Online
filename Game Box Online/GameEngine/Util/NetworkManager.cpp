@@ -72,20 +72,36 @@ void NetworkManager::PreUpdate()
         {
           // Received a packet
           NetworkMessage msg;
-          packet >> msg;
+          packet = packet >> msg;
           if(msg.messageCode == HB)
           {
             // Heartbeat message
             HeartBeat hb;
-            packet >> hb;
+            
+            // Fuck sfml packets... do it by hand
+            //packet >> hb;
+            auto p1 = (char *) packet.getData();
+            auto p2 = p1 + 2;
+            auto p3 = p2 + 2;
+            auto p4 = p3 + 4;
+            hb.messageCode = *reinterpret_cast<const unsigned short*>(p1);
+            hb.player.id = *reinterpret_cast<const unsigned short*>(p2);
+            hb.player.x = *reinterpret_cast<const float*>(p3);
+            hb.player.y = *reinterpret_cast<float*>(p4);
+            hb.player.type = Types::Player;
             
             mainEngine->UpdatePlayer(hb);
           }
           else if(msg.messageCode == BS)
           {
             BulletShot bs;
-            packet >> bs;
-            // TODO: Use the bulletshot message
+            // Fuck sfml packets... do it by hand
+            //packet >> bs;
+            auto p = (char *) packet.getData();
+            bs.messageCode = *reinterpret_cast<unsigned short*>(p);
+            bs.whoId = *reinterpret_cast<unsigned short *>(p + 2);
+            bs.dir = *reinterpret_cast<unsigned int *>(p + 4);
+            
             mainEngine->ShootBullet(bs);
             std::cout << "Somebody shot a bullet\n";
           }
@@ -127,6 +143,7 @@ void NetworkManager::PreUpdate()
           //assert(packet.getDataSize() == sizeof(WorldUpdate));
           WorldUpdate worldUpdate;
           packet >> worldUpdate;
+        assert(worldUpdate.messageCode == WU);
         
         mainEngine->UpdateWorld(worldUpdate);
 //          std::cout << "Received world update packet!" << std::endl;
@@ -155,9 +172,22 @@ void NetworkManager::PostUpdate()
   }
   else
   {
-      HeartBeat heartBeatMsg (mainEngine->GetPlayerId(), mainEngine->GetGameBoard()->GetPlayer()->GetPos());
+    auto pos =mainEngine->GetGameBoard()->GetPlayer()->GetPos();
+      HeartBeat heartBeatMsg(mainEngine->GetPlayerId(), pos.x, pos.y);
       sf::Packet packet;
       packet << heartBeatMsg;
       while (mainEngine->GetSocket().send(packet) == sf::Socket::Partial); // Block until packet is sent
+    
+    std::cout << "My Id: " << mainEngine->GetPlayerId() << " x: " << pos.x << " y: " << pos.y << '\n';
+    for(int i = 0; i < packet.getDataSize(); ++i)
+    {
+      std::cout << "Step [" << i << "]: " << (int)((char *)packet.getData())[i] <<' ';
+    }
+    std::cout << '\n';
+    unsigned short a, b;
+    float x, y;
+    packet >> a >> b >> x >> y;
+    std::cout << "a: " << a << " b: " << b << " x: " << x << " y: " << y << '\n';
+    
   }
 }
