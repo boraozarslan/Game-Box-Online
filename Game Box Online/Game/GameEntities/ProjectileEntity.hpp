@@ -21,6 +21,7 @@ namespace Game
         void SetDamage(float damage);
         PlayerEntity* GetSource();
         void SetSource(PlayerEntity* source);
+        void SetTexture(GameEngine::eTexture::type texture);
     protected:
         GameEngine::SpriteRenderComponent* m_renderComponent;
         ProjectileMovementComponent*   m_projectileMovementComponent;

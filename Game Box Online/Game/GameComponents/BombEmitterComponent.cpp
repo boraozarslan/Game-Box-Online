@@ -64,12 +64,10 @@ void BombEmitterComponent::FireBomb()
 
     ProjectileEntity* projectileEntity = new ProjectileEntity();
     ProjectileMovementComponent* projMoveComponent = static_cast<ProjectileMovementComponent*>(projectileEntity->AddComponent<ProjectileMovementComponent>());
-    GameEngine::SpriteRenderComponent* render = static_cast<GameEngine::SpriteRenderComponent*>(projectileEntity->AddComponent<GameEngine::SpriteRenderComponent>());
 
-    render->SetTexture(GameEngine::eTexture::Particles);
-    render->SetZLevel(1);
     projMoveComponent->SetVector(sf::Vector2f(direction.x * 20 / directionMag, direction.y * 20 / directionMag));
     projMoveComponent->SetDuration(20.f);
+    projectileEntity->SetTexture(GameEngine::eTexture::Goose);
     projectileEntity->SetPos(emitPos);
     projectileEntity->SetSize(sf::Vector2f(100.f, 100.f));
     projectileEntity->SetSource(static_cast<PlayerEntity*>(GetEntity()));
