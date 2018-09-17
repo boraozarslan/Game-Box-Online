@@ -28,7 +28,6 @@
 		2B2AE61C214CD31D00AF4A0D /* NetworkedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B2AE61A214CD31D00AF4A0D /* NetworkedComponent.cpp */; };
 		2B33FC57214C8CF800CFF6A2 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2B33FC56214C8CF800CFF6A2 /* ResourcePath.mm */; };
 		2B33FC5A214C8CF800CFF6A2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2B33FC59214C8CF800CFF6A2 /* main.cpp */; };
-		2B33FC5D214C8CF800CFF6A2 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC5C214C8CF800CFF6A2 /* cute_image.jpg */; };
 		2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */; };
 		2B33FC61214C8CF800CFF6A2 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC60214C8CF800CFF6A2 /* sansation.ttf */; };
 		2B33FC63214C8CF800CFF6A2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B33FC62214C8CF800CFF6A2 /* icon.png */; };
@@ -96,6 +95,7 @@
 		E1B787CD214E353F0085DF57 /* shuriken.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CC214E353E0085DF57 /* shuriken.png */; };
 		E1B787CF214E3F180085DF57 /* ninjathrowing.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787CE214E3F180085DF57 /* ninjathrowing.png */; };
 		E1B787D1214E4F4F0085DF57 /* goose.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B787D0214E4F4F0085DF57 /* goose.png */; };
+		E1B787D4214E696F0085DF57 /* CircleRenderComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1B787D2214E696F0085DF57 /* CircleRenderComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -155,7 +155,6 @@
 		2B33FC56214C8CF800CFF6A2 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		2B33FC58214C8CF800CFF6A2 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		2B33FC59214C8CF800CFF6A2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		2B33FC5C214C8CF800CFF6A2 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
 		2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		2B33FC60214C8CF800CFF6A2 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		2B33FC62214C8CF800CFF6A2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -209,6 +208,8 @@
 		E1B787CC214E353E0085DF57 /* shuriken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuriken.png; sourceTree = "<group>"; };
 		E1B787CE214E3F180085DF57 /* ninjathrowing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninjathrowing.png; sourceTree = "<group>"; };
 		E1B787D0214E4F4F0085DF57 /* goose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goose.png; sourceTree = "<group>"; };
+		E1B787D2214E696F0085DF57 /* CircleRenderComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CircleRenderComponent.cpp; sourceTree = "<group>"; };
+		E1B787D3214E696F0085DF57 /* CircleRenderComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CircleRenderComponent.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +353,8 @@
 				2B2AE61B214CD31D00AF4A0D /* NetworkedComponent.hpp */,
 				B5BADDFF214D9CFB00DA8DD6 /* DumbAIComponent.cpp */,
 				B5BADE00214D9CFB00DA8DD6 /* DumbAIComponent.hpp */,
+				E1B787D2214E696F0085DF57 /* CircleRenderComponent.cpp */,
+				E1B787D3214E696F0085DF57 /* CircleRenderComponent.hpp */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -411,7 +414,6 @@
 			children = (
 				2BB6D783214DE9BD00B6A267 /* particles.png */,
 				E1B787B7214D8A610085DF57 /* bg.png */,
-				2B33FC5C214C8CF800CFF6A2 /* cute_image.jpg */,
 				2B33FC5E214C8CF800CFF6A2 /* nice_music.ogg */,
 				2B33FC60214C8CF800CFF6A2 /* sansation.ttf */,
 				B5BADDF2214D89D600DA8DD6 /* img */,
@@ -548,7 +550,6 @@
 				2B33FC5F214C8CF800CFF6A2 /* nice_music.ogg in Resources */,
 				B5BADDF9214D89D600DA8DD6 /* SplashScreen.png in Resources */,
 				E1B787D1214E4F4F0085DF57 /* goose.png in Resources */,
-				2B33FC5D214C8CF800CFF6A2 /* cute_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +610,7 @@
 				2B2AE5EB214C921900AF4A0D /* GameEngineMain.cpp in Sources */,
 				E1B787B3214D069B0085DF57 /* ProjectileEntity.cpp in Sources */,
 				CC062092214E4EE5004B1F12 /* BombEmitterComponent.cpp in Sources */,
+				E1B787D4214E696F0085DF57 /* CircleRenderComponent.cpp in Sources */,
 				E1B787A8214CCCB70085DF57 /* SplashScreen.cpp in Sources */,
 				2B2AE5E4214C919F00AF4A0D /* ObstacleEntity.cpp in Sources */,
 				E1B787A5214CB7CE0085DF57 /* Menu.cpp in Sources */,

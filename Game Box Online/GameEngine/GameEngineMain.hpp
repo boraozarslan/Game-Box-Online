@@ -27,7 +27,7 @@ namespace GameEngine
 		static float		   GetTimeDelta() { return GetInstance()->m_lastDT; }
 		static float		   GetGameTime() { return sm_gameClock.getElapsedTime().asSeconds(); }
 
-		sf::RenderWindow* GetRenderWindow() const { return m_renderWindow; }
+		sf::RenderTarget* GetRenderTarget() const { return m_renderTarget; }
 		void Update();		
 		void SetRenderTarget(sf::RenderTarget* target) { m_renderTarget = target; }
 
@@ -46,6 +46,7 @@ namespace GameEngine
 		bool IsGameOver() const { return m_gameBoard && m_gameBoard->IsGameOver(); }
         bool IsInNetworkMode() const { return m_isInNetworkMode; }
         
+        sf::RenderWindow* GetRenderWindow() const { return m_renderWindow; }
         static float WINDOW_HEIGHT;
         static float WINDOW_WIDTH;
     
@@ -79,7 +80,8 @@ namespace GameEngine
 
 		static GameEngineMain* sm_instance;
 		static sf::Clock	   sm_deltaTimeClock;
-		static sf::Clock	   sm_gameClock;
+        static sf::Clock       sm_gameClock;
+        static sf::Clock       sm_circleTimer;
 
 		std::vector<Entity*> m_entitiesToAdd;
 		std::vector<Entity*> m_entities;

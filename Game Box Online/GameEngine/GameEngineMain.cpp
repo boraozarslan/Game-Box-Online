@@ -28,6 +28,7 @@ float GameEngineMain::WINDOW_WIDTH = 1920;
 GameEngineMain* GameEngineMain::sm_instance = nullptr;
 sf::Clock		GameEngineMain::sm_deltaTimeClock;
 sf::Clock		GameEngineMain::sm_gameClock;
+sf::Clock       GameEngineMain::sm_circleTimer;
 const std::string HOST_ADDR = "127.0.0.1";
 
 GameEngineMain::GameEngineMain(bool host)
@@ -240,6 +241,7 @@ void GameEngineMain::RenderEntities()
 	//If that setting is on, PlayerCamera component will update the camera position to player position - making our camera center on player entity
 	//With that test setting on, our bird implementation changes a bunch of rules, just so we can test it easilly
 	m_renderTarget->setView(CameraManager::GetInstance()->GetCameraView());
+    std::cout << "Current location: x[" << CameraManager::GetInstance()->GetCameraView().getCenter().x << "] y[" << CameraManager::GetInstance()->GetCameraView().getCenter().x << "]\n";
 
 	//Render que
 	std::vector<RenderComponent*> renderers;
@@ -302,6 +304,27 @@ void GameEngineMain::RenderEntities()
         
         hpBox.setPosition(healthStatus->HealthPos.x - 170.f,healthStatus->HealthPos.y - 170.f);
         hpBox.setFillColor(sf::Color(50, 250, 50));
+        
+        // Draw Diminishing Circle
+        float initialRadius = 500;
+        
+        sf::CircleShape circle(initialRadius);
+        circle.setFillColor(sf::Color::Transparent);
+        circle.setOutlineThickness(3);
+        circle.setOutlineColor(sf::Color(0, 250, 0));
+       // circle.setPosition(sf::Vector2f(m_renderWindow->getView().getCenter().x- (GameEngineMain::WINDOW_WIDTH/2),
+                                       // m_renderWindow->getView().getCenter().y- (GameEngineMain::WINDOW_HEIGHT/2))); // always same origin
+        
+        circle.setPosition(sf::Vector2f((GameEngineMain::WINDOW_WIDTH/2),
+                                        (GameEngineMain::WINDOW_HEIGHT/2)));
+        
+        
+      //  m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
+        
+        circle.setRadius(fmax(0, circle.getRadius() - sm_circleTimer.getElapsedTime().asSeconds()));
+        
+        
+        m_renderWindow->draw(circle);
         
         m_renderWindow->draw(hpMaxBox);
         m_renderWindow->draw(hpBox);
@@ -397,6 +420,7 @@ void GameEngineMain::StartGame()
     m_gameBoard = new Game::GameBoard();
     sm_deltaTimeClock.restart();
     sm_gameClock.restart();
+    sm_circleTimer.restart();
 }
 
 
